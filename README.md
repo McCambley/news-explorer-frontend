@@ -1,6 +1,6 @@
 # News Explorer
 
- This repository contains the frontend code for News Explorer, the final project in the Practicum by Yandex curriculum.
+This repository contains the frontend code for News Explorer, the final project in the Practicum by Yandex curriculum.
 
 ## Overview
 
