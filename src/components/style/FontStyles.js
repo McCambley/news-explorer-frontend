@@ -1,59 +1,61 @@
 import * as styled from 'styled-components';
 // Inter
-import InterRegular from '../../fonts/Inter/Inter-Regular.ttf';
+import InterRegularWoff from '../../vendor/fonts/Inter/inter-400-regular.woff';
+import InterRegularWoff2 from '../../vendor/fonts/Inter/inter-400-regular.woff2';
 // Roboto
-import RobotoBlack from '../../fonts/Roboto/Roboto-Black.ttf';
-import RobotoBold from '../../fonts/Roboto/Roboto-Bold.ttf';
-import RobotoMedium from '../../fonts/Roboto/Roboto-Medium.ttf';
-import RobotoRegular from '../../fonts/Roboto/Roboto-Regular.ttf';
+import RobotoBlackWoff from '../../vendor/fonts/Roboto/roboto-900.woff';
+import RobotoBlackWoff2 from '../../vendor/fonts/Roboto/roboto-900.woff2';
+import RobotoBoldWoff from '../../vendor/fonts/Roboto/roboto-700.woff';
+import RobotoBoldWoff2 from '../../vendor/fonts/Roboto/roboto-700.woff2';
+import RobotoMediumWoff from '../../vendor/fonts/Roboto/roboto-500.woff';
+import RobotoMediumWoff2 from '../../vendor/fonts/Roboto/roboto-500.woff2';
+import RobotoRegularWoff from '../../vendor/fonts/Roboto/roboto-400-regular.woff';
+import RobotoRegularWoff2 from '../../vendor/fonts/Roboto/roboto-400-regular.woff2';
 // Roboto Slab
-import RobotoSlabBold from '../../fonts/Roboto_Slab/RobotoSlab-Bold.ttf';
-import RobotoSlabRegular from '../../fonts/Roboto_Slab/RobotoSlab-Regular.ttf';
-import RobotoSlabSemiBold from '../../fonts/Roboto_Slab/RobotoSlab-SemiBold.ttf';
+import RobotoSlabBoldWoff from '../../vendor/fonts/Roboto_Slab/roboto-slab-400-regular.woff';
+import RobotoSlabBoldWoff2 from '../../vendor/fonts/Roboto_Slab/roboto-slab-400-regular.woff2';
+import RobotoSlabRegularWoff from '../../vendor/fonts/Roboto_Slab/roboto-slab-700.woff';
+import RobotoSlabRegularWoff2 from '../../vendor/fonts/Roboto_Slab/roboto-slab-700.woff2';
 // Source Sans Pro
-import SourceSansProRegular from '../../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf';
+import SourceSansProRegular from '../../vendor/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf';
 
 const FontStyles = styled.createGlobalStyle`
   // Inter
   @font-face {
-    src: url(${InterRegular}) format('truetype');
+    src: url(${InterRegularWoff}) format('woff'), url(${InterRegularWoff2}) format('woff2');
     font-family: 'Inter'; // sans-serif
     font-weight: 400;
   }
   // Roboto
   @font-face {
-    src: url(${RobotoRegular}) format('truetype');
+    src: url(${RobotoRegularWoff}) format('woff'), url(${RobotoRegularWoff2}) format('woff2');
     font-family: 'Roboto'; // sans-serif
     font-weight: 400;
   }
   @font-face {
-    src: url(${RobotoMedium}) format('truetype');
+    src: url(${RobotoMediumWoff}) format('woff'), url(${RobotoMediumWoff2}) format('woff2');
     font-family: 'Roboto'; // sans-serif
     font-weight: 500;
   }
   @font-face {
-    src: url(${RobotoBold}) format('truetype');
+    src: url(${RobotoBoldWoff}) format('woff'), url(${RobotoBoldWoff2}) format('woff2');
     font-family: 'Roboto'; // sans-serif
     font-weight: 700;
   }
   @font-face {
-    src: url(${RobotoBlack}) format('truetype');
+    src: url(${RobotoBlackWoff}) format('woff'), url(${RobotoBlackWoff2}) format('woff2');
     font-family: 'Roboto'; // sans-serif
     font-weight: 900;
   }
   // Roboto Slab
   @font-face {
-    src: url(${RobotoSlabRegular}) format('truetype');
+    src: url(${RobotoSlabBoldWoff}) format('woff'), url(${RobotoSlabBoldWoff2}) format('woff2');
     font-family: 'Roboto Slab'; // serif
     font-weight: 400;
   }
   @font-face {
-    src: url(${RobotoSlabSemiBold}) format('truetype');
-    font-family: 'Roboto Slab'; // serif
-    font-weight: 600;
-  }
-  @font-face {
-    src: url(${RobotoSlabBold}) format('truetype');
+    src: url(${RobotoSlabRegularWoff}) format('woff'),
+      url(${RobotoSlabRegularWoff2}) format('woff2');
     font-family: 'Roboto Slab'; // serif
     font-weight: 700;
   }
