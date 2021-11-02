@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/style/GlobalStyles';
 import FontStyles from './components/style/FontStyles';
 import { BrowserRouter } from 'react-router-dom';
+// import { ThemeProvider } from 'styled-components';
 
 ReactDOM.render(
   <React.StrictMode>
