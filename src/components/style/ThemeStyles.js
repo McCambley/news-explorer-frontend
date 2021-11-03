@@ -3,6 +3,7 @@ import logoutLight from '../../images/logout-light.svg';
 
 // header themes for home page
 export const homeTheme = {
+  position: 'absolute',
   primary: '#FFFFFF',
   secondary: '#B6BCBF',
   tertiary: '#FFFFFF',
@@ -13,6 +14,7 @@ export const homeTheme = {
 
 // header themes for saved article page
 export const savedArticleTheme = {
+  position: 'static',
   primary: '#1A1B22',
   secondary: '#1A1B22',
   tertiary: '#D1D2D6',

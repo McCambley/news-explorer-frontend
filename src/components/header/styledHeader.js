@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 
 export const Section = styled.header`
-  position: absolute;
+  position: ${(props) => props.theme.position};
   background: ${(props) => props.theme.background};
   box-shadow: ${(props) => props.theme.shadow};
   width: 100%;
