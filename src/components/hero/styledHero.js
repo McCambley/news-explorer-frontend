@@ -5,10 +5,10 @@ export const Section = styled.section`
   background-image: url(${hero});
   background-position: center;
   background-size: cover;
-  min-height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 160px 0 80px;
 `;
 
 export const Content = styled.div`
@@ -16,7 +16,9 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 100%;
+  max-width: 608px;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h1`
