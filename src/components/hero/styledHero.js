@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import hero from '../../images/hero.png';
 
 export const Section = styled.section`
