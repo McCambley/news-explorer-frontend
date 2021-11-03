@@ -17,11 +17,11 @@ export default function Header({ loggedIn, setLoggedIn }) {
         <Container>
           <Logo to="/">NewsExplorer</Logo>
           <Nav>
-            <NavLink to="/" active={location === ''}>
+            <NavLink to="/" $active={location === ''}>
               Home
             </NavLink>
             {loggedIn && (
-              <NavLink to="/saved-news" active={location === 'saved-news'}>
+              <NavLink to="/saved-news" $active={location === 'saved-news'}>
                 Saved articles
               </NavLink>
             )}
