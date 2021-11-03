@@ -36,13 +36,13 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  border-bottom: ${(props) => (props.active ? `3px solid ${props.theme.primary}` : 'none')};
+  border-bottom: ${(props) => (props.$active ? `3px solid ${props.theme.primary}` : 'none')};
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   text-decoration: none;
-  color: ${(props) => (props.active ? props.theme.primary : props.theme.secondary)};
+  color: ${(props) => (props.$active ? props.theme.primary : props.theme.secondary)};
   padding: 0px 10px;
   height: 100%;
   display: flex;

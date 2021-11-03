@@ -1,7 +1,7 @@
 import React from 'react';
 import { Section, Content, Title, Subtitle, Form, Input, Button } from './styledHero';
 
-export default function Hero() {
+export default function Hero({ submitSearch }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     console.log('Fetching news...');
@@ -13,7 +13,7 @@ export default function Hero() {
         <Subtitle>
           Find the latest news on any topic and save them in your personal account.
         </Subtitle>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={submitSearch}>
           <Input placeholder="Enter topic" required />
           <Button type="submit">Search</Button>
         </Form>
