@@ -7,12 +7,12 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  height: 40px;
 `;
 
 const Button = styled.button`
   cursor: pointer;
   padding: 8px;
-  height: 40px;
   border: none;
   background: #ffffff;
   box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
@@ -38,14 +38,10 @@ export default function MainCardTop({ article, loggedIn }) {
   const [isSaved, setIsSaved] = useState(false);
 
   return (
-    <Container onMouseLeave={() => setIsShown(false)}>
+    <Container onMouseLeave={() => setIsShown(false)} onMouseEnter={() => setIsShown(true)}>
       {!loggedIn && <SignIn shown={isShown}>Sign in to save articles</SignIn>}
       <Button>
-        <BookmarkIcon
-          onMouseEnter={() => setIsShown(true)}
-          src={isSaved ? bookmarkBlue : bookmark}
-          alt="bookmark"
-        />
+        <BookmarkIcon src={isSaved ? bookmarkBlue : bookmark} alt="bookmark" />
       </Button>
     </Container>
   );

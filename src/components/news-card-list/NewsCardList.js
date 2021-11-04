@@ -4,7 +4,9 @@ import NewsCard from '../newsCard/NewsCard';
 import MainCardTop from '../main-card-top/MainCardTop';
 import { CardList } from '../shared/styledCardList';
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding: 80px 0px;
+`;
 const Heading = styled.h2`
   font-family: 'Roboto Slab', serif;
   font-weight: 400;
@@ -37,9 +39,9 @@ export default function NewsCardList({ searchResults, loggedIn }) {
     <Container>
       <Heading>Search Results</Heading>
       <CardList>
-        {searchResults.map((article) => {
+        {searchResults.map((article, index) => {
           return (
-            <NewsCard article={article}>
+            <NewsCard key={index} article={article}>
               <MainCardTop loggedIn={loggedIn} article={article} />
             </NewsCard>
           );

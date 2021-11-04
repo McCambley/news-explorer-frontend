@@ -27,7 +27,7 @@ function App() {
       // setIsNothing(false);
       setSearchResults(articles);
       console.log('Done!');
-    }, 2000);
+    }, 300);
   }
 
   return (
@@ -37,14 +37,12 @@ function App() {
         <Route path="/saved-news">saved news</Route>
         <Route path="/">
           <Hero submitSearch={submitSearch} />
-          {isInitiated && (
-            <SearchResult
-              loading={isLoading}
-              searchResults={searchResults}
-              failed={isNothing}
-              loggedIn={loggedIn}
-            />
-          )}
+          <SearchResult
+            loading={isLoading}
+            searchResults={searchResults}
+            failed={isNothing}
+            loggedIn={loggedIn}
+          />
           <About />
         </Route>
       </Switch>
