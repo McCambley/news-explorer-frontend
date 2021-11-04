@@ -3,7 +3,7 @@ import Hero from '../hero/Hero';
 import Header from '../header/Header';
 import About from '../about/About';
 import Footer from '../footer/Footer';
-import SearchResults from '../search-results/SearchResults';
+import SearchResult from '../search-result/SearchResult';
 import { articles } from '../../utils/savedArticles';
 import { useState } from 'react';
 
@@ -11,17 +11,20 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   // this logic will change when the API is called
-  const [isLoading, setIsLoading] = useState(true);
-  const [isNothing, setIsNothing] = useState(true);
-  const [searchResults, setSearchResults] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [isNothing, setIsNothing] = useState(false);
+  const [isInitiated, setIsInitiated] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [savedArticles, setSavedArticles] = useState([]);
 
   function submitSearch(evt) {
     evt.preventDefault();
+    setIsInitiated(true);
     setIsLoading(true);
     console.log('Searching...');
     setTimeout(() => {
       setIsLoading(false);
-      setIsNothing(true);
+      // setIsNothing(false);
       setSearchResults(articles);
       console.log('Done!');
     }, 2000);
@@ -34,7 +37,14 @@ function App() {
         <Route path="/saved-news">saved news</Route>
         <Route path="/">
           <Hero submitSearch={submitSearch} />
-          <SearchResults loading={isLoading} results={searchResults} failed={isNothing} />
+          {isInitiated && (
+            <SearchResult
+              loading={isLoading}
+              searchResults={searchResults}
+              failed={isNothing}
+              loggedIn={loggedIn}
+            />
+          )}
           <About />
         </Route>
       </Switch>
