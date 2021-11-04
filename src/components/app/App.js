@@ -15,7 +15,7 @@ function App() {
   const [isNothing, setIsNothing] = useState(false);
   const [isInitiated, setIsInitiated] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
-  const [savedArticles, setSavedArticles] = useState([]);
+  const [savedArticles, setSavedArticles] = useState(articles);
 
   function submitSearch(evt) {
     evt.preventDefault();
