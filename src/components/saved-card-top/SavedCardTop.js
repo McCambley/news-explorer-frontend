@@ -10,6 +10,7 @@ const Container = styled.div`
 const Keyword = styled.p``;
 const DeleteButton = styled.button``;
 const DeleteIcon = styled.img``;
+
 export default function SavedCardTop({ article }) {
   return (
     <Container>

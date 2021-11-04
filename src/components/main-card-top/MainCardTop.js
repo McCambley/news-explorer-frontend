@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import bookmark from '../../images/bookmark.svg';
 import bookmarkBlue from '../../images/bookmark-blue.svg';
 
@@ -9,7 +9,7 @@ const Container = styled.div`
   width: 100%;
   height: 40px;
 `;
-
+// TODO extend button to expand hover range
 const Button = styled.button`
   cursor: pointer;
   padding: 8px;
@@ -31,6 +31,12 @@ const SignIn = styled(Button)`
 `;
 const BookmarkIcon = styled.img`
   width: 24px;
+  opacity: 0.7;
+  transition: 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export default function MainCardTop({ article, loggedIn }) {
@@ -40,7 +46,7 @@ export default function MainCardTop({ article, loggedIn }) {
   return (
     <Container onMouseLeave={() => setIsShown(false)} onMouseEnter={() => setIsShown(true)}>
       {!loggedIn && <SignIn shown={isShown}>Sign in to save articles</SignIn>}
-      <Button>
+      <Button onClick={() => setIsSaved(!isSaved)}>
         <BookmarkIcon src={isSaved ? bookmarkBlue : bookmark} alt="bookmark" />
       </Button>
     </Container>
