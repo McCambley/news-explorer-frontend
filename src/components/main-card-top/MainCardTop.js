@@ -29,12 +29,18 @@ const SignIn = styled(Button)`
   line-height: 14px;
   transition: opacity 0.3s ease;
 `;
-const BookmarkIcon = styled.img`
+const SaveIcon = styled.img`
   width: 24px;
   opacity: 0.7;
   transition: 0.3s ease;
 
-  &:hover {
+  /* &:hover {
+    opacity: 1;
+  } */
+`;
+
+const SaveButton = styled(Button)`
+  &:hover ${SaveIcon} {
     opacity: 1;
   }
 `;
@@ -45,10 +51,14 @@ export default function MainCardTop({ article, loggedIn }) {
 
   return (
     <Container onMouseLeave={() => setIsShown(false)} onMouseEnter={() => setIsShown(true)}>
-      {!loggedIn && <SignIn shown={isShown}>Sign in to save articles</SignIn>}
-      <Button onClick={() => setIsSaved(!isSaved)}>
-        <BookmarkIcon src={isSaved ? bookmarkBlue : bookmark} alt="bookmark" />
-      </Button>
+      {!loggedIn && (
+        <SignIn shown={isShown} type="button">
+          Sign in to save articles
+        </SignIn>
+      )}
+      <SaveButton onClick={() => setIsSaved(!isSaved)}>
+        <SaveIcon src={isSaved ? bookmarkBlue : bookmark} alt="bookmark" />
+      </SaveButton>
     </Container>
   );
 }

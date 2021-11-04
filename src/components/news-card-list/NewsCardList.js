@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import NewsCard from '../newsCard/NewsCard';
+import NewsCard from '../news-card/NewsCard';
 import MainCardTop from '../main-card-top/MainCardTop';
 import { CardList } from '../shared/styledCardList';
 

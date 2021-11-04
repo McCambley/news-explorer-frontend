@@ -3,9 +3,11 @@ import Hero from '../hero/Hero';
 import Header from '../header/Header';
 import About from '../about/About';
 import Footer from '../footer/Footer';
+import SavedCardList from '../saved-card-list/SavedCardList';
 import SearchResult from '../search-result/SearchResult';
 import { articles } from '../../utils/savedArticles';
 import { useState } from 'react';
+import SavedHero from '../saved-hero/SavedHero';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -34,7 +36,10 @@ function App() {
     <>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Switch>
-        <Route path="/saved-news">saved news</Route>
+        <Route path="/saved-news">
+          <SavedHero savedArticles={savedArticles} />
+          <SavedCardList savedArticles={savedArticles} />
+        </Route>
         <Route path="/">
           <Hero submitSearch={submitSearch} />
           <SearchResult
