@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import notFound from '../../images/not-found.svg';
 import spinner from '../../images/loading.svg';
 import NewsCardList from '../news-card-list/NewsCardList';
+import { articles } from '../../utils/savedArticles';
 
 const spin = keyframes`
   100% {
@@ -21,10 +22,11 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 104px;
+  padding: 0 104px;
   margin: 0 auto;
 `;
 const StatusContainer = styled.div`
+  padding: 80px 0;
   display: ${(props) => (props.$display ? 'flex' : 'none')};
   display: flex;
   flex-direction: column;
@@ -92,7 +94,9 @@ export default function SearchResult({ loading, searchResults, failed, loggedIn 
           </StatusContainer>
         )}
         {/* search results */}
-        {!loading && !failed && <NewsCardList searchResults={searchResults} loggedIn={loggedIn} />}
+        {!loading && !failed && searchResults.length > 0 && (
+          <NewsCardList searchResults={searchResults} loggedIn={loggedIn} />
+        )}
         {/* nothing found */}
         {failed && (
           <StatusContainer>

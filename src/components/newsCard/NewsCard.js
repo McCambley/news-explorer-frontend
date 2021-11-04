@@ -19,7 +19,7 @@ const Image = styled.div`
   background-position: center;
   background-size: cover;
 `;
-const TextInfo = styled.p`
+const TextInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -44,7 +44,7 @@ const Title = styled.h3`
   min-height: ${(2 * 30) / 26}em;
 `;
 const Text = styled.p`
-  display: -webkit-box;
+  /* display: -webkit-box; */
 
   margin-bottom: auto;
   font-family: 'Roboto', sans-serif;
