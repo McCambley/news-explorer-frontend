@@ -6,10 +6,11 @@ import Footer from '../footer/Footer';
 import SavedCardList from '../saved-card-list/SavedCardList';
 import SearchResult from '../search-result/SearchResult';
 import SignIn from '../sign-in/SignIn';
-import SignUp from '../sign-in/SignUp';
+import SignUp from '../sign-up/SignUp';
 import { articles } from '../../utils/savedArticles';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SavedHero from '../saved-hero/SavedHero';
+import Modal from '../modal/Modal';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -22,6 +23,23 @@ function App() {
   const [savedArticles, setSavedArticles] = useState(articles);
   const [showSignIn, setShowSignIn] = useState(true);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    setEmail('');
+    setPassword('');
+  }, [showSignIn, showSignUp]);
+
+  function switchModals() {
+    setShowSignIn(!showSignIn);
+    setShowSignUp(!showSignUp);
+  }
+  function closeModals() {
+    setShowSignIn(false);
+    setShowSignUp(false);
+  }
 
   function submitSearch(evt) {
     evt.preventDefault();
@@ -56,8 +74,26 @@ function App() {
         </Route>
       </Switch>
       <Footer />
-      <SignUp show={showSignUp} />
-      <SignIn show={showSignIn} />
+      <Modal show={showSignUp} closeModals={closeModals}>
+        <SignUp
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          userName={userName}
+          setUserName={setUserName}
+          switchModals={switchModals}
+        />
+      </Modal>
+      <Modal show={showSignIn} closeModals={closeModals}>
+        <SignIn
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          switchModals={switchModals}
+        />
+      </Modal>
     </>
   );
 }
