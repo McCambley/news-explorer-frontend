@@ -4,11 +4,11 @@ import { ThemeProvider } from 'styled-components';
 import { homeTheme, savedArticleTheme } from '../style/ThemeStyles';
 import { Section, Container, Logo, Nav, NavLink, Button, Logout } from './styledHeader';
 
-export default function Header({ loggedIn, setLoggedIn }) {
+export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
   const location = useLocation().pathname.substring(1);
 
-  function handleLoginLogout() {
-    setLoggedIn(!loggedIn);
+  function handleLogout() {
+    setLoggedIn(false);
   }
 
   return (
@@ -26,12 +26,12 @@ export default function Header({ loggedIn, setLoggedIn }) {
               </NavLink>
             )}
             {!loggedIn && (
-              <Button type="button" onClick={handleLoginLogout}>
+              <Button type="button" onClick={() => setShowSignIn(true)}>
                 Sign in
               </Button>
             )}
             {loggedIn && (
-              <Button onClick={handleLoginLogout}>
+              <Button onClick={handleLogout}>
                 Jake
                 <Logout />
               </Button>

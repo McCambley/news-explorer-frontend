@@ -14,6 +14,7 @@ const Overlay = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: visibility 0.3s ease, opacity 0.3s ease;
 
   background: rgba(0, 0, 0, 0.5);
 `;
