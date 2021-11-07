@@ -48,6 +48,15 @@ function App() {
     setLoggedIn(true);
   }
 
+  function handleSignUp(e) {
+    console.log({ email, password, userName });
+    e.preventDefault();
+    switchModals();
+    setEmail('');
+    setUserName('');
+    setPassword('');
+  }
+
   function submitSearch(evt) {
     evt.preventDefault();
     setIsInitiated(true);
@@ -90,6 +99,7 @@ function App() {
           userName={userName}
           setUserName={setUserName}
           switchModals={switchModals}
+          handleSignUp={handleSignUp}
         />
       </Modal>
       <Modal show={showSignIn} closeModals={closeModals}>

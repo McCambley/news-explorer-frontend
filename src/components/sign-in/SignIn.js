@@ -22,21 +22,21 @@ export default function SignIn({
   return (
     <Form onSubmit={handleLogin}>
       <Title>Sign in</Title>
-      <Label for="email">Email</Label>
+      <Label htmlFor="signinemail">Email</Label>
       <Input
         placeholder="Enter your email"
         type="email"
-        name="email"
+        id="signinemail"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <Error bottom="12px"></Error>
-      <Label for="password">Password</Label>
+      <Label htmlFor="signinpassword">Password</Label>
       <Input
         placeholder="Enter your password"
         type="password"
-        name="password"
+        id="signinpassword"
         required
         value={password}
         onChange={(e) => setPassword(e.target.value)}
