@@ -11,14 +11,16 @@ import {
   OptionButton,
 } from '../shared/styledFormItems';
 
-export default function SignIn({ email, setEmail, password, setPassword, switchModals }) {
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log({ email, password });
-  }
-
+export default function SignIn({
+  email,
+  setEmail,
+  password,
+  setPassword,
+  switchModals,
+  handleLogin,
+}) {
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleLogin}>
       <Title>Sign in</Title>
       <Label for="email">Email</Label>
       <Input

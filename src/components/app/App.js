@@ -21,7 +21,7 @@ function App() {
   const [isInitiated, setIsInitiated] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState(articles);
-  const [showSignIn, setShowSignIn] = useState(true);
+  const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -41,6 +41,13 @@ function App() {
     setShowSignUp(false);
   }
 
+  function handleLogin(e) {
+    e.preventDefault();
+    console.log({ email, password });
+    closeModals();
+    setLoggedIn(true);
+  }
+
   function submitSearch(evt) {
     evt.preventDefault();
     setIsInitiated(true);
@@ -56,7 +63,7 @@ function App() {
 
   return (
     <>
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setShowSignIn={setShowSignIn} />
       <Switch>
         <Route path="/saved-news">
           <SavedHero savedArticles={savedArticles} />
@@ -92,6 +99,7 @@ function App() {
           password={password}
           setPassword={setPassword}
           switchModals={switchModals}
+          handleLogin={handleLogin}
         />
       </Modal>
     </>
