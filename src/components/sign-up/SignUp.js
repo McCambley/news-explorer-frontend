@@ -19,40 +19,36 @@ export default function SignUp({
   switchModals,
   userName,
   setUserName,
+  handleSignUp,
 }) {
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log({ email, password });
-  }
-
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSignUp}>
       <Title>Sign up</Title>
-      <Label for="email">Email</Label>
+      <Label htmlFor="signupemail">Email</Label>
       <Input
         placeholder="Enter your email"
         type="email"
-        name="email"
+        id="signupemail"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <Error bottom="12px"></Error>
-      <Label for="password">Password</Label>
+      <Label htmlFor="signuppassword">Password</Label>
       <Input
         placeholder="Enter your password"
         type="password"
-        name="password"
+        id="signuppassword"
         required
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <Error bottom="12px"></Error>
-      <Label for="username">Name</Label>
+      <Label htmlFor="signupname">Name</Label>
       <Input
         placeholder="Enter your name"
         type="text"
-        name="username"
+        id="signupname"
         required
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
