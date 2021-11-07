@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-const Title = styled.h2`
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Title = styled.h2`
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 24px;
@@ -10,7 +15,7 @@ const Title = styled.h2`
   margin: 0;
   margin-bottom: 22px;
 `;
-const Input = styled.input`
+export const Input = styled.input`
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
@@ -24,8 +29,12 @@ const Input = styled.input`
   color: #000000;
   margin: 0;
   margin-bottom: 2px;
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+  }
 `;
-const Label = styled.label`
+export const Label = styled.label`
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 12px;
@@ -34,8 +43,9 @@ const Label = styled.label`
   margin: 0;
   margin-bottom: 10px;
 `;
-const Error = styled.span`
+export const Error = styled.span`
   font-family: 'Inter', sans-serif;
+  min-height: 15px;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
@@ -45,7 +55,8 @@ const Error = styled.span`
   margin: 0;
   margin-bottom: ${(props) => props.bottom};
 `;
-const Button = styled.button`
+export const Button = styled.button`
+  font-family: 'Roboto', sans-serif;
   cursor: pointer;
   width: 100%;
   color: #fff;
@@ -71,11 +82,25 @@ const Button = styled.button`
     color: #b6bcbf;
   }
 `;
-const Option = styled.p`
+export const Option = styled.p`
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
   width: 100%;
+`;
+
+export const OptionButton = styled.button`
+  margin-left: 0.25em;
+  color: #2f71e5;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;

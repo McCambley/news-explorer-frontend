@@ -82,7 +82,6 @@ const StatusSpinner = styled.div`
 // `;
 
 export default function SearchResult({ loading, searchResults, failed, loggedIn }) {
-  console.log({ loading, searchResults, failed });
   return (
     <Section>
       <Content>
