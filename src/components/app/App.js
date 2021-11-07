@@ -5,6 +5,8 @@ import About from '../about/About';
 import Footer from '../footer/Footer';
 import SavedCardList from '../saved-card-list/SavedCardList';
 import SearchResult from '../search-result/SearchResult';
+import SignIn from '../sign-in/SignIn';
+import SignUp from '../sign-in/SignUp';
 import { articles } from '../../utils/savedArticles';
 import { useState } from 'react';
 import SavedHero from '../saved-hero/SavedHero';
