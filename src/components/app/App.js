@@ -18,6 +18,8 @@ function App() {
   const [isInitiated, setIsInitiated] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState(articles);
+  const [showSignIn, setShowSignIn] = useState(true);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   function submitSearch(evt) {
     evt.preventDefault();
@@ -52,6 +54,8 @@ function App() {
         </Route>
       </Switch>
       <Footer />
+      <SignUp show={showSignUp} />
+      <SignIn show={showSignIn} />
     </>
   );
 }
