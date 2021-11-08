@@ -68,6 +68,7 @@ function App() {
   function closeModals() {
     setShowSignIn(false);
     setShowSignUp(false);
+    setShowSignedUp(false);
   }
 
   function handleLogin(e) {
