@@ -3,9 +3,12 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  /* visibility: ${(props) => (props.$how ? 'visible' : 'hidden')};
+  overflow: hidden;
+  max-height: ${(props) => (props.$how ? '400px' : '0')};
+  visibility: ${(props) => (props.$how ? 'visible' : 'hidden')};
   opacity: ${(props) => (props.$how ? '1' : '0')};
-  transition: opacity 0.3s ease, visibility 0.3s ease; */
+  /* transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0 linear; */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 `;
 
 export const Title = styled.h2`
