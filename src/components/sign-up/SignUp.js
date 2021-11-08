@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import {
   Form,
@@ -21,10 +21,15 @@ export default function SignUp({
   setUserName,
   handleSignUp,
   emailTaken,
+  show,
 }) {
   const [formErrors, setFormErrors] = useState({ email: '', password: '', name: '' });
   const [isValid, setIsValid] = useState(false);
   const formRef = useRef();
+
+  useEffect(() => {
+    setFormErrors({ email: '', password: '', name: '' });
+  }, [show]);
 
   // update button state on any change
   function checkFormValidity(e) {
@@ -64,7 +69,7 @@ export default function SignUp({
   }
 
   return (
-    <Form onSubmit={handleSignUp} onChange={checkFormValidity} ref={formRef} noValidate>
+    <Form onSubmit={handleSignUp} $how={show} onChange={checkFormValidity} ref={formRef} noValidate>
       <Title>Sign up</Title>
       <Label htmlFor="signupemail">Email</Label>
       <Input
@@ -115,7 +120,7 @@ export default function SignUp({
       </Button>
       <Option>
         Or
-        <OptionButton onClick={switchModals} type="button">
+        <OptionButton onClick={() => switchModals('signin')} type="button">
           Sign in
         </OptionButton>
       </Option>

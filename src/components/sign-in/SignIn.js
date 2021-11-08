@@ -58,7 +58,7 @@ export default function SignIn({
     }
   }
   return (
-    <Form onSubmit={handleLogin} onChange={checkFormValidity} ref={formRef} noValidate>
+    <Form onSubmit={handleLogin} $how={show} onChange={checkFormValidity} ref={formRef} noValidate>
       <Title>Sign in</Title>
       <Label htmlFor="signinemail">Email</Label>
       <Input
@@ -89,7 +89,7 @@ export default function SignIn({
       </Button>
       <Option>
         Or
-        <OptionButton onClick={switchModals} type="button">
+        <OptionButton onClick={() => switchModals('signup')} type="button">
           Sign up
         </OptionButton>
       </Option>

@@ -28,6 +28,8 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  opacity: ${(props) => (props.$how ? '1' : '0')};
+  transition: opacity 0s ease;
 `;
 
 const Close = styled.button`
@@ -52,7 +54,7 @@ const Close = styled.button`
 export default function Modal({ show, children, closeModals }) {
   return (
     <Overlay $how={show} onClick={closeModals}>
-      <ContentContainer onClick={(e) => e.stopPropagation()}>
+      <ContentContainer $how={show} onClick={(e) => e.stopPropagation()}>
         <Close source={close} onClick={closeModals} />
         {children}
       </ContentContainer>
