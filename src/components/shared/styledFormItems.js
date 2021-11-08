@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  /* visibility: ${(props) => (props.$how ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.$how ? '1' : '0')};
+  transition: opacity 0.3s ease, visibility 0.3s ease; */
 `;
 
 export const Title = styled.h2`

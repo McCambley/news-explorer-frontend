@@ -18,14 +18,16 @@ export default function SignIn({
   setPassword,
   switchModals,
   handleLogin,
+  show,
 }) {
   return (
-    <Form onSubmit={handleLogin}>
+    <Form onSubmit={handleLogin} $how={show} noValidate>
       <Title>Sign in</Title>
       <Label htmlFor="signinemail">Email</Label>
       <Input
         placeholder="Enter your email"
         type="email"
+        name="email"
         id="signinemail"
         required
         value={email}
@@ -36,6 +38,7 @@ export default function SignIn({
       <Input
         placeholder="Enter your password"
         type="password"
+        name="password"
         id="signinpassword"
         required
         value={password}

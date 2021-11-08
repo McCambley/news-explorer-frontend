@@ -22,10 +22,11 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState(articles);
   const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
+  const [emailTaken, setEmailTaken] = useState(false);
 
   useEffect(() => {
     setEmail('');
@@ -43,18 +44,31 @@ function App() {
 
   function handleLogin(e) {
     e.preventDefault();
-    console.log({ email, password });
-    closeModals();
-    setLoggedIn(true);
+    if (e.target.checkValidity()) {
+      console.log({ email, password });
+      closeModals();
+      setLoggedIn(true);
+    } else {
+      console.log('Invalid sign in');
+    }
   }
 
   function handleSignUp(e) {
-    console.log({ email, password, userName });
     e.preventDefault();
-    switchModals();
-    setEmail('');
-    setUserName('');
-    setPassword('');
+    if (email === 'jake@email.com') {
+      setEmailTaken(true);
+      return;
+    }
+    if (e.target.checkValidity()) {
+      console.log({ email, password, userName });
+      switchModals();
+      setEmail('');
+      setUserName('');
+      setPassword('');
+    } else {
+      console.log('Invalid sign up');
+      console.log(e.target.validate);
+    }
   }
 
   function submitSearch(evt) {
@@ -92,6 +106,7 @@ function App() {
       <Footer />
       <Modal show={showSignUp} closeModals={closeModals}>
         <SignUp
+          // show={showSignUp}
           email={email}
           setEmail={setEmail}
           password={password}
@@ -100,10 +115,12 @@ function App() {
           setUserName={setUserName}
           switchModals={switchModals}
           handleSignUp={handleSignUp}
+          emailTaken={emailTaken}
         />
       </Modal>
       <Modal show={showSignIn} closeModals={closeModals}>
         <SignIn
+          // show={showSignIn}
           email={email}
           setEmail={setEmail}
           password={password}
