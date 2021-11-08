@@ -21,11 +21,12 @@ function App() {
   const [isInitiated, setIsInitiated] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState(articles);
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(true);
+  const [showSignIn, setShowSignIn] = useState(true);
+  const [showSignUp, setShowSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
+  // this will be replaced with a server response of "email taken"
   const [emailTaken, setEmailTaken] = useState(false);
 
   useEffect(() => {
@@ -45,7 +46,6 @@ function App() {
   function handleLogin(e) {
     e.preventDefault();
     if (e.target.checkValidity()) {
-      console.log({ email, password });
       closeModals();
       setLoggedIn(true);
     } else {
@@ -55,25 +55,27 @@ function App() {
 
   function handleSignUp(e) {
     e.preventDefault();
+    // this is a mock error thrower that will be replaced
+    // when the backend returns a email taken error
     if (email === 'jake@email.com') {
       setEmailTaken(true);
       return;
     }
     if (e.target.checkValidity()) {
-      console.log({ email, password, userName });
+      // if form is valid, do something
       switchModals();
       setEmail('');
       setUserName('');
       setPassword('');
     } else {
+      // if form is valid, do nothing
       console.log('Invalid sign up');
-      console.log(e.target.validate);
     }
   }
 
   function submitSearch(evt) {
     evt.preventDefault();
-    setIsInitiated(true);
+    // setIsInitiated(true);
     setIsLoading(true);
     console.log('Searching...');
     setTimeout(() => {

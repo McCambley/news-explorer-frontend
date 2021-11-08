@@ -26,23 +26,28 @@ export default function SignUp({
   const [isValid, setIsValid] = useState(false);
   const formRef = useRef();
 
+  // update button state on any change
   function checkFormValidity(e) {
     setIsValid(formRef.current.checkValidity());
   }
 
+  // to run for the first time when inputs are blurred
+  // or when inputs change after errors have been shown
   function updateFormErrors(e) {
     const { name, validationMessage } = e.target;
+    // update the form errors object with the validationMessage of blurred input
     setFormErrors({
       ...formErrors,
       [name]: validationMessage,
     });
-    // update the form errors object with the validationMessage of the input that was blurred
-    console.log({ name, validationMessage, formErrors });
   }
 
+  // to run whenever inputs on the form change
   function handleChange(e) {
     const { name, value } = e.target;
-    // console.log({ input: e.target.value, name: e.target.name });
+    // adjust error message if one has already been shown
+    formErrors[name] && updateFormErrors(e);
+    // update form values
     switch (name) {
       case 'email':
         setEmail(value);

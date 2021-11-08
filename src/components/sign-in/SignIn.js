@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 import {
   Form,
@@ -20,8 +20,45 @@ export default function SignIn({
   handleLogin,
   show,
 }) {
+  const [formErrors, setFormErrors] = useState({ email: '', password: '' });
+  const [isValid, setIsValid] = useState(false);
+  const formRef = useRef();
+
+  // update button state on any change
+  function checkFormValidity(e) {
+    setIsValid(formRef.current.checkValidity());
+  }
+
+  // to run for the first time when inputs are blurred
+  // or when inputs change after errors have been shown
+  function updateFormErrors(e) {
+    const { name, validationMessage } = e.target;
+    // update the form errors object with the validationMessage of blurred input
+    setFormErrors({
+      ...formErrors,
+      [name]: validationMessage,
+    });
+  }
+
+  // to run whenever inputs on the form change
+  function handleChange(e) {
+    const { name, value } = e.target;
+    // adjust error message if one has already been shown
+    formErrors[name] && updateFormErrors(e);
+    // update form values
+    switch (name) {
+      case 'email':
+        setEmail(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      default:
+        break;
+    }
+  }
   return (
-    <Form onSubmit={handleLogin} $how={show} noValidate>
+    <Form onSubmit={handleLogin} onChange={checkFormValidity} ref={formRef} noValidate>
       <Title>Sign in</Title>
       <Label htmlFor="signinemail">Email</Label>
       <Input
@@ -31,9 +68,10 @@ export default function SignIn({
         id="signinemail"
         required
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={handleChange}
+        onBlur={updateFormErrors}
       />
-      <Error bottom="12px"></Error>
+      <Error bottom="12px">{formErrors.email}</Error>
       <Label htmlFor="signinpassword">Password</Label>
       <Input
         placeholder="Enter your password"
@@ -42,10 +80,11 @@ export default function SignIn({
         id="signinpassword"
         required
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handleChange}
+        onBlur={updateFormErrors}
       />
-      <Error bottom="12px"></Error>
-      <Button disabled={false} type="submit">
+      <Error bottom="12px">{formErrors.password}</Error>
+      <Button disabled={!isValid} type="submit">
         Sign in
       </Button>
       <Option>
