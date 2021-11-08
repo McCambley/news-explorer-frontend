@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components/macro';
 import { Container, SuccessTitle, Option } from './styledSignedUp';
 
 export default function SignUp({ switchModals, show }) {
