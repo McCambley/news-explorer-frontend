@@ -8,13 +8,13 @@ export default function MainCardTop({ article, loggedIn }) {
   const [isSaved, setIsSaved] = useState(false);
 
   return (
-    <Container onMouseLeave={() => setIsShown(false)} onMouseEnter={() => setIsShown(true)}>
+    <Container onMouseLeave={() => setIsShown(false)}>
       {!loggedIn && (
         <SignIn shown={isShown} type="button">
           Sign in to save articles
         </SignIn>
       )}
-      <SaveButton onClick={() => setIsSaved(!isSaved)}>
+      <SaveButton onClick={() => setIsSaved(!isSaved)} onMouseEnter={() => setIsShown(true)}>
         <SaveIcon src={isSaved ? bookmarkBlue : bookmark} alt="bookmark" />
       </SaveButton>
     </Container>

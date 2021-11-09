@@ -38,12 +38,14 @@ export const Content = styled.div`
   margin: 0 auto;
   @media (max-width: 1024px) {
     //
+    padding: 0 40px;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    padding: 0 16px;
   }
 `;
 export const StatusContainer = styled.div`
@@ -58,9 +60,11 @@ export const StatusContainer = styled.div`
   }
   @media (max-width: 768px) {
     //
+    padding: 40px 0;
   }
   @media (max-width: 480px) {
     //
+    padding: 32px 0;
   }
 `;
 export const StatusText = styled.p`

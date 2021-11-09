@@ -4,12 +4,14 @@ export const Container = styled.div`
   padding: 80px 0px;
   @media (max-width: 1024px) {
     //
+    padding: 40px 0px;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    padding: 32px 0px;
   }
 `;
 export const Heading = styled.h2`
@@ -20,11 +22,15 @@ export const Heading = styled.h2`
   margin-bottom: 64px;
   @media (max-width: 1024px) {
     //
+    font-size: 30px;
+    line-height: 34px;
+    margin-bottom: 32px;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
+    margin-bottom: 58px;
     //
   }
 `;
@@ -48,11 +54,14 @@ export const ShowMore = styled.button`
   }
   @media (max-width: 1024px) {
     //
+    padding: 16px 74px;
+    margin: 32px auto 0;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    width: 100%;
   }
 `;

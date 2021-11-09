@@ -12,12 +12,14 @@ export const Card = styled.article`
   }
   @media (max-width: 1024px) {
     //
+    grid-auto-rows: 1fr 2fr;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    grid-auto-rows: 2fr 3fr;
   }
 `;
 export const Image = styled.div`
@@ -28,6 +30,7 @@ export const Image = styled.div`
   background-size: cover;
   @media (max-width: 1024px) {
     //
+    padding: 8px;
   }
   @media (max-width: 768px) {
     //
@@ -44,6 +47,7 @@ export const TextInfo = styled.div`
   min-height: 100%;
   @media (max-width: 1024px) {
     //
+    padding: 16px;
   }
   @media (max-width: 768px) {
     //
@@ -67,6 +71,7 @@ export const Date = styled.p`
   }
   @media (max-width: 480px) {
     //
+    margin-bottom: 10px;
   }
 `;
 export const Title = styled.h3`
@@ -79,17 +84,21 @@ export const Title = styled.h3`
   min-height: ${(2 * 30) / 26}em;
   @media (max-width: 1024px) {
     //
+    font-size: 22px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    min-height: ${(3 * 24) / 22}em;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    min-height: 0;
+    margin-bottom: 14px;
   }
 `;
 export const Text = styled.p`
-  /* display: -webkit-box; */
-
   margin-bottom: auto;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -105,6 +114,7 @@ export const Text = styled.p`
   }
   @media (max-width: 480px) {
     //
+    margin-bottom: 8px;
   }
 `;
 export const Source = styled.p`
@@ -114,11 +124,13 @@ export const Source = styled.p`
   line-height: 20px;
   justify-self: flex-end;
   color: #b6bcbf;
-  /* identical to box height, or 125% */
-
   letter-spacing: 0.4px;
   text-transform: uppercase;
   padding-top: 18px;
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%; */
   @media (max-width: 1024px) {
     //
   }
@@ -127,5 +139,6 @@ export const Source = styled.p`
   }
   @media (max-width: 480px) {
     //
+    padding-top: 0px;
   }
 `;

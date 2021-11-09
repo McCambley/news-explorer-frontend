@@ -14,12 +14,14 @@ export default function SavedCardTop({ article }) {
 
   return (
     <Container>
-      <Keyword type="button">{article.keyword}</Keyword>
-      <DeleteContainer onMouseLeave={() => setIsShown(false)} onMouseEnter={() => setIsShown(true)}>
+      <Keyword shown={isShown} type="button">
+        {article.keyword}
+      </Keyword>
+      <DeleteContainer onMouseLeave={() => setIsShown(false)}>
         <DeleteTooltip shown={isShown} type="button">
           Remove from saved
         </DeleteTooltip>
-        <DeleteButton type="button">
+        <DeleteButton type="button" onMouseEnter={() => setIsShown(true)}>
           <DeleteIcon src={trash} alt="delete"></DeleteIcon>
         </DeleteButton>
       </DeleteContainer>
