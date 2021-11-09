@@ -2,11 +2,32 @@ import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import close from '../../images/close.svg';
 
+// overlay only to appear on mobile screens
+export const Overlay = styled.div`
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  @media (max-width: 480px) {
+    //
+    display: block;
+    background-color: #000000;
+    visibility: ${(props) => (props.$isOpen ? 'visible' : 'hidden')};
+    opacity: ${(props) => (props.$isOpen ? '.5' : '0')};
+    transition: visibility 0.3s ease, opacity 0.3s ease;
+  }
+`;
+
 export const Section = styled.header`
   position: ${(props) => props.theme.position};
   background: ${(props) => props.theme.background};
   box-shadow: ${(props) => props.theme.shadow};
   width: 100%;
+  z-index: 5;
 
   & * {
     border: 1px solid red;
@@ -20,13 +41,14 @@ export const Section = styled.header`
   @media (max-width: 480px) {
     //
     position: absolute;
-    background-color: ${(props) => (props.$isOpen ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0)')};
-    min-height: ${(props) => (props.$isOpen ? '100vh' : '0')};
-    transition: background-color 0.3s ease;
+    /* background-color: ${(props) =>
+      props.$isOpen ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0)'}; */
+    /* min-height: ${(props) => (props.$isOpen ? '100vh' : '0')}; */
+    /* transition: background-color 0.3s ease; */
   }
 `;
 
-export const Container = styled.header`
+export const Container = styled.div`
   padding: 0 104px;
   margin: 0 auto;
   max-width: 1440px;
@@ -44,7 +66,8 @@ export const Container = styled.header`
     //
     flex-direction: column;
     padding: 0;
-    background: ${(props) => props.theme.background};
+    background: ${(props) => (props.$isOpen ? '#1A1B22' : props.theme.background)};
+    transition: background-color 0.3s ease;
   }
 `;
 
@@ -121,7 +144,7 @@ export const Nav = styled.nav`
     max-height: ${(props) => (props.$isOpen ? '250px' : '0')};
     opacity: ${(props) => (props.$isOpen ? '1' : '0')};
     overflow: hidden;
-    transition: max-height 0.5s ease, opacity 0.3s ease;
+    transition: max-height 0.3s ease, opacity 0.15s ease;
     flex-direction: column;
     width: 100%;
     align-items: flex-start;

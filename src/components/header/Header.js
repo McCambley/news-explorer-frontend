@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { homeTheme, savedArticleTheme } from '../style/ThemeStyles';
 import {
+  Overlay,
   Section,
   Container,
   Wrapper,
@@ -25,7 +26,7 @@ export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
   return (
     <ThemeProvider theme={location === 'saved-news' ? savedArticleTheme : homeTheme}>
       <Section $isOpen={isOpen}>
-        <Container>
+        <Container $isOpen={isOpen}>
           <Wrapper $isOpen={isOpen}>
             <Logo $isOpen={isOpen} to="/">
               NewsExplorer
@@ -54,6 +55,7 @@ export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
             )}
           </Nav>
         </Container>
+        <Overlay $isOpen={isOpen} />
       </Section>
     </ThemeProvider>
   );
