@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
     <FontStyles />
-    <BrowserRouter>
+    <BrowserRouter basename="/news-explorer-frontend/">
       <App />
     </BrowserRouter>
   </React.StrictMode>,
