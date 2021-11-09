@@ -41,6 +41,9 @@ export const SignIn = styled(Button)`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 12px;
+  display: flex;
+  align-items: center;
+
   line-height: 14px;
   transition: opacity 0.3s ease;
   @media (max-width: 1024px) {

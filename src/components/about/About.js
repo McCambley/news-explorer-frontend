@@ -20,8 +20,8 @@ export default function About() {
           These days my time is spent learning how to build and deploy beautiful websites. I've long
           been interested in the convergence of creativity and problem solving. I'm learning how to
           best occupy that space. I design and build websites that look good and solve problems.
-        </Paragraph>
-        <Paragraph>
+        </Paragraph> */}
+        {/* <Paragraph>
           When I'm not coding, you can find me making music, out hiking, and petting all the good
           dogs.
         </Paragraph> */}

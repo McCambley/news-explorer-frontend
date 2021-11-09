@@ -11,9 +11,11 @@ export const Section = styled.section`
   padding: 160px 0 80px;
   @media (max-width: 1024px) {
     //
+    padding: 104px 0 48px;
   }
   @media (max-width: 768px) {
     //
+    padding: 86px 16px 32px;
   }
   @media (max-width: 480px) {
     //
@@ -30,6 +32,7 @@ export const Content = styled.div`
   margin: 0 auto;
   @media (max-width: 1024px) {
     //
+    max-width: 452px;
   }
   @media (max-width: 768px) {
     //
@@ -50,6 +53,9 @@ export const Title = styled.h1`
   padding-bottom: 32px;
   @media (max-width: 1024px) {
     //
+    font-size: 36px;
+    line-height: 40px;
+    padding-bottom: 16px;
   }
   @media (max-width: 768px) {
     //
@@ -68,6 +74,9 @@ export const Subtitle = styled.h2`
   padding-bottom: 88px;
   @media (max-width: 1024px) {
     //
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 48px;
   }
   @media (max-width: 768px) {
     //
@@ -94,6 +103,11 @@ export const Form = styled.form`
   }
   @media (max-width: 768px) {
     //
+    flex-direction: column;
+    border-radius: 0;
+    background-color: transparent;
+    border: none;
+    backdrop-filter: none;
   }
   @media (max-width: 480px) {
     //
@@ -110,9 +124,12 @@ export const Input = styled.input`
   border-radius: 100px;
   @media (max-width: 1024px) {
     //
+    padding: 16px 24px;
   }
   @media (max-width: 768px) {
     //
+    margin-bottom: 16px;
+    padding: 16px 16px;
   }
   @media (max-width: 480px) {
     //
@@ -146,9 +163,12 @@ export const Button = styled.button`
   }
   @media (max-width: 1024px) {
     //
+    padding: 15px 52px;
   }
   @media (max-width: 768px) {
     //
+    position: relative;
+    padding: 16px;
   }
   @media (max-width: 480px) {
     //

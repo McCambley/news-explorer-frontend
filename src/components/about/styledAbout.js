@@ -14,12 +14,14 @@ export const Section = styled.section`
     padding: 40px;
     gap: 32px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 630px) {
     //
+    grid-template-columns: 1fr;
   }
   @media (max-width: 480px) {
     //
-    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 16px 128px;
   }
 `;
 export const Image = styled.img`
@@ -28,11 +30,15 @@ export const Image = styled.img`
   @media (max-width: 1024px) {
     //
   }
-  @media (max-width: 768px) {
+  @media (max-width: 630px) {
     //
+    max-width: 304px;
+    justify-self: center;
   }
-  @media (max-width: 480px) {
+  @media (max-width: 375px) {
     //
+    padding: 8px;
+    max-width: 100%;
   }
 `;
 export const TextContent = styled.div`
@@ -42,6 +48,7 @@ export const TextContent = styled.div`
   height: 100%;
   padding-top: 40px;
   @media (max-width: 1024px) {
+    padding-top: 0px;
     //
   }
   @media (max-width: 768px) {
@@ -59,6 +66,9 @@ export const Title = styled.h2`
   margin-bottom: 24px;
   @media (max-width: 1024px) {
     //
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 16px;
   }
   @media (max-width: 768px) {
     //
@@ -79,6 +89,8 @@ export const Paragraph = styled.p`
   }
   @media (max-width: 1024px) {
     //
+    font-size: 18px;
+    line-height: 24px;
   }
   @media (max-width: 768px) {
     //

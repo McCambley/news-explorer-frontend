@@ -18,6 +18,7 @@ export const Container = styled.div`
 export const DeleteContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  position: relative;
   @media (max-width: 1024px) {
     //
   }
@@ -55,8 +56,12 @@ export const Keyword = styled(Button)`
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
+  opacity: ${(props) => (props.shown ? '0' : '1')};
+  transition: opacity 0.3s ease;
+
   @media (max-width: 1024px) {
     //
+    padding: 8px 20px;
   }
   @media (max-width: 768px) {
     //
@@ -74,6 +79,13 @@ export const DeleteTooltip = styled(Button)`
   font-size: 12px;
   line-height: 14px;
   transition: opacity 0.3s ease;
+  position: absolute;
+  height: 100%;
+  white-space: nowrap;
+  top: 0;
+  left: -152px;
+  /* box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2); */
+
   @media (max-width: 1024px) {
     //
   }
