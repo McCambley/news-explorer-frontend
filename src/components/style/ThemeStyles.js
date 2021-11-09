@@ -1,5 +1,7 @@
 import logoutDark from '../../images/logout-dark.svg';
 import logoutLight from '../../images/logout-light.svg';
+import menuLight from '../../images/menu-light.svg';
+import menuDark from '../../images/menu-dark.svg';
 
 // header themes for home page
 export const homeTheme = {
@@ -10,6 +12,7 @@ export const homeTheme = {
   background: 'rgba(255, 255, 255, 0)',
   logout: logoutLight,
   shadow: 'inset 0px -1px 0px rgba(255, 255, 255, 0.2)',
+  hamburger: menuLight,
 };
 
 // header themes for saved article page
@@ -21,4 +24,5 @@ export const savedArticleTheme = {
   background: 'rgba(255, 255, 255, 1)',
   logout: logoutDark,
   shadow: 'inset 0px -1px 0px rgba(209, 210, 214, 1);',
+  hamburger: menuDark,
 };

@@ -1,11 +1,16 @@
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
+import close from '../../images/close.svg';
 
 export const Section = styled.header`
   position: ${(props) => props.theme.position};
   background: ${(props) => props.theme.background};
   box-shadow: ${(props) => props.theme.shadow};
   width: 100%;
+
+  & * {
+    border: 1px solid red;
+  }
   @media (max-width: 1024px) {
     //
   }
@@ -14,6 +19,10 @@ export const Section = styled.header`
   }
   @media (max-width: 480px) {
     //
+    position: absolute;
+    background-color: ${(props) => (props.$isOpen ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0)')};
+    min-height: ${(props) => (props.$isOpen ? '100vh' : '0')};
+    transition: background-color 0.3s ease;
   }
 `;
 
@@ -26,14 +35,32 @@ export const Container = styled.header`
   align-items: center;
   @media (max-width: 1024px) {
     //
+    padding: 0 40px;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    flex-direction: column;
+    padding: 0;
+    background: ${(props) => props.theme.background};
   }
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 480px) {
+    //
+    width: 100%;
+    padding: 16px;
+    background: rgba(196, 196, 196, 0.01);
+    box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  }
+`;
+
 export const Logo = styled(Link)`
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
@@ -57,6 +84,29 @@ export const Logo = styled(Link)`
   }
 `;
 
+export const MenuToggle = styled.button`
+  background-image: url(${({ theme, $isOpen }) => ($isOpen ? close : theme.hamburger)});
+  background-size: contain;
+  background-position: center;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  display: none;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+    display: block;
+  }
+`;
+
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
@@ -68,6 +118,13 @@ export const Nav = styled.nav`
   }
   @media (max-width: 480px) {
     //
+    max-height: ${(props) => (props.$isOpen ? '250px' : '0')};
+    opacity: ${(props) => (props.$isOpen ? '1' : '0')};
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
   }
 `;
 
@@ -94,6 +151,8 @@ export const NavLink = styled(Link)`
   }
   @media (max-width: 1024px) {
     //
+    font-size: 16px;
+    margin-right: 20px;
   }
   @media (max-width: 768px) {
     //
@@ -117,12 +176,16 @@ export const Button = styled.button`
   justify-content: center;
   cursor: pointer;
   transition: border 0.15s ease;
+  min-width: ${(props) => (props.wide ? '176px' : '0')};
 
   &:hover {
     border: 1px solid ${(props) => props.theme.primary};
   }
   @media (max-width: 1024px) {
     //
+    font-size: 16px;
+    padding: 8px 12px;
+    min-width: ${(props) => (props.wide ? '152px' : '0')};
   }
   @media (max-width: 768px) {
     //

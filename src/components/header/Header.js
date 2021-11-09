@@ -2,7 +2,17 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { homeTheme, savedArticleTheme } from '../style/ThemeStyles';
-import { Section, Container, Logo, Nav, NavLink, Button, Logout } from './styledHeader';
+import {
+  Section,
+  Container,
+  Wrapper,
+  MenuToggle,
+  Logo,
+  Nav,
+  NavLink,
+  Button,
+  Logout,
+} from './styledHeader';
 
 export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
   const location = useLocation().pathname.substring(1);
@@ -14,32 +24,35 @@ export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
 
   return (
     <ThemeProvider theme={location === 'saved-news' ? savedArticleTheme : homeTheme}>
-      <Section>
+      <Section $isOpen={isOpen}>
         <Container>
-          {false && <Logo to="/">NewsExplorer</Logo>}{' '}
-          {false && (
-            <Nav>
-              <NavLink to="/" $active={location === ''}>
-                Home
+          <Wrapper $isOpen={isOpen}>
+            <Logo $isOpen={isOpen} to="/">
+              NewsExplorer
+            </Logo>
+            <MenuToggle onClick={() => setIsOpen(!isOpen)} $isOpen={isOpen} />
+          </Wrapper>
+          <Nav $isOpen={isOpen}>
+            <NavLink to="/" $active={location === ''}>
+              Home
+            </NavLink>
+            {loggedIn && (
+              <NavLink to="/saved-news" $active={location === 'saved-news'}>
+                Saved articles
               </NavLink>
-              {loggedIn && (
-                <NavLink to="/saved-news" $active={location === 'saved-news'}>
-                  Saved articles
-                </NavLink>
-              )}
-              {!loggedIn && (
-                <Button type="button" onClick={() => setShowSignIn(true)}>
-                  Sign in
-                </Button>
-              )}
-              {loggedIn && (
-                <Button onClick={handleLogout}>
-                  Jake
-                  <Logout />
-                </Button>
-              )}
-            </Nav>
-          )}
+            )}
+            {!loggedIn && (
+              <Button type="button" wide onClick={() => setShowSignIn(true)}>
+                Sign in
+              </Button>
+            )}
+            {loggedIn && (
+              <Button onClick={handleLogout}>
+                Jake
+                <Logout />
+              </Button>
+            )}
+          </Nav>
         </Container>
       </Section>
     </ThemeProvider>
