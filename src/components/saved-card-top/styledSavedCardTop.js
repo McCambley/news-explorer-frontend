@@ -51,6 +51,7 @@ export const Button = styled.button`
 `;
 
 export const Keyword = styled(Button)`
+  margin: 0;
   padding: 8px 22px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
