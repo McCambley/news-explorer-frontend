@@ -25,7 +25,7 @@ function App() {
 
   // modal states
   const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(true);
+  const [showSignUp, setShowSignUp] = useState(false);
   const [showSignedUp, setShowSignedUp] = useState(false);
 
   // user states
@@ -116,7 +116,7 @@ function App() {
 
   return (
     <>
-      {/* <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setShowSignIn={setShowSignIn} /> */}
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setShowSignIn={setShowSignIn} />
       <Switch>
         <Route path="/saved-news">
           <SavedHero savedArticles={savedArticles} />
