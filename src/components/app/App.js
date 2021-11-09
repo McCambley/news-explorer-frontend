@@ -25,7 +25,7 @@ function App() {
 
   // modal states
   const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(true);
   const [showSignedUp, setShowSignedUp] = useState(false);
 
   // user states

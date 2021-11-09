@@ -23,6 +23,7 @@ export const Overlay = styled.section`
   }
   @media (max-width: 480px) {
     //
+    align-items: flex-end;
   }
 `;
 export const ContentContainer = styled.div`
@@ -45,10 +46,16 @@ export const ContentContainer = styled.div`
   }
   @media (max-width: 480px) {
     //
+    max-width: none;
+    padding: 16px;
+    /* height: 90%; */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 `;
 
 export const Close = styled.button`
+  padding: 0;
   width: 40px;
   height: 40px;
   background-image: url(${(props) => props.source});
@@ -58,7 +65,7 @@ export const Close = styled.button`
   border: none;
   cursor: pointer;
   position: absolute;
-  top: 0;
+  top: -40px;
   right: -40px;
   transition: opacity 0.3s ease;
 
@@ -73,5 +80,9 @@ export const Close = styled.button`
   }
   @media (max-width: 480px) {
     //
+    width: 24px;
+    height: 24px;
+    top: -36px;
+    right: 16px;
   }
 `;
