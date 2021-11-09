@@ -10,6 +10,15 @@ export const Card = styled.article`
   &:hover {
     box-shadow: 0 8px 40px -4px rgba(8, 29, 45, 0.1);
   }
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Image = styled.div`
   display: flex;
@@ -17,6 +26,15 @@ export const Image = styled.div`
   padding: 24px;
   background-position: center;
   background-size: cover;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const TextInfo = styled.div`
   display: flex;
@@ -24,6 +42,15 @@ export const TextInfo = styled.div`
   justify-content: flex-start;
   padding: 24px;
   min-height: 100%;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Date = styled.p`
   margin-bottom: 12px;
@@ -32,6 +59,15 @@ export const Date = styled.p`
   font-size: 18px;
   line-height: 24px;
   color: #b6bcbf;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Title = styled.h3`
   margin-bottom: 16px;
@@ -41,6 +77,15 @@ export const Title = styled.h3`
   line-height: 30px;
   color: #1a1b22;
   min-height: ${(2 * 30) / 26}em;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Text = styled.p`
   /* display: -webkit-box; */
@@ -52,6 +97,15 @@ export const Text = styled.p`
   line-height: 22px;
   color: #1a1b22;
   min-height: 5em;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Source = styled.p`
   font-family: 'Roboto Slab', serif;
@@ -65,4 +119,13 @@ export const Source = styled.p`
   letter-spacing: 0.4px;
   text-transform: uppercase;
   padding-top: 18px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;

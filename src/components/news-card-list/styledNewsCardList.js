@@ -2,6 +2,15 @@ import styled from 'styled-components/macro';
 
 export const Container = styled.div`
   padding: 80px 0px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Heading = styled.h2`
   font-family: 'Roboto Slab', serif;
@@ -9,6 +18,15 @@ export const Heading = styled.h2`
   font-size: 40px;
   line-height: 46px;
   margin-bottom: 64px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const ShowMore = styled.button`
   cursor: pointer;
@@ -27,5 +45,14 @@ export const ShowMore = styled.button`
 
   &:hover {
     background-color: #e8e8e8;
+  }
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
   }
 `;

@@ -6,13 +6,16 @@ import { Section, Copyright, Nav, TextLink, IconLink } from './styledFooter';
 export default function Footer() {
   return (
     <Section>
-      <Copyright>&#169; 2021 McCambley, Powered by News API</Copyright>
+      <Copyright>&#169; 2021 McCambley // News API //</Copyright>
       <Nav>
-        <TextLink href="/">Home</TextLink>
-        <TextLink href="https://jakemccambley.com/" rel="noopener" target="_blank">
+        <TextLink area="H" href="/">
+          Home
+        </TextLink>
+        <TextLink area="P" href="https://jakemccambley.com/" rel="noopener" target="_blank">
           Portfolio
         </TextLink>
         <IconLink
+          area="G"
           href="https://github.com/McCambley/news-explorer-frontend"
           rel="noopener"
           target="_blank"
@@ -20,6 +23,7 @@ export default function Footer() {
           icon={github}
         />
         <IconLink
+          area="L"
           href="https://www.linkedin.com/in/jakemccambley/"
           rel="noopener"
           target="_blank"

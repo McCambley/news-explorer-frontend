@@ -9,6 +9,15 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
   padding: 160px 0 80px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const Content = styled.div`
@@ -19,6 +28,15 @@ export const Content = styled.div`
   width: 100%;
   max-width: 608px;
   margin: 0 auto;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const Title = styled.h1`
@@ -30,6 +48,15 @@ export const Title = styled.h1`
   width: 100%;
   text-align: left;
   padding-bottom: 32px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Subtitle = styled.h2`
   font-family: 'Roboto', sans-serif;
@@ -39,6 +66,15 @@ export const Subtitle = styled.h2`
   color: #fff;
   width: 100%;
   padding-bottom: 88px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const Form = styled.form`
@@ -53,6 +89,15 @@ export const Form = styled.form`
   backdrop-filter: blur(8px);
   position: relative;
   box-sizing: content-box;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Input = styled.input`
   width: 100%;
@@ -63,6 +108,15 @@ export const Input = styled.input`
   font-size: 16px;
   line-height: 22px;
   border-radius: 100px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Button = styled.button`
   /* width: 100%; */
@@ -89,5 +143,14 @@ export const Button = styled.button`
   &:focus {
     background-color: #2a65cc;
     border: 1px solid #2a65cc;
+  }
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
   }
 `;
