@@ -3,16 +3,18 @@ import styled from 'styled-components/macro';
 export const Section = styled.section`
   background: #fff;
   max-width: 1440px;
-  padding: 40px 104px;
+  padding: 40px 104px 56px;
   margin: 0 auto;
   @media (max-width: 1024px) {
     //
+    padding: 24px 40px 32px;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    padding: 8px 16px 32px;
   }
 `;
 export const Title = styled.h1`
@@ -24,12 +26,15 @@ export const Title = styled.h1`
   margin-bottom: 28px;
   @media (max-width: 1024px) {
     //
+    font-size: 14px;
+    margin-bottom: 16px;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    font-size: 12px;
   }
 `;
 export const Greeting = styled.h2`
@@ -42,12 +47,17 @@ export const Greeting = styled.h2`
   margin-bottom: 30px;
   @media (max-width: 1024px) {
     //
+    font-size: 30px;
+    line-height: 34px;
+    max-width: 340px;
+    margin-bottom: 16px;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    margin-bottom: 50px;
   }
 `;
 export const Keywords = styled.h3`

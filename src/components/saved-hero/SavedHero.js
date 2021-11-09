@@ -10,8 +10,7 @@ export default function SavedHero({ savedArticles }) {
       <Title>Saved Articles</Title>
       <Greeting>Jake, you have {savedArticles.length} saved articles</Greeting>
       <Keywords>
-        By keywords:
-        <List>{keywordList}</List>
+        By keywords: <List>{keywordList}</List>
       </Keywords>
     </Section>
   );
