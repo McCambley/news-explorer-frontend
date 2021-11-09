@@ -5,6 +5,15 @@ export const Container = styled.div`
   justify-content: flex-end;
   width: 100%;
   height: 40px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 // TODO extend button to expand hover range
 export const Button = styled.button`
@@ -15,6 +24,15 @@ export const Button = styled.button`
   box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
   border-radius: 10px;
   margin-left: 6px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const SignIn = styled(Button)`
   opacity: ${(props) => (props.shown ? '1' : '0')};
@@ -25,6 +43,15 @@ export const SignIn = styled(Button)`
   font-size: 12px;
   line-height: 14px;
   transition: opacity 0.3s ease;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const SaveIcon = styled.img`
   width: 24px;
@@ -34,10 +61,28 @@ export const SaveIcon = styled.img`
   /* &:hover {
     opacity: 1;
   } */
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const SaveButton = styled(Button)`
   &:hover ${SaveIcon} {
     opacity: 1;
+  }
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
   }
 `;

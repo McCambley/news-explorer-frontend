@@ -5,10 +5,27 @@ export const spin = keyframes`
   100% {
     transform: rotate(360deg);
   }
-`;
+ @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }`;
 
 export const Section = styled.section`
   background-color: #f5f6f7;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Content = styled.div`
   width: 100%;
@@ -19,6 +36,15 @@ export const Content = styled.div`
   align-items: center;
   padding: 0 104px;
   margin: 0 auto;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const StatusContainer = styled.div`
   padding: 80px 0;
@@ -27,6 +53,15 @@ export const StatusContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const StatusText = styled.p`
   font-family: 'Roboto Slab', serif;
@@ -36,6 +71,15 @@ export const StatusText = styled.p`
   text-align: center;
   color: #1a1b22;
   margin-bottom: 16px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const StatusSubtext = styled.p`
   font-family: 'Roboto', sans-serif;
@@ -44,11 +88,29 @@ export const StatusSubtext = styled.p`
   line-height: 24px;
   color: #b6bcbf;
   text-align: center;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const StatusImage = styled.img`
   width: 96px;
   height: 96px;
   margin-bottom: 24px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 // This spinner is so cool
@@ -64,4 +126,13 @@ export const StatusSpinner = styled.div`
   opacity: 1;
   animation: ${spin} 1s infinite linear;
   margin-bottom: 24px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;

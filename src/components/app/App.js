@@ -116,7 +116,7 @@ function App() {
 
   return (
     <>
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setShowSignIn={setShowSignIn} />
+      {/* <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setShowSignIn={setShowSignIn} /> */}
       <Switch>
         <Route path="/saved-news">
           <SavedHero savedArticles={savedArticles} />
@@ -135,6 +135,7 @@ function App() {
       </Switch>
       <Footer />
       <Modal show={showSignUp || showSignIn || showSignedUp} closeModals={closeModals}>
+        <SignedUp show={showSignedUp} setShowSignIn={setShowSignIn} switchModals={switchModals} />
         <SignUp
           show={showSignUp}
           email={email}
@@ -158,7 +159,6 @@ function App() {
           switchModals={switchModals}
           handleLogin={handleLogin}
         />
-        <SignedUp show={showSignedUp} setShowSignIn={setShowSignIn} switchModals={switchModals} />
       </Modal>
     </>
   );

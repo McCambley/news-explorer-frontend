@@ -6,6 +6,15 @@ export const Section = styled.header`
   background: ${(props) => props.theme.background};
   box-shadow: ${(props) => props.theme.shadow};
   width: 100%;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const Container = styled.header`
@@ -15,6 +24,15 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Logo = styled(Link)`
   font-family: 'Roboto Slab', serif;
@@ -28,11 +46,29 @@ export const Logo = styled(Link)`
   &:hover {
     color: ${(props) => props.theme.secondary};
   }
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -56,6 +92,15 @@ export const NavLink = styled(Link)`
   &:hover {
     color: ${(props) => props.theme.primary};
   }
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const Button = styled.button`
   background-color: transparent;
@@ -76,6 +121,15 @@ export const Button = styled.button`
   &:hover {
     border: 1px solid ${(props) => props.theme.primary};
   }
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const Logout = styled.div`
@@ -85,4 +139,13 @@ export const Logout = styled.div`
   background-image: url(${(props) => props.theme.logout});
   background-size: cover;
   background-position: center;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;

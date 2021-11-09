@@ -15,6 +15,15 @@ export const Overlay = styled.section`
   transition: visibility 0.4s ease, opacity 0.4s ease;
 
   background: rgba(0, 0, 0, 0.5);
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const ContentContainer = styled.div`
   width: 100%;
@@ -28,6 +37,15 @@ export const ContentContainer = styled.div`
   position: relative;
   opacity: ${(props) => (props.$how ? '1' : '0')};
   transition: opacity 0s ease;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const Close = styled.button`
@@ -46,5 +64,14 @@ export const Close = styled.button`
 
   &:hover {
     opacity: 0.7;
+  }
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
   }
 `;

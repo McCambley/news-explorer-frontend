@@ -5,10 +5,28 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 40px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 export const DeleteContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const Button = styled.button`
@@ -20,6 +38,15 @@ export const Button = styled.button`
   border-radius: 10px;
   margin-left: 6px;
   color: #000000;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const Keyword = styled(Button)`
@@ -28,6 +55,15 @@ export const Keyword = styled(Button)`
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const DeleteTooltip = styled(Button)`
@@ -38,6 +74,15 @@ export const DeleteTooltip = styled(Button)`
   font-size: 12px;
   line-height: 14px;
   transition: opacity 0.3s ease;
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const DeleteIcon = styled.img`
@@ -47,10 +92,28 @@ export const DeleteIcon = styled.img`
 
   /* &:hover {
   } */
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
+  }
 `;
 
 export const DeleteButton = styled(Button)`
   &:hover ${DeleteIcon} {
     opacity: 1;
+  }
+  @media (max-width: 1024px) {
+    //
+  }
+  @media (max-width: 768px) {
+    //
+  }
+  @media (max-width: 480px) {
+    //
   }
 `;
