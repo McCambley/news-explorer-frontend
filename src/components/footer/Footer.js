@@ -8,7 +8,7 @@ export default function Footer() {
     <Section>
       <Copyright>&#169; 2021 McCambley // News API //</Copyright>
       <Nav>
-        <TextLink area="H" href="/">
+        <TextLink area="H" href="/news-explorer-frontend/">
           Home
         </TextLink>
         <TextLink area="P" href="https://jakemccambley.com/" rel="noopener" target="_blank">

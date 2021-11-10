@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import close from '../../images/close.svg';
+import logout from '../../images/logout-light.svg';
 
 // overlay only to appear on mobile screens
 export const Overlay = styled.div`
@@ -260,5 +261,6 @@ export const Logout = styled.div`
   }
   @media (max-width: 580px) {
     //
+    background-image: url(${logout});
   }
 `;
