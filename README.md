@@ -9,8 +9,6 @@
 ### Technologies
 
 - MERN Stack
-- Express.js
-- React
 - Node -->
 
 ---
