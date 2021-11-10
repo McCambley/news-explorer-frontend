@@ -29,9 +29,9 @@ export const Section = styled.header`
   width: 100%;
   z-index: 5;
 
-  & * {
+  /* & * {
     border: 1px solid red;
-  }
+  } */
   @media (max-width: 1024px) {
     //
   }
@@ -41,6 +41,7 @@ export const Section = styled.header`
   @media (max-width: 480px) {
     //
     position: absolute;
+    box-shadow: none;
     /* background-color: ${(props) =>
       props.$isOpen ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0)'}; */
     /* min-height: ${(props) => (props.$isOpen ? '100vh' : '0')}; */
@@ -67,7 +68,10 @@ export const Container = styled.div`
     flex-direction: column;
     padding: 0;
     background: ${(props) => (props.$isOpen ? '#1A1B22' : props.theme.background)};
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
+    // TODO FIX THIS RADIUS
+    border-bottom-left-radius: ${(props) => (props.$isOpen ? '38px' : '0')};
+    border-bottom-right-radius: ${(props) => (props.$isOpen ? '38px' : '0')};
   }
 `;
 
@@ -79,8 +83,11 @@ export const Wrapper = styled.div`
     //
     width: 100%;
     padding: 16px;
-    background: rgba(196, 196, 196, 0.01);
-    box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+    /* background: rgba(196, 196, 196, 0.1); */
+    transition: box-shadow 0.3s ease;
+    box-shadow: ${(props) =>
+      props.$isOpen ? 'inset 0px -1px 0px rgba(255, 255, 255, 0.2)' : 'inset 0px -1px 0px #D1D2D6'};
+    /* border-bottom: 1px solid #d1d2d6; */
   }
 `;
 
@@ -104,6 +111,7 @@ export const Logo = styled(Link)`
   }
   @media (max-width: 480px) {
     //
+    color: ${(props) => (props.$isOpen ? '#fff' : 'props.theme.primary')};
   }
 `;
 
@@ -144,10 +152,12 @@ export const Nav = styled.nav`
     max-height: ${(props) => (props.$isOpen ? '250px' : '0')};
     opacity: ${(props) => (props.$isOpen ? '1' : '0')};
     overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.15s ease;
-    flex-direction: column;
+    transition: max-height 0.3s ease, opacity 0.15s ease, padding 0.3s ease;
     width: 100%;
-    align-items: flex-start;
+    padding: ${(props) => (props.$isOpen ? '16px 16px 16px' : '0')};
+    display: grid;
+    grid-template-columns: 1fr;
+    /* gap: 22px; */
   }
 `;
 
@@ -176,12 +186,24 @@ export const NavLink = styled(Link)`
     //
     font-size: 16px;
     margin-right: 20px;
+    height: 66px;
   }
   @media (max-width: 768px) {
     //
   }
   @media (max-width: 480px) {
     //
+    margin-right: 0;
+    border: none;
+    height: 56px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 56px;
+    justify-content: flex-start;
+
+    &:last-of-type {
+      margin-bottom: 12px;
+    }
   }
 `;
 export const Button = styled.button`
@@ -215,6 +237,9 @@ export const Button = styled.button`
   }
   @media (max-width: 480px) {
     //
+    padding: 16px;
+    font-size: 18px;
+    color: #fff;
   }
 `;
 

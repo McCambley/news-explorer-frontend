@@ -14,7 +14,7 @@ import Modal from '../modal/Modal';
 import SignedUp from '../signed-up/SignedUp';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   // this logic will change when the API is called
   const [isLoading, setIsLoading] = useState(false);
