@@ -9,6 +9,7 @@ export default function NewsCard({ children, article }) {
       <TextInfo>
         <Date>{date}</Date>
         <Title>{title}</Title>
+        {/* TODO shorten text based on media query */}
         {/* <Text>{text}</Text> */}
         <Text>{shortText}</Text>
         <Source>{source}</Source>

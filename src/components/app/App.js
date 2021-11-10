@@ -105,13 +105,16 @@ function App() {
     evt.preventDefault();
     // setIsInitiated(true);
     setIsLoading(true);
+    setIsNothing(false);
     console.log('Searching...');
     setTimeout(() => {
       setIsLoading(false);
-      // setIsNothing(false);
+      // UNCOMMENT BELOW TO TEST FAILED
+      // setIsNothing(true);
+      // COMMENT BELOW TO TEST FAILED
       setSearchResults(articles);
       console.log('Done!');
-    }, 300);
+    }, 1000);
   }
 
   return (
@@ -148,8 +151,6 @@ function App() {
           handleSignUp={handleSignUp}
           emailTaken={emailTaken}
         />
-        {/* </Modal>
-      <Modal show={showSignIn} closeModals={closeModals}> */}
         <SignIn
           show={showSignIn}
           email={email}

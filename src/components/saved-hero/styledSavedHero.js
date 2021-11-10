@@ -6,12 +6,10 @@ export const Section = styled.section`
   padding: 40px 104px 56px;
   margin: 0 auto;
   @media (max-width: 1024px) {
-    //
     padding: 24px 40px 32px;
   }
 
   @media (max-width: 480px) {
-    //
     padding: 64px 16px 32px;
   }
 `;
@@ -23,13 +21,11 @@ export const Title = styled.h1`
   color: rgba(26, 27, 34, 0.5);
   margin-bottom: 28px;
   @media (max-width: 1024px) {
-    //
     font-size: 14px;
     margin-bottom: 16px;
   }
 
   @media (max-width: 480px) {
-    //
     font-size: 12px;
   }
 `;
@@ -42,7 +38,6 @@ export const Greeting = styled.h2`
   color: #1a1b22;
   margin-bottom: 30px;
   @media (max-width: 1024px) {
-    //
     font-size: 30px;
     line-height: 34px;
     max-width: 340px;
@@ -50,7 +45,6 @@ export const Greeting = styled.h2`
   }
 
   @media (max-width: 480px) {
-    //
     margin-bottom: 50px;
   }
 `;

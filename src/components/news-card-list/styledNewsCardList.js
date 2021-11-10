@@ -3,12 +3,10 @@ import styled from 'styled-components/macro';
 export const Container = styled.div`
   padding: 80px 0px;
   @media (max-width: 1024px) {
-    //
     padding: 40px 0px;
   }
 
   @media (max-width: 480px) {
-    //
     padding: 32px 0px;
   }
 `;
@@ -19,7 +17,6 @@ export const Heading = styled.h2`
   line-height: 46px;
   margin-bottom: 64px;
   @media (max-width: 1024px) {
-    //
     font-size: 30px;
     line-height: 34px;
     margin-bottom: 32px;
@@ -27,7 +24,6 @@ export const Heading = styled.h2`
 
   @media (max-width: 480px) {
     margin-bottom: 58px;
-    //
   }
 `;
 export const ShowMore = styled.button`
@@ -49,13 +45,11 @@ export const ShowMore = styled.button`
     background-color: #e8e8e8;
   }
   @media (max-width: 1024px) {
-    //
     padding: 16px 74px;
     margin: 32px auto 0;
   }
 
   @media (max-width: 480px) {
-    //
     width: 100%;
   }
 `;
