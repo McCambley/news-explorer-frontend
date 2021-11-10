@@ -17,9 +17,6 @@ export const Section = styled.section`
     //
     padding: 86px 16px 32px;
   }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 
 export const Content = styled.div`
@@ -33,12 +30,6 @@ export const Content = styled.div`
   @media (max-width: 1024px) {
     //
     max-width: 452px;
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
   }
 `;
 
@@ -57,12 +48,6 @@ export const Title = styled.h1`
     line-height: 40px;
     padding-bottom: 16px;
   }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const Subtitle = styled.h2`
   font-family: 'Roboto', sans-serif;
@@ -78,12 +63,6 @@ export const Subtitle = styled.h2`
     line-height: 24px;
     padding-bottom: 48px;
   }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 
 export const Form = styled.form`
@@ -98,9 +77,7 @@ export const Form = styled.form`
   backdrop-filter: blur(8px);
   position: relative;
   box-sizing: content-box;
-  @media (max-width: 1024px) {
-    //
-  }
+
   @media (max-width: 768px) {
     //
     flex-direction: column;
@@ -108,9 +85,6 @@ export const Form = styled.form`
     background-color: transparent;
     border: none;
     backdrop-filter: none;
-  }
-  @media (max-width: 480px) {
-    //
   }
 `;
 export const Input = styled.input`
@@ -130,9 +104,6 @@ export const Input = styled.input`
     //
     margin-bottom: 16px;
     padding: 16px 16px;
-  }
-  @media (max-width: 480px) {
-    //
   }
 `;
 export const Button = styled.button`
@@ -169,8 +140,5 @@ export const Button = styled.button`
     //
     position: relative;
     padding: 16px;
-  }
-  @media (max-width: 480px) {
-    //
   }
 `;

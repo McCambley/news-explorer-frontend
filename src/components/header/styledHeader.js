@@ -33,12 +33,7 @@ export const Section = styled.header`
   /* & * {
     border: 1px solid red;
   } */
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 580px) {
     //
     position: absolute;
@@ -61,9 +56,7 @@ export const Container = styled.div`
     //
     padding: 0 40px;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 580px) {
     //
     flex-direction: column;
@@ -104,12 +97,7 @@ export const Logo = styled(Link)`
   &:hover {
     color: ${(props) => props.theme.secondary};
   }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 580px) {
     //
     font-size: 16px;
@@ -129,12 +117,7 @@ export const MenuToggle = styled.button`
   padding: 0;
   border: none;
   display: none;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 580px) {
     //
     display: block;
@@ -144,12 +127,7 @@ export const MenuToggle = styled.button`
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 580px) {
     //
     max-height: ${(props) => (props.$isOpen ? '250px' : '0')};
@@ -191,9 +169,7 @@ export const NavLink = styled(Link)`
     margin-right: 20px;
     height: 66px;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 580px) {
     //
     margin-right: 0;
@@ -235,9 +211,7 @@ export const Button = styled.button`
     padding: 8px 12px;
     min-width: ${(props) => (props.wide ? '152px' : '0')};
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 580px) {
     //
     padding: 16px;
@@ -253,12 +227,7 @@ export const Logout = styled.div`
   background-image: url(${(props) => props.theme.logout});
   background-size: cover;
   background-position: center;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 580px) {
     //
     background-image: url(${logout});

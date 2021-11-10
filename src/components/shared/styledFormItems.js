@@ -10,15 +10,6 @@ export const Form = styled.form`
   /* transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0 linear; */
   /* transition: opacity 0.3s ease, visibility 0.5s ease, max-height 0.3s ease 0.3s; */
   transition: opacity 0.5s ease, visibility 0.5s ease;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 
 export const Title = styled.h2`
@@ -30,15 +21,6 @@ export const Title = styled.h2`
   color: #1a1b22;
   margin: 0;
   margin-bottom: 22px;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const Input = styled.input`
   border: none;
@@ -58,15 +40,6 @@ export const Input = styled.input`
   &::placeholder {
     color: rgba(0, 0, 0, 0.2);
   }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const Label = styled.label`
   font-family: 'Inter', sans-serif;
@@ -76,15 +49,6 @@ export const Label = styled.label`
   color: #2f71e5;
   margin: 0;
   margin-bottom: 10px;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const Error = styled.span`
   font-family: 'Inter', sans-serif;
@@ -97,15 +61,6 @@ export const Error = styled.span`
   color: #ff0000;
   margin: 0;
   margin-bottom: ${(props) => props.bottom};
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const Button = styled.button`
   font-family: 'Roboto', sans-serif;
@@ -133,15 +88,6 @@ export const Button = styled.button`
     box-shadow: none;
     color: #b6bcbf;
   }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const Option = styled.p`
   font-family: 'Inter', sans-serif;
@@ -150,15 +96,6 @@ export const Option = styled.p`
   line-height: 17px;
   text-align: center;
   width: 100%;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 
 export const OptionButton = styled.button`
@@ -172,14 +109,5 @@ export const OptionButton = styled.button`
 
   &:hover {
     opacity: 0.7;
-  }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
   }
 `;

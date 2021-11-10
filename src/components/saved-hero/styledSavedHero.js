@@ -9,9 +9,7 @@ export const Section = styled.section`
     //
     padding: 24px 40px 32px;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     //
     padding: 64px 16px 32px;
@@ -29,9 +27,7 @@ export const Title = styled.h1`
     font-size: 14px;
     margin-bottom: 16px;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     //
     font-size: 12px;
@@ -52,9 +48,7 @@ export const Greeting = styled.h2`
     max-width: 340px;
     margin-bottom: 16px;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     //
     margin-bottom: 50px;
@@ -66,25 +60,7 @@ export const Keywords = styled.h3`
   font-size: 18px;
   line-height: 24px;
   color: #1a1b22;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const List = styled.span`
   font-weight: 700;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;

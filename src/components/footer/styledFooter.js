@@ -10,22 +10,11 @@ export const Section = styled.footer`
   @media (max-width: 1024px) {
     padding: 20px 40px;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     padding: 20px 16px 22px;
     flex-direction: column-reverse;
 
-    //
-  }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
     //
   }
 `;
@@ -35,24 +24,6 @@ export const Copyright = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const Nav = styled.nav`
   display: grid;
@@ -65,15 +36,6 @@ export const Nav = styled.nav`
     grid-template-areas:
       'H H H H G L'
       'P P P P P P';
-  }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
   }
 `;
 
@@ -88,15 +50,6 @@ export const TextLink = styled.a`
     //
     grid-area: ${(props) => props.area};
   }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const IconLink = styled.a`
   display: block;
@@ -108,14 +61,5 @@ export const IconLink = styled.a`
   @media (max-width: 480px) {
     //
     grid-area: ${(props) => props.area};
-  }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
   }
 `;
