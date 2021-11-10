@@ -25,15 +25,6 @@ const GlobalStyles = styled.createGlobalStyle`
   p {
     margin: 0;
   }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 
 export default GlobalStyles;

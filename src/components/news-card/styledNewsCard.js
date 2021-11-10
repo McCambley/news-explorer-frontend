@@ -14,9 +14,7 @@ export const Card = styled.article`
     //
     grid-auto-rows: 1fr 2fr;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     //
     grid-auto-rows: 2fr 3fr;
@@ -32,12 +30,6 @@ export const Image = styled.div`
     //
     padding: 8px;
   }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const TextInfo = styled.div`
   display: flex;
@@ -49,12 +41,6 @@ export const TextInfo = styled.div`
     //
     padding: 16px;
   }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const Date = styled.p`
   margin-bottom: 12px;
@@ -63,16 +49,6 @@ export const Date = styled.p`
   font-size: 18px;
   line-height: 24px;
   color: #b6bcbf;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-    margin-bottom: 10px;
-  }
 `;
 export const Title = styled.h3`
   margin-bottom: 16px;
@@ -89,9 +65,6 @@ export const Title = styled.h3`
     margin-bottom: 10px;
     min-height: ${(3 * 24) / 22}em;
   }
-  @media (max-width: 768px) {
-    //
-  }
   @media (max-width: 480px) {
     //
     min-height: 0;
@@ -106,12 +79,7 @@ export const Text = styled.p`
   line-height: 22px;
   color: #1a1b22;
   min-height: 5em;
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     //
     margin-bottom: 8px;
@@ -131,12 +99,7 @@ export const Source = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%; */
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     //
     padding-top: 0px;

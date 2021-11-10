@@ -27,9 +27,6 @@ export const Section = styled.section`
 export const Image = styled.img`
   max-width: 100%;
   border-radius: 50%;
-  @media (max-width: 1024px) {
-    //
-  }
   @media (max-width: 630px) {
     //
     max-width: 304px;
@@ -51,12 +48,6 @@ export const TextContent = styled.div`
     padding-top: 0px;
     //
   }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 export const Title = styled.h2`
   font-family: 'Roboto Slab', serif;
@@ -69,12 +60,6 @@ export const Title = styled.h2`
     font-size: 30px;
     line-height: 40px;
     margin-bottom: 16px;
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
   }
 `;
 export const Paragraph = styled.p`
@@ -91,11 +76,5 @@ export const Paragraph = styled.p`
     //
     font-size: 18px;
     line-height: 24px;
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
   }
 `;

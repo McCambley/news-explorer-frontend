@@ -65,15 +65,6 @@ const FontStyles = styled.createGlobalStyle`
     font-family: 'Source Sans Pro'; // sans-serif
     font-weight: 400;
   }
-  @media (max-width: 1024px) {
-    //
-  }
-  @media (max-width: 768px) {
-    //
-  }
-  @media (max-width: 480px) {
-    //
-  }
 `;
 
 export default FontStyles;

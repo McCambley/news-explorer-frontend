@@ -6,9 +6,7 @@ export const Container = styled.div`
     //
     padding: 40px 0px;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     //
     padding: 32px 0px;
@@ -26,9 +24,7 @@ export const Heading = styled.h2`
     line-height: 34px;
     margin-bottom: 32px;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     margin-bottom: 58px;
     //
@@ -57,9 +53,7 @@ export const ShowMore = styled.button`
     padding: 16px 74px;
     margin: 32px auto 0;
   }
-  @media (max-width: 768px) {
-    //
-  }
+
   @media (max-width: 480px) {
     //
     width: 100%;
