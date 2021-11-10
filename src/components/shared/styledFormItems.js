@@ -34,9 +34,14 @@ export const Input = styled.input`
   color: #000000;
   margin: 0;
   margin-bottom: 2px;
+  transition: border-bottom 0.1s ease;
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
   }
 `;
 export const Label = styled.label`
