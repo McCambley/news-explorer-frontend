@@ -111,6 +111,8 @@ export const Logo = styled(Link)`
   }
   @media (max-width: 480px) {
     //
+    font-size: 16px;
+    line-height: 24px;
     color: ${(props) => (props.$isOpen ? '#fff' : 'props.theme.primary')};
   }
 `;
