@@ -9,7 +9,6 @@
 ### Technologies
 
 - MERN Stack
-- React
 - Node -->
 
 ---
