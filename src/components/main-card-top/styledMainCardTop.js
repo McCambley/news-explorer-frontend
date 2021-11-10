@@ -33,10 +33,6 @@ export const SaveIcon = styled.img`
   width: 24px;
   opacity: 0.7;
   transition: 0.3s ease;
-
-  /* &:hover {
-    opacity: 1;
-  } */
 `;
 
 export const SaveButton = styled(Button)`

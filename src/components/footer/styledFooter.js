@@ -14,8 +14,6 @@ export const Section = styled.footer`
   @media (max-width: 480px) {
     padding: 20px 16px 22px;
     flex-direction: column-reverse;
-
-    //
   }
 `;
 export const Copyright = styled.p`
@@ -30,7 +28,6 @@ export const Nav = styled.nav`
   gap: 26px;
   grid-template-columns: repeat(4, min-content);
   @media (max-width: 480px) {
-    //
     margin-bottom: 38px;
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
@@ -47,7 +44,6 @@ export const TextLink = styled.a`
   color: #1a1b22;
   text-decoration: none;
   @media (max-width: 480px) {
-    //
     grid-area: ${(props) => props.area};
   }
 `;
@@ -59,7 +55,6 @@ export const IconLink = styled.a`
   background-position: center;
   background-size: cover;
   @media (max-width: 480px) {
-    //
     grid-area: ${(props) => props.area};
   }
 `;

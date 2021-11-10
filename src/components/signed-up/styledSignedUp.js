@@ -8,7 +8,6 @@ export const Container = styled.div`
   max-height: ${(props) => (props.$how ? '400px' : '0')};
   visibility: ${(props) => (props.$how ? 'visible' : 'hidden')};
   opacity: ${(props) => (props.$how ? '1' : '0')};
-  /* transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0 linear; */
   transition: opacity 0.5s ease, visibility 0.5s ease;
 `;
 export const SuccessTitle = styled(Title)`

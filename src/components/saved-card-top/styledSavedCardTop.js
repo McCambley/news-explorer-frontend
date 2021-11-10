@@ -34,7 +34,6 @@ export const Keyword = styled(Button)`
   transition: opacity 0.3s ease;
 
   @media (max-width: 1024px) {
-    //
     padding: 8px 20px;
   }
 `;
@@ -52,7 +51,6 @@ export const DeleteTooltip = styled(Button)`
   white-space: nowrap;
   top: 0;
   left: -152px;
-  /* box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2); */
 `;
 
 export const DeleteIcon = styled.img`

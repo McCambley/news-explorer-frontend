@@ -20,11 +20,9 @@ export const Content = styled.div`
   padding: 0 104px;
   margin: 0 auto;
   @media (max-width: 1024px) {
-    //
     padding: 0 40px;
   }
   @media (max-width: 480px) {
-    //
     padding: 0 16px;
   }
 `;
@@ -36,11 +34,9 @@ export const StatusContainer = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 768px) {
-    //
     padding: 40px 0;
   }
   @media (max-width: 480px) {
-    //
     padding: 32px 0;
   }
 `;

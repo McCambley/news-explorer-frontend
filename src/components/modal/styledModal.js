@@ -17,7 +17,6 @@ export const Overlay = styled.section`
   background: rgba(0, 0, 0, 0.5);
 
   @media (max-width: 480px) {
-    //
     align-items: flex-end;
   }
 `;
@@ -35,10 +34,8 @@ export const ContentContainer = styled.div`
   transition: opacity 0s ease;
 
   @media (max-width: 480px) {
-    //
     max-width: none;
     padding: 16px;
-    /* height: 90%; */
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -64,7 +61,6 @@ export const Close = styled.button`
   }
 
   @media (max-width: 480px) {
-    //
     width: 24px;
     height: 24px;
     top: -36px;

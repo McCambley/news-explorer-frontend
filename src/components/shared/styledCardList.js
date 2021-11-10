@@ -5,15 +5,12 @@ export const CardList = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   @media (max-width: 1024px) {
-    //
     gap: 8px;
   }
   @media (max-width: 670px) {
-    //
     grid-template-columns: 1fr 1fr;
   }
   @media (max-width: 480px) {
-    //
     grid-template-columns: 1fr;
     gap: 10px;
   }
