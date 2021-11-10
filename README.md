@@ -8,7 +8,6 @@
 
 ### Technologies
 
-- MERN Stack
 - Express.js
 - Node -->
 
