@@ -12,7 +12,7 @@ export const Overlay = styled.div`
   bottom: 0;
   z-index: -1;
 
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
     display: block;
     background-color: #000000;
@@ -38,7 +38,7 @@ export const Section = styled.header`
   @media (max-width: 768px) {
     //
   }
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
     position: absolute;
     box-shadow: none;
@@ -63,7 +63,7 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     //
   }
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
     flex-direction: column;
     padding: 0;
@@ -79,7 +79,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
     width: 100%;
     padding: 16px;
@@ -109,7 +109,7 @@ export const Logo = styled(Link)`
   @media (max-width: 768px) {
     //
   }
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
     font-size: 16px;
     line-height: 24px;
@@ -134,7 +134,7 @@ export const MenuToggle = styled.button`
   @media (max-width: 768px) {
     //
   }
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
     display: block;
   }
@@ -149,7 +149,7 @@ export const Nav = styled.nav`
   @media (max-width: 768px) {
     //
   }
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
     max-height: ${(props) => (props.$isOpen ? '250px' : '0')};
     opacity: ${(props) => (props.$isOpen ? '1' : '0')};
@@ -193,7 +193,7 @@ export const NavLink = styled(Link)`
   @media (max-width: 768px) {
     //
   }
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
     margin-right: 0;
     border: none;
@@ -237,7 +237,7 @@ export const Button = styled.button`
   @media (max-width: 768px) {
     //
   }
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
     padding: 16px;
     font-size: 18px;
@@ -258,7 +258,7 @@ export const Logout = styled.div`
   @media (max-width: 768px) {
     //
   }
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     //
   }
 `;
