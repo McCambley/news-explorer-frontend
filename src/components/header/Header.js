@@ -23,6 +23,10 @@ export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
     setLoggedIn(false);
   }
 
+  function closeMenu() {
+    setIsOpen(false);
+  }
+
   return (
     <ThemeProvider theme={location === 'saved-news' ? savedArticleTheme : homeTheme}>
       <Section $isOpen={isOpen}>
@@ -33,7 +37,7 @@ export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
             </Logo>
             <MenuToggle onClick={() => setIsOpen(!isOpen)} $isOpen={isOpen} />
           </Wrapper>
-          <Nav $isOpen={isOpen}>
+          <Nav $isOpen={isOpen} onClick={closeMenu}>
             <NavLink to="/" $active={location === ''}>
               Home
             </NavLink>
@@ -55,7 +59,7 @@ export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
             )}
           </Nav>
         </Container>
-        <Overlay $isOpen={isOpen} />
+        <Overlay $isOpen={isOpen} onClick={closeMenu} />
       </Section>
     </ThemeProvider>
   );

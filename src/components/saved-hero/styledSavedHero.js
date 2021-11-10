@@ -14,7 +14,7 @@ export const Section = styled.section`
   }
   @media (max-width: 480px) {
     //
-    padding: 8px 16px 32px;
+    padding: 64px 16px 32px;
   }
 `;
 export const Title = styled.h1`
