@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/news-explorer-frontend/static/js/main.dfe4e418.chunk.js",
-    "main.js.map": "/news-explorer-frontend/static/js/main.dfe4e418.chunk.js.map",
-    "runtime-main.js": "/news-explorer-frontend/static/js/runtime-main.8bc812aa.js",
-    "runtime-main.js.map": "/news-explorer-frontend/static/js/runtime-main.8bc812aa.js.map",
-    "static/js/2.a7a1fa9e.chunk.js": "/news-explorer-frontend/static/js/2.a7a1fa9e.chunk.js",
-    "static/js/2.a7a1fa9e.chunk.js.map": "/news-explorer-frontend/static/js/2.a7a1fa9e.chunk.js.map",
-    "static/js/3.87d28dd2.chunk.js": "/news-explorer-frontend/static/js/3.87d28dd2.chunk.js",
-    "static/js/3.87d28dd2.chunk.js.map": "/news-explorer-frontend/static/js/3.87d28dd2.chunk.js.map",
+    "main.js": "/news-explorer-frontend/static/js/main.02730441.chunk.js",
+    "main.js.map": "/news-explorer-frontend/static/js/main.02730441.chunk.js.map",
+    "runtime-main.js": "/news-explorer-frontend/static/js/runtime-main.4579f6d9.js",
+    "runtime-main.js.map": "/news-explorer-frontend/static/js/runtime-main.4579f6d9.js.map",
+    "static/js/2.811c6811.chunk.js": "/news-explorer-frontend/static/js/2.811c6811.chunk.js",
+    "static/js/2.811c6811.chunk.js.map": "/news-explorer-frontend/static/js/2.811c6811.chunk.js.map",
+    "static/js/3.93927132.chunk.js": "/news-explorer-frontend/static/js/3.93927132.chunk.js",
+    "static/js/3.93927132.chunk.js.map": "/news-explorer-frontend/static/js/3.93927132.chunk.js.map",
     "index.html": "/news-explorer-frontend/index.html",
-    "static/js/2.a7a1fa9e.chunk.js.LICENSE.txt": "/news-explorer-frontend/static/js/2.a7a1fa9e.chunk.js.LICENSE.txt",
+    "static/js/2.811c6811.chunk.js.LICENSE.txt": "/news-explorer-frontend/static/js/2.811c6811.chunk.js.LICENSE.txt",
     "static/media/SourceSansPro-Regular.efa76f83.ttf": "/news-explorer-frontend/static/media/SourceSansPro-Regular.efa76f83.ttf",
     "static/media/art-dog.e2e4dde0.png": "/news-explorer-frontend/static/media/art-dog.e2e4dde0.png",
     "static/media/art-moose.3587a81b.png": "/news-explorer-frontend/static/media/art-moose.3587a81b.png",
@@ -45,8 +45,8 @@
     "static/media/trash.b9abe9fb.svg": "/news-explorer-frontend/static/media/trash.b9abe9fb.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8bc812aa.js",
-    "static/js/2.a7a1fa9e.chunk.js",
-    "static/js/main.dfe4e418.chunk.js"
+    "static/js/runtime-main.4579f6d9.js",
+    "static/js/2.811c6811.chunk.js",
+    "static/js/main.02730441.chunk.js"
   ]
 }
