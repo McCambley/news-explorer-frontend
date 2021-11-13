@@ -57,7 +57,7 @@ export default function NewsCard({ children, article }) {
         newDate.unshift('December');
         break;
       default:
-        console.loe('oops');
+        console.log('oops');
     }
     return `${newDate[0]} ${newDate[1]}, ${newDate[2]}`;
   }

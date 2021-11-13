@@ -22,7 +22,7 @@ function App() {
   const [isNothing, setIsNothing] = useState(false);
   // const [isInitiated, setIsInitiated] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
-  const [savedArticles, setSavedArticles] = useState(articles);
+  const [savedArticles, setSavedArticles] = useState([]);
 
   // modal states
   const [showSignIn, setShowSignIn] = useState(false);
