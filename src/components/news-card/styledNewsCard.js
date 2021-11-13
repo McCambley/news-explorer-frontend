@@ -1,5 +1,10 @@
 import styled from 'styled-components/macro';
 
+export const CardLink = styled.a`
+  display: block;
+  text-decoration: none;
+`;
+
 export const Card = styled.article`
   background-color: #ffffff;
   transition: box-shadow 0.3s ease;
@@ -38,7 +43,7 @@ export const TextInfo = styled.div`
     padding: 16px;
   }
 `;
-export const Date = styled.p`
+export const PublishDate = styled.p`
   margin-bottom: 12px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;

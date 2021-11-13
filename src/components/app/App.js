@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 import SavedHero from '../saved-hero/SavedHero';
 import Modal from '../modal/Modal';
 import SignedUp from '../signed-up/SignedUp';
+import { newsApi } from '../../utils/news-api';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -105,16 +106,25 @@ function App() {
     evt.preventDefault();
     // setIsInitiated(true);
     setIsLoading(true);
+    newsApi
+      .getArticles(evt.target.querySelector('input').value)
+      .then((articles) => {
+        setIsLoading(false);
+        console.log(articles);
+        setSearchResults(articles.articles.slice(0, 6));
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsNothing(true);
+        console.error(error);
+      });
     setIsNothing(false);
-    console.log('Searching...');
-    setTimeout(() => {
-      setIsLoading(false);
-      // UNCOMMENT BELOW TO TEST FAILED
-      // setIsNothing(true);
-      // COMMENT BELOW TO TEST FAILED
-      setSearchResults(articles);
-      console.log('Done!');
-    }, 1000);
+    // console.log('Searching...');
+    // setTimeout(() => {
+    //   // UNCOMMENT BELOW TO TEST FAILED
+    //   // COMMENT BELOW TO TEST FAILED
+    //   // console.log('Done!');
+    // }, 1000);
   }
 
   return (
