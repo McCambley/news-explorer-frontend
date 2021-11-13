@@ -104,6 +104,7 @@ function App() {
 
   function submitSearch(evt) {
     evt.preventDefault();
+    setSearchResults([]);
     // setIsInitiated(true);
     setIsLoading(true);
     newsApi
