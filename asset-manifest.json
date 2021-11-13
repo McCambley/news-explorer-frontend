@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/news-explorer-frontend/static/js/main.e47f1b50.chunk.js",
-    "main.js.map": "/news-explorer-frontend/static/js/main.e47f1b50.chunk.js.map",
+    "main.js": "/news-explorer-frontend/static/js/main.f5cda777.chunk.js",
+    "main.js.map": "/news-explorer-frontend/static/js/main.f5cda777.chunk.js.map",
     "runtime-main.js": "/news-explorer-frontend/static/js/runtime-main.4579f6d9.js",
     "runtime-main.js.map": "/news-explorer-frontend/static/js/runtime-main.4579f6d9.js.map",
     "static/js/2.811c6811.chunk.js": "/news-explorer-frontend/static/js/2.811c6811.chunk.js",
@@ -47,6 +47,6 @@
   "entrypoints": [
     "static/js/runtime-main.4579f6d9.js",
     "static/js/2.811c6811.chunk.js",
-    "static/js/main.e47f1b50.chunk.js"
+    "static/js/main.f5cda777.chunk.js"
   ]
 }
