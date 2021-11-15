@@ -44,6 +44,13 @@ export const ShowMore = styled.button`
   &:hover {
     background-color: #e8e8e8;
   }
+
+  &:disabled {
+    background-color: #e6e8eb;
+    color: #b6bcbf;
+    cursor: auto;
+  }
+
   @media (max-width: 1024px) {
     padding: 16px 74px;
     margin: 32px auto 0;

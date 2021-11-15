@@ -107,6 +107,7 @@ function App() {
     setSearchResults([]);
     // setIsInitiated(true);
     setIsLoading(true);
+    setIsNothing(false);
     newsApi
       .getArticles(evt.target.querySelector('input').value)
       .then((articles) => {
@@ -114,13 +115,15 @@ function App() {
         console.log(articles);
         // setSearchResults(articles.articles.slice(0, 6));
         setSearchResults(articles.articles);
+        if (articles.articles.length < 1) {
+          setIsNothing(true);
+        }
       })
       .catch((error) => {
         setIsLoading(false);
         setIsNothing(true);
         console.error(error);
       });
-    setIsNothing(false);
     // console.log('Searching...');
     // setTimeout(() => {
     //   // UNCOMMENT BELOW TO TEST FAILED

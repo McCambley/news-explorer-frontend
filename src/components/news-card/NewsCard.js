@@ -16,6 +16,8 @@ export default function NewsCard({ children, article }) {
   const [adjustedTitle, setAdjustedTitle] = React.useState('');
   const [adjustedDescription, setAdjustedDescription] = React.useState('');
 
+  const placeholderUrl =
+    'https://images.unsplash.com/photo-1623039405147-547794f92e9e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=826&q=80';
   // Yikes
   function convertDate(oldDate) {
     const newDate = new Date(oldDate).toString().split(' ').slice(1, 4);
@@ -65,12 +67,11 @@ export default function NewsCard({ children, article }) {
   React.useEffect(() => {
     const newDate = convertDate(publishedAt);
     setDate(newDate);
-    const titleArray = title.split(' ');
+    const titleArray = title ? title.split(' ') : ['Title', 'not', 'available'];
     setAdjustedTitle(
       titleArray.length > 6 ? `${titleArray.slice(0, 6).join(' ')}...` : `${titleArray.join(' ')}`
     );
-    const descriptionArray = description.split(' ');
-    console.log(descriptionArray);
+    const descriptionArray = description ? description.split(' ') : ['Content', 'not', 'available'];
     setAdjustedDescription(
       descriptionArray.length > 30
         ? `${descriptionArray.slice(0, 30).join(' ')}... (read more)`
@@ -83,7 +84,7 @@ export default function NewsCard({ children, article }) {
   }, []);
   return (
     <Card>
-      <Image image={urlToImage}>{children}</Image>
+      <Image image={urlToImage || placeholderUrl}>{children}</Image>
       <CardLink href={url} rel="noreferrer" target="_blank">
         <TextInfo>
           <PublishDate>{date}</PublishDate>
