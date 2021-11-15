@@ -112,7 +112,8 @@ function App() {
       .then((articles) => {
         setIsLoading(false);
         console.log(articles);
-        setSearchResults(articles.articles.slice(0, 6));
+        // setSearchResults(articles.articles.slice(0, 6));
+        setSearchResults(articles.articles);
       })
       .catch((error) => {
         setIsLoading(false);

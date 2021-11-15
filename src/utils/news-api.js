@@ -6,11 +6,14 @@ class NewsApi {
   }
 
   getArticles(query) {
-    return fetch(`${this._proxyUrl}everything?q=${query}&apiKey=${this._apiKey}`, {
-      //   headers: {
-      //     'X-Api-Key': this._apiKey,
-      //   },
-    }).then((response) => {
+    return fetch(
+      `${this._proxyUrl}everything?q=${query}&sortBy=publishedAt&apiKey=${this._apiKey}`,
+      {
+        //   headers: {
+        //     'X-Api-Key': this._apiKey,
+        //   },
+      }
+    ).then((response) => {
       if (!response.ok) {
         throw new Error(`Search failed! Status: ${response.status}`);
       }
