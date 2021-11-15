@@ -8,7 +8,7 @@ class NewsApi {
 
   getArticles(query) {
     return fetch(
-      `${this._proxyUrl}everything?q=${query}&sortBy=publishedAt&from=${this._maxAge}&pageSize=100&apiKey=${this._apiKey}`,
+      `${this._proxyUrl}everything?q=${query}&sortBy=publishedAt&from=${this._maxAge}&language=en&pageSize=100&apiKey=${this._apiKey}`,
       {
         //   headers: {
         //     'X-Api-Key': this._apiKey,
