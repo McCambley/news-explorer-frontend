@@ -12,23 +12,23 @@ import {
   StatusText,
 } from './styledSearchResult';
 
-export default function SearchResult({ loading, searchResults, failed, loggedIn }) {
+export default function SearchResult({ isLoading, searchResults, isNothing, loggedIn }) {
   return (
     <Section>
       <Content>
         {/* loading spinner */}
-        {loading && (
+        {isLoading && (
           <StatusContainer>
             <StatusSpinner />
             <StatusSubtext>Searching for news...</StatusSubtext>
           </StatusContainer>
         )}
         {/* search results */}
-        {!loading && !failed && searchResults.length > 0 && (
+        {!isLoading && !isNothing && searchResults.length > 0 && (
           <NewsCardList searchResults={searchResults} loggedIn={loggedIn} />
         )}
         {/* nothing found */}
-        {failed && (
+        {isNothing && (
           <StatusContainer>
             <StatusImage src={notFound} alt="Not found" />
             <StatusText>Nothing Found</StatusText>

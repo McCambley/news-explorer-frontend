@@ -137,9 +137,9 @@ function App() {
         <Route path="/">
           <Hero submitSearch={submitSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <SearchResult
-            loading={isLoading}
+            isLoading={isLoading}
             searchResults={searchResults}
-            failed={isNothing}
+            isNothing={isNothing}
             loggedIn={loggedIn}
           />
           <About />
