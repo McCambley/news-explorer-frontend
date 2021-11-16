@@ -7,12 +7,12 @@ import SavedCardList from '../saved-card-list/SavedCardList';
 import SearchResult from '../search-result/SearchResult';
 import SignIn from '../sign-in/SignIn';
 import SignUp from '../sign-up/SignUp';
-import { articles } from '../../utils/savedArticles';
+// import { articles } from '../../utils/savedArticles';
 import { useState, useEffect } from 'react';
 import SavedHero from '../saved-hero/SavedHero';
 import Modal from '../modal/Modal';
 import SignedUp from '../signed-up/SignedUp';
-import { newsApi } from '../../utils/news-api';
+import { newsApi } from '../../utils/NewsApi';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
