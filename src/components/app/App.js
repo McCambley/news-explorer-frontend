@@ -20,11 +20,10 @@ function App() {
   // this logic will change when the API is called
   const [isLoading, setIsLoading] = useState(false);
   const [isNothing, setIsNothing] = useState(false);
-  // const [isInitiated, setIsInitiated] = useState(false);
+
+  const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchPlaceholder, setSearchPlaceholder] = useState('Enter topic');
 
   // modal states
   const [showSignIn, setShowSignIn] = useState(false);
@@ -104,15 +103,7 @@ function App() {
     }
   }
 
-  function submitSearch(evt) {
-    evt.preventDefault();
-    // validate input
-    if (searchTerm === '') {
-      // if input is empty, adjust placeholder text
-      // this placeholder will display as red
-      setSearchPlaceholder('Please enter a keyword');
-      return;
-    }
+  function submitSearch() {
     // update loading ux
     setSearchResults([]);
     setSearchTerm('');
@@ -144,13 +135,7 @@ function App() {
           <SavedCardList savedArticles={savedArticles} />
         </Route>
         <Route path="/">
-          <Hero
-            submitSearch={submitSearch}
-            searchPlaceholder={searchPlaceholder}
-            setSearchPlaceholder={setSearchPlaceholder}
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-          />
+          <Hero submitSearch={submitSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <SearchResult
             loading={isLoading}
             searchResults={searchResults}

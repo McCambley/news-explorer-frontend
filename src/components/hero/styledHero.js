@@ -92,7 +92,7 @@ export const Input = styled.input`
   border-radius: 100px;
   // handle empty input with custom placeholder color
   &::placeholder {
-    color: ${(props) => (props.placeholder === 'Please enter a keyword' ? '#FF0000' : 'auto')};
+    color: ${(props) => (props.$isValid ? 'auto' : '#FF0000')};
   }
   @media (max-width: 1024px) {
     padding: 16px 24px;
