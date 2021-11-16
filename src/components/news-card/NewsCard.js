@@ -69,12 +69,12 @@ export default function NewsCard({ children, article }) {
     setDate(newDate);
     const titleArray = title ? title.split(' ') : ['Title', 'not', 'available'];
     setAdjustedTitle(
-      titleArray.length > 6 ? `${titleArray.slice(0, 6).join(' ')}...` : `${titleArray.join(' ')}`
+      titleArray.length > 6 ? `${titleArray.slice(0, 12).join(' ')}...` : `${titleArray.join(' ')}`
     );
     const descriptionArray = description ? description.split(' ') : ['Content', 'not', 'available'];
     setAdjustedDescription(
       descriptionArray.length > 30
-        ? `${descriptionArray.slice(0, 30).join(' ')}... (read more)`
+        ? `${descriptionArray.slice(0, 40).join(' ')}...`
         : `${descriptionArray.join(' ')}`
     );
     // `${title.substring(0, 100)}...`
