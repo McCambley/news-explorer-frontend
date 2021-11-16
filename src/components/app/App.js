@@ -23,6 +23,8 @@ function App() {
   // const [isInitiated, setIsInitiated] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchPlaceholder, setSearchPlaceholder] = useState('Enter topic');
 
   // modal states
   const [showSignIn, setShowSignIn] = useState(false);
@@ -104,16 +106,23 @@ function App() {
 
   function submitSearch(evt) {
     evt.preventDefault();
+    // validate input
+    if (searchTerm === '') {
+      // if input is empty, adjust placeholder text
+      // this placeholder will display as red
+      setSearchPlaceholder('Please enter a keyword');
+      return;
+    }
+    // update loading ux
     setSearchResults([]);
-    // setIsInitiated(true);
+    setSearchTerm('');
     setIsLoading(true);
     setIsNothing(false);
+    // search for news
     newsApi
-      .getArticles(evt.target.querySelector('input').value)
+      .getArticles(searchTerm)
       .then((articles) => {
         setIsLoading(false);
-        console.log(articles);
-        // setSearchResults(articles.articles.slice(0, 6));
         setSearchResults(articles.articles);
         if (articles.articles.length < 1) {
           setIsNothing(true);
@@ -124,12 +133,6 @@ function App() {
         setIsNothing(true);
         console.error(error);
       });
-    // console.log('Searching...');
-    // setTimeout(() => {
-    //   // UNCOMMENT BELOW TO TEST FAILED
-    //   // COMMENT BELOW TO TEST FAILED
-    //   // console.log('Done!');
-    // }, 1000);
   }
 
   return (
@@ -141,7 +144,13 @@ function App() {
           <SavedCardList savedArticles={savedArticles} />
         </Route>
         <Route path="/">
-          <Hero submitSearch={submitSearch} />
+          <Hero
+            submitSearch={submitSearch}
+            searchPlaceholder={searchPlaceholder}
+            setSearchPlaceholder={setSearchPlaceholder}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
           <SearchResult
             loading={isLoading}
             searchResults={searchResults}
