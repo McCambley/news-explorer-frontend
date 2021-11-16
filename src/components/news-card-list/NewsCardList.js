@@ -5,21 +5,14 @@ import { CardList } from '../shared/styledCardList';
 import { Container, Heading, ShowMore } from './styledNewsCardList';
 
 export default function NewsCardList({ searchResults, loggedIn }) {
-  const [showMoreDisabled, setShowMoreDisabled] = React.useState(false);
-  // const [displayedResults, setDisplayedResults] = React.useState(searchResults);
+  const [isShown, setIsShown] = React.useState(true);
   const [displayAmount, setDisplayAmount] = React.useState(3);
-
-  // React.useEffect(() => {
-  //   if (searchResults.length <= 3) {
-  //     setShowMoreDisabled(true);
-  //   }
-  // }, [searchResults]);
 
   React.useEffect(() => {
     if (displayAmount >= searchResults.length) {
-      setShowMoreDisabled(true);
+      setIsShown(false);
     }
-  }, [displayAmount, handleShowMore, searchResults]);
+  }, [displayAmount, searchResults]);
 
   function handleShowMore() {
     setDisplayAmount(displayAmount + 3);
@@ -37,9 +30,7 @@ export default function NewsCardList({ searchResults, loggedIn }) {
           );
         })}
       </CardList>
-      <ShowMore onClick={handleShowMore} disabled={showMoreDisabled}>
-        Show more
-      </ShowMore>
+      {isShown && <ShowMore onClick={handleShowMore}>Show more</ShowMore>}
     </Container>
   );
 }
