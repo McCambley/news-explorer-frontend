@@ -35,7 +35,7 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
-  const [currentUser, setCurrentUser] = useState({});
+  // const [currentUser, setCurrentUser] = useState({});
   const [signUpErrorMessage, setSignUpErrorMessage] = useState(null);
   // this will be replaced with a server response of "email taken"
 
@@ -77,12 +77,21 @@ function App() {
 
   function handleLogin(e) {
     e.preventDefault();
-    if (e.target.checkValidity()) {
-      closeModals();
-      setLoggedIn(true);
-    } else {
-      console.log('Invalid sign in');
-    }
+    const form = e.target;
+    form.checkValidity() &&
+      mainApi
+        .login(email, password)
+        .then((response) => {
+          console.log(response);
+          closeModals();
+          setLoggedIn(true);
+          setEmail('');
+          setUserName('');
+          setPassword('');
+        })
+        .catch((error) => {
+          console.log('Invalid sign in');
+        });
   }
 
   function handleSignUp(e) {
@@ -101,6 +110,11 @@ function App() {
         .catch((error) => {
           // show error message 'This email is not available' on 409 response
           setSignUpErrorMessage(error.message);
+          // display for 3 seconds
+          setTimeout(() => {
+            setSignUpErrorMessage(null);
+          }, 3000);
+          // TODO refactor to display transitioning error message
         });
   }
 
