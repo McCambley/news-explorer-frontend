@@ -36,14 +36,14 @@ function App() {
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
   const [currentUser, setCurrentUser] = useState({});
+  const [signUpErrorMessage, setSignUpErrorMessage] = useState(null);
   // this will be replaced with a server response of "email taken"
-  const [emailTaken, setEmailTaken] = useState(false);
 
   useEffect(() => {
     setEmail('');
     setPassword('');
     setUserName('');
-    setEmailTaken(false);
+    setSignUpErrorMessage(null);
   }, [showSignIn, showSignUp, showSignedUp]);
 
   // modal handlers
@@ -88,12 +88,6 @@ function App() {
   function handleSignUp(e) {
     e.preventDefault();
     const form = e.target;
-    // this is a mock error thrower that will be replaced
-    // when the backend returns a email taken error
-    // if (email === 'jake@email.com') {
-    //   setEmailTaken(true);
-    //   return;
-    // }
     form.checkValidity() &&
       mainApi
         .register(email, password, userName)
@@ -105,15 +99,9 @@ function App() {
           setPassword('');
         })
         .catch((error) => {
-          console.error(error);
+          // show error message 'This email is not available' on 409 response
+          setSignUpErrorMessage(error.message);
         });
-    // if (form.checkValidity()) {
-    // if form is valid, do something
-
-    // } else {
-    // if form is invalid, do nothing
-    // console.log('Invalid sign up');
-    // }
   }
 
   function submitSearch() {
@@ -171,7 +159,7 @@ function App() {
           setUserName={setUserName}
           switchModals={switchModals}
           handleSignUp={handleSignUp}
-          emailTaken={emailTaken}
+          signUpErrorMessage={signUpErrorMessage}
         />
         <SignIn
           show={showSignIn}

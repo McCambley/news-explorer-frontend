@@ -20,7 +20,7 @@ export default function SignUp({
   userName,
   setUserName,
   handleSignUp,
-  emailTaken,
+  signUpErrorMessage,
   show,
 }) {
   const [formErrors, setFormErrors] = useState({ email: '', password: '', name: '' });
@@ -113,7 +113,7 @@ export default function SignUp({
       />
       <Error bottom="2px">{formErrors.name}</Error>
       <Error bottom="8px" align="center">
-        {emailTaken && 'This email is not available'}
+        {signUpErrorMessage}
       </Error>
       <Button disabled={!isValid} type="submit">
         Sign up

@@ -73,9 +73,10 @@ class MainApi {
         return response.json();
       }
       if (response.status === 400) {
-        throw new Error(
-          'One of the fields was filled in incorrectly or a user with that email already exists'
-        );
+        throw new Error('One of the fields was filled in incorrectly');
+      }
+      if (response.status === 409) {
+        throw new Error('This email is not available');
       }
     });
   }
