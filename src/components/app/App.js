@@ -13,6 +13,7 @@ import SavedHero from '../saved-hero/SavedHero';
 import Modal from '../modal/Modal';
 import SignedUp from '../signed-up/SignedUp';
 import { newsApi } from '../../utils/NewsApi';
+import { mainApi } from '../../utils/MainApi';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -34,6 +35,7 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
   // this will be replaced with a server response of "email taken"
   const [emailTaken, setEmailTaken] = useState(false);
 
@@ -85,22 +87,33 @@ function App() {
 
   function handleSignUp(e) {
     e.preventDefault();
+    const form = e.target;
     // this is a mock error thrower that will be replaced
     // when the backend returns a email taken error
-    if (email === 'jake@email.com') {
-      setEmailTaken(true);
-      return;
-    }
-    if (e.target.checkValidity()) {
-      // if form is valid, do something
-      switchModals('signedup');
-      setEmail('');
-      setUserName('');
-      setPassword('');
-    } else {
-      // if form is valid, do nothing
-      console.log('Invalid sign up');
-    }
+    // if (email === 'jake@email.com') {
+    //   setEmailTaken(true);
+    //   return;
+    // }
+    form.checkValidity() &&
+      mainApi
+        .register(email, password, userName)
+        .then((response) => {
+          console.log(response);
+          switchModals('signedup');
+          setEmail('');
+          setUserName('');
+          setPassword('');
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    // if (form.checkValidity()) {
+    // if form is valid, do something
+
+    // } else {
+    // if form is invalid, do nothing
+    // console.log('Invalid sign up');
+    // }
   }
 
   function submitSearch() {
