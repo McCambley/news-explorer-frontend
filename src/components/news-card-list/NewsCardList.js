@@ -4,7 +4,7 @@ import MainCardTop from '../main-card-top/MainCardTop';
 import { CardList } from '../shared/styledCardList';
 import { Container, Heading, ShowMore } from './styledNewsCardList';
 
-export default function NewsCardList({ searchResults, loggedIn }) {
+export default function NewsCardList({ searchResults, loggedIn, keyword }) {
   const [isShown, setIsShown] = React.useState(true);
   const [displayAmount, setDisplayAmount] = React.useState(3);
 
@@ -25,7 +25,7 @@ export default function NewsCardList({ searchResults, loggedIn }) {
         {searchResults.slice(0, displayAmount).map((article, index) => {
           return (
             <NewsCard key={index} article={article}>
-              <MainCardTop loggedIn={loggedIn} article={article} />
+              <MainCardTop loggedIn={loggedIn} keyword={keyword} article={article} />
             </NewsCard>
           );
         })}

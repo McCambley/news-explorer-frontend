@@ -23,14 +23,14 @@ class MainApi {
     }).then((res) => this._checkResponse(res));
   }
   // POST /articles saveArticle
-  saveArticle({ title, description, publishedAt, source, url, urlToImage }) {
+  saveArticle(keyword, title, text, date, source, link, image) {
     return fetch(`${this._baseUrl}/articles`, {
       method: 'POST',
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ title, description, publishedAt, source, url, urlToImage }),
+      body: JSON.stringify({ keyword, title, text, date, source, link, image }),
     }).then((res) => this._checkResponse(res));
   }
 

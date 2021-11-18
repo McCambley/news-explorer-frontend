@@ -14,6 +14,7 @@ import Modal from '../modal/Modal';
 import SignedUp from '../signed-up/SignedUp';
 import { newsApi } from '../../utils/NewsApi';
 import { mainApi } from '../../utils/MainApi';
+import { UserContext } from '../../contexts/UserContext';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -23,6 +24,7 @@ function App() {
   const [isNothing, setIsNothing] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState('');
+  const [keyword, setKeyword] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
 
@@ -35,10 +37,25 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
-  // const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({ name: 'TestTestTestTest' });
   const [signUpErrorMessage, setSignUpErrorMessage] = useState(null);
   // this will be replaced with a server response of "email taken"
 
+  // get current user information
+  useEffect(() => {
+    loggedIn &&
+      mainApi
+        .getUserInfo()
+        .then((response) => {
+          console.log(response.data);
+          setCurrentUser(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+  }, [loggedIn]);
+
+  // reset auth form states
   useEffect(() => {
     setEmail('');
     setPassword('');
@@ -121,7 +138,8 @@ function App() {
   function submitSearch() {
     // update loading ux
     setSearchResults([]);
-    setSearchTerm('');
+    setKeyword(searchTerm);
+    // setSearchTerm('');
     setIsLoading(true);
     setIsNothing(false);
     // search for news
@@ -142,7 +160,7 @@ function App() {
   }
 
   return (
-    <>
+    <UserContext.Provider value={currentUser}>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setShowSignIn={setShowSignIn} />
       <Switch>
         <Route path="/saved-news">
@@ -156,6 +174,7 @@ function App() {
             searchResults={searchResults}
             isNothing={isNothing}
             loggedIn={loggedIn}
+            keyword={keyword}
           />
           <About />
         </Route>
@@ -185,7 +204,7 @@ function App() {
           handleLogin={handleLogin}
         />
       </Modal>
-    </>
+    </UserContext.Provider>
   );
 }
 
