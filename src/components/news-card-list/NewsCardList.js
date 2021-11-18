@@ -6,7 +6,8 @@ import { Container, Heading, ShowMore } from './styledNewsCardList';
 
 export default function NewsCardList({ searchResults, loggedIn, keyword }) {
   const [isShown, setIsShown] = React.useState(true);
-  const [displayAmount, setDisplayAmount] = React.useState(3);
+  // initial display amount (6) will look good on a grid with 3, 2, or 1 columns
+  const [displayAmount, setDisplayAmount] = React.useState(6);
 
   React.useEffect(() => {
     if (displayAmount >= searchResults.length) {
@@ -15,7 +16,7 @@ export default function NewsCardList({ searchResults, loggedIn, keyword }) {
   }, [displayAmount, searchResults]);
 
   function handleShowMore() {
-    setDisplayAmount(displayAmount + 3);
+    setDisplayAmount(displayAmount + 6);
   }
 
   return (

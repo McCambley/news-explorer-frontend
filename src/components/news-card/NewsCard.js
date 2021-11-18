@@ -9,15 +9,27 @@ import {
   Text,
   Source,
 } from './styledNewsCard';
+// import { newsImages } from '../../utils/savedArticles';
+// import notFound from '../../images/not-found.jpeg';
+import notFound from '../../images/placeholder-logo.png';
 
 export default function NewsCard({ children, article }) {
   const { title, description, shortText, publishedAt, source, url, urlToImage } = article;
   const [date, setDate] = React.useState('');
   const [adjustedTitle, setAdjustedTitle] = React.useState('');
   const [adjustedDescription, setAdjustedDescription] = React.useState('');
+  // const [imagePlaceholder, setImagePlaceholder] = React.useState('');
 
-  const placeholderUrl =
-    'https://images.unsplash.com/photo-1623039405147-547794f92e9e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=826&q=80';
+  // const notFound = 'https://source.unsplash.com/random';
+  // const notFound = 'https://picsum.photos/600';
+  // const notFound = 'https://bit.ly/3HuXlZ3';
+
+  // React.useEffect(() => {
+  //   // this is such a complicated way of setting a
+  //   // default image from an array of images
+  //   setImagePlaceholder(newsImages[Math.floor(Math.random() * newsImages.length)]);
+  // }, []);
+
   // Yikes
   function convertDate(oldDate) {
     const newDate = new Date(oldDate).toString().split(' ').slice(1, 4);
@@ -84,7 +96,7 @@ export default function NewsCard({ children, article }) {
   }, []);
   return (
     <Card>
-      <Image image={urlToImage || placeholderUrl}>{children}</Image>
+      <Image image={urlToImage || notFound}>{children}</Image>
       <CardLink href={url} rel="noreferrer" target="_blank">
         <TextInfo>
           <PublishDate>{date}</PublishDate>
