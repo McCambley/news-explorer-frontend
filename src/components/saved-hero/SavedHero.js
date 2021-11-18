@@ -5,6 +5,10 @@ export default function SavedHero({ savedArticles }) {
   // updated with GET request later
   const [keywordList, setKeywordList] = useState('Nature, Yellowstone, and 2 others');
 
+  // React.useEffect(() => {
+  //   updateKeywords();
+  // });
+
   return (
     <Section>
       <Title>Saved Articles</Title>

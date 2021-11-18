@@ -27,11 +27,11 @@ export default function MainCardTop({
   // const notFound = newsImages[Math.floor(Math.random() * newsImages.length)];
 
   React.useEffect(() => {
-    setIsSaved(savedArticles.some((item) => item.link == article.url));
+    setIsSaved(savedArticles.some((item) => item.link === article.url));
     // TODO
     // Check if savedArticles array contains article.url. If it does, set isSaved to true.
     // On click, get saved articles and update saved articles
-  }, []);
+  }, [article.url, savedArticles]);
 
   function handleSaveClick() {
     // cancel save is user is not logged in

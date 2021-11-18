@@ -56,6 +56,7 @@ function App() {
         setCurrentUser({});
         setLoggedIn(false);
         setSavedArticles([]);
+        setSearchResults([]);
       });
   }, [loggedIn]);
 
