@@ -3,7 +3,14 @@ import NewsCard from '../news-card/NewsCard';
 import { CardList } from '../shared/styledCardList';
 import { Container, Heading, ShowMore } from './styledNewsCardList';
 
-export default function NewsCardList({ searchResults, loggedIn, keyword, switchModals }) {
+export default function NewsCardList({
+  searchResults,
+  loggedIn,
+  keyword,
+  switchModals,
+  savedArticles,
+  getSavedArticles,
+}) {
   const [isShown, setIsShown] = React.useState(true);
   // initial display amount (6) will look good on a grid with 3, 2, or 1 columns
   const [displayAmount, setDisplayAmount] = React.useState(6);
@@ -32,6 +39,8 @@ export default function NewsCardList({ searchResults, loggedIn, keyword, switchM
               loggedIn={loggedIn}
               keyword={keyword}
               switchModals={switchModals}
+              savedArticles={savedArticles}
+              getSavedArticles={getSavedArticles}
             />
           );
         })}

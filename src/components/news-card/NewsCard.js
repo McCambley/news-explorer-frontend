@@ -13,7 +13,15 @@ import {
 import notFound from '../../images/placeholder-logo.png';
 import { convertDate } from '../../utils/functions';
 
-export default function NewsCard({ children, article, loggedIn, keyword, switchModals }) {
+export default function NewsCard({
+  children,
+  article,
+  loggedIn,
+  keyword,
+  switchModals,
+  savedArticles,
+  getSavedArticles,
+}) {
   const { title, description, shortText, publishedAt, source, url, urlToImage } = article;
   const [date, setDate] = React.useState('');
   const [adjustedTitle, setAdjustedTitle] = React.useState('');
@@ -41,6 +49,8 @@ export default function NewsCard({ children, article, loggedIn, keyword, switchM
           keyword={keyword}
           article={article}
           switchModals={switchModals}
+          savedArticles={savedArticles}
+          getSavedArticles={getSavedArticles}
         />
       </Image>
       <CardLink href={url} rel="noreferrer" target="_blank">

@@ -206,6 +206,8 @@ function App() {
             loggedIn={loggedIn}
             keyword={keyword}
             switchModals={switchModals}
+            savedArticles={savedArticles}
+            getSavedArticles={getSavedArticles}
           />
           <About />
         </Route>

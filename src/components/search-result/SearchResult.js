@@ -19,6 +19,8 @@ export default function SearchResult({
   loggedIn,
   keyword,
   switchModals,
+  savedArticles,
+  getSavedArticles = { getSavedArticles },
 }) {
   return (
     <Section>
@@ -37,6 +39,8 @@ export default function SearchResult({
             loggedIn={loggedIn}
             keyword={keyword}
             switchModals={switchModals}
+            savedArticles={savedArticles}
+            getSavedArticles={getSavedArticles}
           />
         )}
         {/* nothing found */}
