@@ -9,6 +9,12 @@ export default function MainCardTop({ article, loggedIn, keyword }) {
   const [isSaved, setIsSaved] = useState(false);
   const [articleId, setArticleId] = useState(null);
 
+  React.useEffect(() => {
+    // TODO
+    // Check if savedArticles array contains article.url. If it does, set isSaved to true.
+    // On click, get saved articles and update saved articles
+  }, []);
+
   function handleSaveClick() {
     const { title, description, publishedAt, source, url, urlToImage } = article;
     if (!isSaved) {

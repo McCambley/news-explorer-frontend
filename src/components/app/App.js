@@ -38,7 +38,7 @@ function App() {
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
   const [currentUser, setCurrentUser] = useState({ name: 'TestTestTestTest' });
-  const [signUpErrorMessage, setSignUpErrorMessage] = useState(null);
+  const [authErrorMessage, setAuthErrorMessage] = useState(null);
   // this will be replaced with a server response of "email taken"
 
   // get current user information
@@ -49,6 +49,7 @@ function App() {
         .then((response) => {
           console.log(response.data);
           setCurrentUser(response.data);
+          // TODO get saved artcles
         })
         .catch((error) => {
           console.error(error);
@@ -60,7 +61,7 @@ function App() {
     setEmail('');
     setPassword('');
     setUserName('');
-    setSignUpErrorMessage(null);
+    setAuthErrorMessage(null);
   }, [showSignIn, showSignUp, showSignedUp]);
 
   // modal handlers
@@ -108,6 +109,12 @@ function App() {
         })
         .catch((error) => {
           console.log('Invalid sign in');
+          // show error message 'This email is not available' on 409 response
+          setAuthErrorMessage(error.message);
+          // display for 3 seconds
+          setTimeout(() => {
+            setAuthErrorMessage(null);
+          }, 3000);
         });
   }
 
@@ -126,10 +133,10 @@ function App() {
         })
         .catch((error) => {
           // show error message 'This email is not available' on 409 response
-          setSignUpErrorMessage(error.message);
+          setAuthErrorMessage(error.message);
           // display for 3 seconds
           setTimeout(() => {
-            setSignUpErrorMessage(null);
+            setAuthErrorMessage(null);
           }, 3000);
           // TODO refactor to display transitioning error message
         });
@@ -192,7 +199,7 @@ function App() {
           setUserName={setUserName}
           switchModals={switchModals}
           handleSignUp={handleSignUp}
-          signUpErrorMessage={signUpErrorMessage}
+          authErrorMessage={authErrorMessage}
         />
         <SignIn
           show={showSignIn}
@@ -202,6 +209,7 @@ function App() {
           setPassword={setPassword}
           switchModals={switchModals}
           handleLogin={handleLogin}
+          authErrorMessage={authErrorMessage}
         />
       </Modal>
     </UserContext.Provider>

@@ -19,6 +19,7 @@ export default function SignIn({
   switchModals,
   handleLogin,
   show,
+  authErrorMessage,
 }) {
   const [formErrors, setFormErrors] = useState({ email: '', password: '' });
   const [isValid, setIsValid] = useState(false);
@@ -90,7 +91,10 @@ export default function SignIn({
         onChange={handleChange}
         onBlur={updateFormErrors}
       />
-      <Error bottom="12px">{formErrors.password}</Error>
+      <Error bottom="2px">{formErrors.password}</Error>
+      <Error bottom="8px" align="center">
+        {authErrorMessage}
+      </Error>
       <Button disabled={!isValid} type="submit">
         Sign in
       </Button>

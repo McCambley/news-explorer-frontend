@@ -101,7 +101,8 @@ class MainApi {
           throw new Error('One or more of the fields were not provided');
         }
         if (response.status === 401) {
-          throw new Error('The user with the specified email not found ');
+          // throw new Error('The user with the specified email not found ');
+          throw new Error('Incorrect email or password');
         }
       })
       .then((res) => {
