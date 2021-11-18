@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import trash from '../../images/trash.svg';
 import {
   Container,
@@ -15,7 +15,9 @@ export default function SavedCardTop({ article }) {
   return (
     <Container>
       <Keyword shown={isShown} type="button">
-        {article.keyword}
+        {article.keyword.split(' ').length > 2
+          ? `${article.keyword.split(' ').slice(0, 2).join(' ')}...`
+          : `${article.keyword}`}
       </Keyword>
       <DeleteContainer onMouseLeave={() => setIsShown(false)}>
         <DeleteTooltip shown={isShown} type="button">

@@ -24,6 +24,7 @@ export const Button = styled.button`
 `;
 
 export const Keyword = styled(Button)`
+  text-transform: capitalize;
   margin: 0;
   padding: 8px 22px;
   font-family: 'Roboto', sans-serif;
@@ -32,6 +33,7 @@ export const Keyword = styled(Button)`
   line-height: 24px;
   opacity: ${(props) => (props.shown ? '0' : '1')};
   transition: opacity 0.3s ease;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     padding: 8px 20px;
