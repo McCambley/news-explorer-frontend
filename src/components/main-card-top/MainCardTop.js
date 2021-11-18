@@ -48,7 +48,8 @@ export default function MainCardTop({ article, loggedIn, keyword }) {
         </SignIn>
       )}
       <SaveButton onClick={handleSaveClick} onMouseEnter={() => setIsShown(true)}>
-        <SaveIcon src={isSaved ? bookmarkBlue : bookmark} alt="bookmark" />
+        {/* I just added $isSaved as a prop below */}
+        <SaveIcon $isSaved={isSaved} src={isSaved ? bookmarkBlue : bookmark} alt="bookmark" />
       </SaveButton>
     </Container>
   );

@@ -31,7 +31,9 @@ export const SignIn = styled(Button)`
 `;
 export const SaveIcon = styled.img`
   width: 24px;
-  opacity: 0.7;
+  /* opacity: 0.7; this is what it was before */
+  opacity: ${(props) => (props.$isSaved ? '1' : '0.7')};
+
   transition: 0.3s ease;
 `;
 
