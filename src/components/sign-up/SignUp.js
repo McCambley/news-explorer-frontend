@@ -20,7 +20,7 @@ export default function SignUp({
   userName,
   setUserName,
   handleSignUp,
-  signUpErrorMessage,
+  authErrorMessage,
   show,
 }) {
   const [formErrors, setFormErrors] = useState({ email: '', password: '', name: '' });
@@ -114,7 +114,7 @@ export default function SignUp({
       />
       <Error bottom="2px">{formErrors.name}</Error>
       <Error bottom="8px" align="center">
-        {signUpErrorMessage}
+        {authErrorMessage}
       </Error>
       <Button disabled={!isValid} type="submit">
         Sign up

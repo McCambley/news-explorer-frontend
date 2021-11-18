@@ -19,6 +19,8 @@ export default function NewsCardList({ searchResults, loggedIn, keyword, switchM
     setDisplayAmount(displayAmount + 6);
   }
 
+  console.log(searchResults);
+
   return (
     <Container>
       <Heading>Search Results</Heading>

@@ -17,7 +17,7 @@ import { mainApi } from '../../utils/MainApi';
 import { UserContext } from '../../contexts/UserContext';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   // this logic will change when the API is called
   const [isLoading, setIsLoading] = useState(false);
@@ -37,23 +37,26 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
-  const [currentUser, setCurrentUser] = useState({ name: 'Test' });
+  const [currentUser, setCurrentUser] = useState({});
   const [authErrorMessage, setAuthErrorMessage] = useState(null);
-  // this will be replaced with a server response of "email taken"
 
   // get current user information
   useEffect(() => {
-    loggedIn &&
-      mainApi
-        .getUserInfo()
-        .then((response) => {
-          console.log(response.data);
-          setCurrentUser(response.data);
-          // TODO get saved artcles
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    // loggedIn &&
+    mainApi
+      .getUserInfo()
+      .then((response) => {
+        console.log(response.data);
+        setCurrentUser(response.data);
+        setLoggedIn(true);
+        // TODO get saved artcles
+        getSavedArticles();
+      })
+      .catch((error) => {
+        setCurrentUser({});
+        setLoggedIn(false);
+        setSavedArticles([]);
+      });
   }, [loggedIn]);
 
   // reset auth form states
@@ -63,6 +66,8 @@ function App() {
     setUserName('');
     setAuthErrorMessage(null);
   }, [showSignIn, showSignUp, showSignedUp]);
+
+  useEffect(() => {}, []);
 
   // modal handlers
   function switchModals(role) {
@@ -170,6 +175,13 @@ function App() {
         setIsNothing(true);
         console.error(error);
       });
+  }
+
+  function getSavedArticles() {
+    mainApi
+      .getArticles()
+      .then((response) => setSavedArticles(response.data))
+      .catch((error) => console.error(error));
   }
 
   return (
