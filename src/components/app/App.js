@@ -37,7 +37,7 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
-  const [currentUser, setCurrentUser] = useState({ name: 'TestTestTestTest' });
+  const [currentUser, setCurrentUser] = useState({ name: 'Test' });
   const [authErrorMessage, setAuthErrorMessage] = useState(null);
   // this will be replaced with a server response of "email taken"
 
@@ -142,6 +142,12 @@ function App() {
         });
   }
 
+  function handleLogout() {
+    localStorage.removeItem('token');
+    setLoggedIn(false);
+    setCurrentUser({});
+  }
+
   function submitSearch() {
     // update loading ux
     setSearchResults([]);
@@ -168,7 +174,12 @@ function App() {
 
   return (
     <UserContext.Provider value={currentUser}>
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setShowSignIn={setShowSignIn} />
+      <Header
+        loggedIn={loggedIn}
+        setLoggedIn={setLoggedIn}
+        setShowSignIn={setShowSignIn}
+        handleLogout={handleLogout}
+      />
       <Switch>
         <Route path="/saved-news">
           <SavedHero savedArticles={savedArticles} />

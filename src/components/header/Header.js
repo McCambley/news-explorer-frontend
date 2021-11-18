@@ -17,14 +17,10 @@ import {
   Logout,
 } from './styledHeader';
 
-export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
+export default function Header({ loggedIn, setLoggedIn, setShowSignIn, handleLogout }) {
   const location = useLocation().pathname.substring(1);
   const [isOpen, setIsOpen] = useState(false);
   const currentUser = React.useContext(UserContext);
-
-  function handleLogout() {
-    setLoggedIn(false);
-  }
 
   function closeMenu() {
     setIsOpen(false);
