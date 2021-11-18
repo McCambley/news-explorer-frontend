@@ -1,6 +1,5 @@
 import React from 'react';
 import NewsCard from '../news-card/NewsCard';
-import MainCardTop from '../main-card-top/MainCardTop';
 import { CardList } from '../shared/styledCardList';
 import { Container, Heading, ShowMore } from './styledNewsCardList';
 
@@ -27,14 +26,13 @@ export default function NewsCardList({ searchResults, loggedIn, keyword, switchM
       <CardList>
         {searchResults.slice(0, displayAmount).map((article, index) => {
           return (
-            <NewsCard key={index} article={article}>
-              <MainCardTop
-                loggedIn={loggedIn}
-                keyword={keyword}
-                article={article}
-                switchModals={switchModals}
-              />
-            </NewsCard>
+            <NewsCard
+              key={index}
+              article={article}
+              loggedIn={loggedIn}
+              keyword={keyword}
+              switchModals={switchModals}
+            />
           );
         })}
       </CardList>
