@@ -12,7 +12,7 @@ import {
 } from '../shared/styledCard';
 import { convertDate } from '../../utils/functions';
 
-export default function SavedCard({ children, article }) {
+export default function SavedCard({ children, article, getSavedArticles }) {
   const { date, image, keyword, link, owner, source, text, title } = article;
   const [publishDate, setPublishDate] = React.useState('');
   const [adjustedTitle, setAdjustedTitle] = React.useState('');
@@ -36,7 +36,7 @@ export default function SavedCard({ children, article }) {
   return (
     <Card>
       <Image image={image}>
-        <SavedCardTop article={article} />
+        <SavedCardTop article={article} getSavedArticles={getSavedArticles} />
       </Image>
       <CardLink href={link} rel="noreferrer" target="_blank">
         <TextInfo>

@@ -195,7 +195,7 @@ function App() {
       <Switch>
         <Route path="/saved-news">
           <SavedHero savedArticles={savedArticles} />
-          <SavedCardList savedArticles={savedArticles} />
+          <SavedCardList savedArticles={savedArticles} getSavedArticles={getSavedArticles} />
         </Route>
         <Route path="/">
           <Hero submitSearch={submitSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
