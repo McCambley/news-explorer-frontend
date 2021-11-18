@@ -8,7 +8,7 @@ import { mainApi } from '../../utils/MainApi';
 // import notFound from '../../images/not-found.jpeg';
 import notFound from '../../images/placeholder-logo.png';
 
-export default function MainCardTop({ article, loggedIn, keyword }) {
+export default function MainCardTop({ article, loggedIn, keyword, switchModals }) {
   const [isShown, setIsShown] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [articleId, setArticleId] = useState(null);
@@ -25,8 +25,12 @@ export default function MainCardTop({ article, loggedIn, keyword }) {
     // On click, get saved articles and update saved articles
   }, []);
 
-  console.log(article.urlToImage || notFound);
   function handleSaveClick() {
+    // cancel save is user is not logged in
+    if (!loggedIn) {
+      return;
+    }
+    // save if user is logged in
     const { title, description, publishedAt, source, url, urlToImage } = article;
     if (!isSaved) {
       mainApi
@@ -59,14 +63,25 @@ export default function MainCardTop({ article, loggedIn, keyword }) {
     }
   }
 
+  function handleContainerClick() {
+    // show sign in if user clicks while not signed in
+    if (!loggedIn) {
+      switchModals('signin');
+    }
+  }
+
   return (
-    <Container onMouseLeave={() => setIsShown(false)}>
+    <Container onMouseLeave={() => setIsShown(false)} onClick={handleContainerClick}>
       {!loggedIn && (
         <SignIn shown={isShown} type="button">
           Sign in to save articles
         </SignIn>
       )}
-      <SaveButton onClick={handleSaveClick} onMouseEnter={() => setIsShown(true)}>
+      <SaveButton
+        $loggedIn={loggedIn}
+        onClick={handleSaveClick}
+        onMouseEnter={() => setIsShown(true)}
+      >
         {/* I just added $isSaved as a prop below */}
         <SaveIcon $isSaved={isSaved} src={isSaved ? bookmarkBlue : bookmark} alt="bookmark" />
       </SaveButton>

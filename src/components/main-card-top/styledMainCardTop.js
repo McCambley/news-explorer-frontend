@@ -18,6 +18,7 @@ export const Button = styled.button`
 `;
 export const SignIn = styled(Button)`
   opacity: ${(props) => (props.shown ? '1' : '0')};
+  visibility: ${(props) => (props.shown ? 'visible' : 'hidden')};
   padding: 12px 20px;
   color: #000000;
   font-family: 'Roboto', sans-serif;
@@ -27,14 +28,13 @@ export const SignIn = styled(Button)`
   align-items: center;
 
   line-height: 14px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease; ;
 `;
 export const SaveIcon = styled.img`
   width: 24px;
   /* opacity: 0.7; this is what it was before */
   opacity: ${(props) => (props.$isSaved ? '1' : '0.7')};
-
-  transition: 0.3s ease;
+  transition: opacity 0.3s ease;
 `;
 
 export const SaveButton = styled(Button)`

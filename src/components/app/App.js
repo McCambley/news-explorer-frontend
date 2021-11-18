@@ -182,6 +182,7 @@ function App() {
             isNothing={isNothing}
             loggedIn={loggedIn}
             keyword={keyword}
+            switchModals={switchModals}
           />
           <About />
         </Route>

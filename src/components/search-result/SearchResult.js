@@ -12,7 +12,14 @@ import {
   StatusText,
 } from './styledSearchResult';
 
-export default function SearchResult({ isLoading, searchResults, isNothing, loggedIn, keyword }) {
+export default function SearchResult({
+  isLoading,
+  searchResults,
+  isNothing,
+  loggedIn,
+  keyword,
+  switchModals,
+}) {
   return (
     <Section>
       <Content>
@@ -25,7 +32,12 @@ export default function SearchResult({ isLoading, searchResults, isNothing, logg
         )}
         {/* search results */}
         {!isLoading && !isNothing && searchResults.length > 0 && (
-          <NewsCardList searchResults={searchResults} loggedIn={loggedIn} keyword={keyword} />
+          <NewsCardList
+            searchResults={searchResults}
+            loggedIn={loggedIn}
+            keyword={keyword}
+            switchModals={switchModals}
+          />
         )}
         {/* nothing found */}
         {isNothing && (
