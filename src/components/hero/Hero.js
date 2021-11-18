@@ -12,7 +12,8 @@ export default function Hero({ submitSearch, searchTerm, setSearchTerm }) {
   }
 
   function handleChange(e) {
-    setSearchTerm(e.target.value);
+    // capitalize the first letter of the search
+    setSearchTerm(`${e.target.value.charAt(0).toUpperCase()}${e.target.value.slice(1)}`);
   }
 
   function handleSubmit(e) {

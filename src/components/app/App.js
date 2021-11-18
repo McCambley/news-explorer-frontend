@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 import SavedHero from '../saved-hero/SavedHero';
 import Modal from '../modal/Modal';
 import SignedUp from '../signed-up/SignedUp';
+import ProtectedRoute from '../protected-route/ProtectedRoute';
 import { newsApi } from '../../utils/NewsApi';
 import { mainApi } from '../../utils/MainApi';
 import { UserContext } from '../../contexts/UserContext';
@@ -194,10 +195,10 @@ function App() {
         handleLogout={handleLogout}
       />
       <Switch>
-        <Route path="/saved-news">
+        <ProtectedRoute path="/saved-news" loggedIn={loggedIn}>
           <SavedHero savedArticles={savedArticles} />
           <SavedCardList savedArticles={savedArticles} getSavedArticles={getSavedArticles} />
-        </Route>
+        </ProtectedRoute>
         <Route path="/">
           <Hero submitSearch={submitSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <SearchResult
