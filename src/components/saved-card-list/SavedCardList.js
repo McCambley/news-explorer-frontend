@@ -4,16 +4,16 @@ import { CardList } from '../shared/styledCardList';
 import SavedCard from '../saved-card/SavedCard';
 import { Section, Container } from './styledSavedCardList';
 
-export default function SavedCardList({ savedArticles, getSavedArticles }) {
-  React.useEffect(() => {
-    console.log('getting saved articles');
-    getSavedArticles();
-  }, []);
+export default function SavedCardList({ savedArticlesSorted, getSavedArticles }) {
+  // React.useEffect(() => {
+  //   console.log('getting saved articles');
+  //   getSavedArticles();
+  // }, []);
   return (
     <Section>
       <Container>
         <CardList>
-          {savedArticles.map((article, index) => {
+          {savedArticlesSorted.map((article, index) => {
             return <SavedCard key={index} article={article} getSavedArticles={getSavedArticles} />;
           })}
         </CardList>

@@ -2,31 +2,17 @@ import { useState, useEffect, useContext } from 'react';
 import { Section, Title, Greeting, Keywords, List } from './styledSavedHero';
 import { UserContext } from '../../contexts/UserContext';
 
-export default function SavedHero({ savedArticles }) {
+export default function SavedHero({ savedArticles, keywordCounter }) {
   const [subtitle, setSubtitle] = useState('');
-  const [keywordCounter, setKeywordCounter] = useState({});
   const currentUser = useContext(UserContext);
 
   useEffect(() => {
-    updateKeywordCount();
     updateSubtitle();
   }, [savedArticles]);
 
   useEffect(() => {
     updateSubtitle();
   }, [keywordCounter, savedArticles]);
-
-  function updateKeywordCount() {
-    let keywords = {};
-    savedArticles.forEach((item) => {
-      if (keywords[item.keyword]) {
-        keywords[item.keyword]++;
-      } else {
-        keywords[item.keyword] = 1;
-      }
-    });
-    setKeywordCounter(keywords);
-  }
 
   function updateSubtitle() {
     let message = '';

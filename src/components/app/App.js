@@ -28,6 +28,8 @@ function App() {
   const [keyword, setKeyword] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [savedArticlesSorted, setSavedArticlesSorted] = useState([]);
+  const [keywordCounter, setKeywordCounter] = useState({});
 
   // modal states
   const [showSignIn, setShowSignIn] = useState(false);
@@ -69,7 +71,13 @@ function App() {
     setAuthErrorMessage(null);
   }, [showSignIn, showSignUp, showSignedUp]);
 
-  useEffect(() => {}, []);
+  // When saved articles updates
+  useEffect(() => {
+    // talley the occurence of each keyword
+    setKeywordCounter(tallySavedKeywords());
+    // sort the articles by keyword prevalence
+    setSavedArticlesSorted(sortSavedArticles());
+  }, [savedArticles]);
 
   // modal handlers
   function switchModals(role) {
@@ -186,6 +194,28 @@ function App() {
       .catch((error) => console.error(error));
   }
 
+  function tallySavedKeywords() {
+    let keywords = {};
+    savedArticles.forEach((item) => {
+      if (keywords[item.keyword]) {
+        keywords[item.keyword]++;
+      } else {
+        keywords[item.keyword] = 1;
+      }
+    });
+    return keywords;
+  }
+
+  function sortSavedArticles() {
+    const keywordCounter = tallySavedKeywords();
+    return savedArticles
+      .slice()
+      .sort((a, b) => {
+        return keywordCounter[a.keyword] - keywordCounter[b.keyword];
+      })
+      .reverse();
+  }
+
   return (
     <UserContext.Provider value={currentUser}>
       <Header
@@ -196,8 +226,12 @@ function App() {
       />
       <Switch>
         <ProtectedRoute path="/saved-news" loggedIn={loggedIn}>
-          <SavedHero savedArticles={savedArticles} />
-          <SavedCardList savedArticles={savedArticles} getSavedArticles={getSavedArticles} />
+          <SavedHero savedArticles={savedArticles} keywordCounter={keywordCounter} />
+          <SavedCardList
+            savedArticlesSorted={savedArticlesSorted}
+            getSavedArticles={getSavedArticles}
+            keywordCounter={keywordCounter}
+          />
         </ProtectedRoute>
         <Route path="/">
           <Hero submitSearch={submitSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
@@ -208,7 +242,7 @@ function App() {
             loggedIn={loggedIn}
             keyword={keyword}
             switchModals={switchModals}
-            savedArticles={savedArticles}
+            savedArticles={savedArticlesSorted}
             getSavedArticles={getSavedArticles}
           />
           <About />
