@@ -1,9 +1,10 @@
 class MainApi {
   constructor() {
-    this._baseUrl =
-      process.env.NODE_ENV === 'development'
-        ? 'http://localhost:5000'
-        : 'https://api.mccambley-news.students.nomoreparties.site';
+    // this._baseUrl =
+    //   process.env.NODE_ENV === 'development'
+    //     ? 'http://localhost:5000'
+    //     : 'https://api.mccambley-news.students.nomoreparties.site';
+    this._baseUrl = 'https://api.mccambley-news.students.nomoreparties.site';
   }
 
   _checkResponse(res) {
