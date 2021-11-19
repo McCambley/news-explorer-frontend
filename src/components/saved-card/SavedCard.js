@@ -12,19 +12,23 @@ import {
 } from '../shared/styledCard';
 import { convertDate } from '../../utils/functions';
 
-export default function SavedCard({ children, article, getSavedArticles }) {
-  const { date, image, keyword, link, owner, source, text, title } = article;
+export default function SavedCard({ article, getSavedArticles }) {
+  const { date, image, link, source, text, title } = article;
   const [publishDate, setPublishDate] = React.useState('');
   const [adjustedTitle, setAdjustedTitle] = React.useState('');
   const [adjustedDescription, setAdjustedDescription] = React.useState('');
 
+  // reformat article data to fit card component
   React.useEffect(() => {
+    // reformate date
     const newDate = convertDate(date);
     setPublishDate(newDate);
+    // reformat title or replace if undefined
     const titleArray = title ? title.split(' ') : ['Title', 'not', 'available'];
     setAdjustedTitle(
       titleArray.length > 6 ? `${titleArray.slice(0, 12).join(' ')}...` : `${titleArray.join(' ')}`
     );
+    // reformat description or replaced if undefined
     const descriptionArray = text ? text.split(' ') : ['Content', 'not', 'available'];
     setAdjustedDescription(
       descriptionArray.length > 30

@@ -6,14 +6,12 @@ export default function SavedHero({ savedArticles, keywordCounter }) {
   const [subtitle, setSubtitle] = useState('');
   const currentUser = useContext(UserContext);
 
-  useEffect(() => {
-    updateSubtitle();
-  }, [savedArticles]);
-
+  // reset the subtitle display
   useEffect(() => {
     updateSubtitle();
   }, [keywordCounter, savedArticles]);
 
+  // Update subtitle depending on the amount keywords saved
   function updateSubtitle() {
     let message = '';
     let keywords = Object.keys(keywordCounter);

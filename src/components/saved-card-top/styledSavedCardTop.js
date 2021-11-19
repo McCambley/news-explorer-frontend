@@ -34,6 +34,7 @@ export const Keyword = styled(Button)`
   opacity: ${(props) => (props.shown ? '0' : '1')};
   transition: opacity 0.3s ease;
   overflow: hidden;
+  cursor: auto;
 
   @media (max-width: 1024px) {
     padding: 8px 20px;

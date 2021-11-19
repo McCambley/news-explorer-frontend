@@ -1,6 +1,5 @@
 import React from 'react';
 import { CardList } from '../shared/styledCardList';
-// import NewsCard from '../news-card/NewsCard';
 import SavedCard from '../saved-card/SavedCard';
 import { Section, Container } from './styledSavedCardList';
 

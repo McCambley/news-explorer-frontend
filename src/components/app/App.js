@@ -7,7 +7,6 @@ import SavedCardList from '../saved-card-list/SavedCardList';
 import SearchResult from '../search-result/SearchResult';
 import SignIn from '../sign-in/SignIn';
 import SignUp from '../sign-up/SignUp';
-// import { articles } from '../../utils/savedArticles';
 import { useState, useEffect } from 'react';
 import SavedHero from '../saved-hero/SavedHero';
 import Modal from '../modal/Modal';
@@ -18,40 +17,36 @@ import { mainApi } from '../../utils/MainApi';
 import { UserContext } from '../../contexts/UserContext';
 
 function App() {
+  // session states
   const [loggedIn, setLoggedIn] = useState(false);
-
-  // this logic will change when the API is called
+  const [currentUser, setCurrentUser] = useState({});
+  // ux states
   const [isLoading, setIsLoading] = useState(false);
   const [isNothing, setIsNothing] = useState(false);
-
+  // articles states
   const [searchTerm, setSearchTerm] = useState('');
   const [keyword, setKeyword] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
   const [savedArticlesSorted, setSavedArticlesSorted] = useState([]);
   const [keywordCounter, setKeywordCounter] = useState({});
-
   // modal states
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignedUp, setShowSignedUp] = useState(false);
-
-  // user states
+  // auth form states
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
-  const [currentUser, setCurrentUser] = useState({});
   const [authErrorMessage, setAuthErrorMessage] = useState(null);
 
   // get current user information
   useEffect(() => {
-    // loggedIn &&
     mainApi
       .getUserInfo()
       .then((response) => {
         setCurrentUser(response.data);
         setLoggedIn(true);
-        // TODO get saved artcles
         getSavedArticles();
       })
       .catch((error) => {
@@ -72,7 +67,7 @@ function App() {
 
   // When saved articles updates
   useEffect(() => {
-    // talley the occurence of each keyword
+    // talley the occurrence of each keyword
     setKeywordCounter(tallySavedKeywords());
     // sort the articles by keyword prevalence
     setSavedArticlesSorted(sortSavedArticles());
@@ -160,10 +155,9 @@ function App() {
   }
 
   function submitSearch() {
-    // update loading ux
     setSearchResults([]);
     setKeyword(searchTerm);
-    // setSearchTerm('');
+    // update loading ux
     setIsLoading(true);
     setIsNothing(false);
     // search for news
@@ -190,6 +184,8 @@ function App() {
       .catch((error) => console.error(error));
   }
 
+  // create an object to tally the number of
+  // articles saved per keyword
   function tallySavedKeywords() {
     let keywords = {};
     savedArticles.forEach((item) => {
@@ -202,6 +198,7 @@ function App() {
     return keywords;
   }
 
+  // sort saved articles by popularity of keyword
   function sortSavedArticles() {
     const keywordCounter = tallySavedKeywords();
     return savedArticles

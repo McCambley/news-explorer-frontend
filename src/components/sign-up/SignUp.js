@@ -79,7 +79,6 @@ export default function SignUp({
         id="signupemail"
         required
         value={email}
-        // onChange={(e) => setEmail(e.target.value)}
         onChange={handleChange}
         onBlur={updateFormErrors}
       />
@@ -93,7 +92,6 @@ export default function SignUp({
         minLength="8"
         required
         value={password}
-        // onChange={(e) => setPassword(e.target.value)}
         onChange={handleChange}
         onBlur={updateFormErrors}
       />
@@ -108,7 +106,6 @@ export default function SignUp({
         id="signupname"
         required
         value={userName}
-        // onChange={(e) => setUserName(e.target.value)}
         onChange={handleChange}
         onBlur={updateFormErrors}
       />

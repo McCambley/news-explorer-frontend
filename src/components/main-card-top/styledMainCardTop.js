@@ -6,7 +6,6 @@ export const Container = styled.div`
   width: 100%;
   height: 40px;
 `;
-// TODO extend button to expand hover range
 export const Button = styled.button`
   cursor: pointer;
   padding: 8px;
@@ -32,7 +31,6 @@ export const SignIn = styled(Button)`
 `;
 export const SaveIcon = styled.img`
   width: 24px;
-  /* opacity: 0.7; this is what it was before */
   opacity: ${(props) => (props.$isSaved ? '1' : '0.7')};
   transition: opacity 0.3s ease;
 `;

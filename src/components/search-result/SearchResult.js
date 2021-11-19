@@ -1,7 +1,6 @@
 import React from 'react';
 import notFound from '../../images/not-found.svg';
 import NewsCardList from '../news-card-list/NewsCardList';
-// import { articles } from '../../utils/savedArticles';
 import {
   Section,
   Content,
@@ -20,7 +19,7 @@ export default function SearchResult({
   keyword,
   switchModals,
   savedArticles,
-  getSavedArticles = { getSavedArticles },
+  getSavedArticles,
 }) {
   return (
     <Section>

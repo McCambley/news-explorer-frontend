@@ -14,7 +14,6 @@ import notFound from '../../images/placeholder-logo.png';
 import { convertDate } from '../../utils/functions';
 
 export default function NewsCard({
-  children,
   article,
   loggedIn,
   keyword,
@@ -22,18 +21,22 @@ export default function NewsCard({
   savedArticles,
   getSavedArticles,
 }) {
-  const { title, description, shortText, publishedAt, source, url, urlToImage } = article;
+  const { title, description, publishedAt, source, url, urlToImage } = article;
   const [date, setDate] = React.useState('');
   const [adjustedTitle, setAdjustedTitle] = React.useState('');
   const [adjustedDescription, setAdjustedDescription] = React.useState('');
 
+  // reformat article data to fit within card component
   React.useEffect(() => {
+    // reformat date
     const newDate = convertDate(publishedAt);
     setDate(newDate);
+    // reformat title or replace if undefined
     const titleArray = title ? title.split(' ') : ['Title', 'not', 'available'];
     setAdjustedTitle(
       titleArray.length > 6 ? `${titleArray.slice(0, 12).join(' ')}...` : `${titleArray.join(' ')}`
     );
+    // truncate long descriptions or replace if undefined
     const descriptionArray = description ? description.split(' ') : ['Content', 'not', 'available'];
     setAdjustedDescription(
       descriptionArray.length > 30
@@ -41,6 +44,7 @@ export default function NewsCard({
         : `${descriptionArray.join(' ')}`
     );
   }, []);
+
   return (
     <Card>
       <Image image={urlToImage || notFound}>
