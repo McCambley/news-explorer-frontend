@@ -25,8 +25,6 @@ export default function NewsCardList({
     setDisplayAmount(displayAmount + 6);
   }
 
-  console.log(searchResults);
-
   return (
     <Container>
       <Heading>Search Results</Heading>

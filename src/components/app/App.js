@@ -49,7 +49,6 @@ function App() {
     mainApi
       .getUserInfo()
       .then((response) => {
-        console.log(response.data);
         setCurrentUser(response.data);
         setLoggedIn(true);
         // TODO get saved artcles
@@ -115,7 +114,6 @@ function App() {
       mainApi
         .login(email, password)
         .then((response) => {
-          console.log(response);
           closeModals();
           setLoggedIn(true);
           setEmail('');
@@ -123,7 +121,6 @@ function App() {
           setPassword('');
         })
         .catch((error) => {
-          console.log('Invalid sign in');
           // show error message 'This email is not available' on 409 response
           setAuthErrorMessage(error.message);
           // display for 3 seconds
@@ -140,7 +137,6 @@ function App() {
       mainApi
         .register(email, password, userName)
         .then((response) => {
-          console.log(response);
           switchModals('signedup');
           setEmail('');
           setUserName('');

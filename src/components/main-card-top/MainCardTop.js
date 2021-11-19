@@ -52,7 +52,6 @@ export default function MainCardTop({
           urlToImage || notFound
         )
         .then((response) => {
-          console.log(response.data._id);
           setIsSaved(true);
           getSavedArticles();
           // setArticleId(response.data._id);

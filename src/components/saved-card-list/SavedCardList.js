@@ -5,10 +5,6 @@ import SavedCard from '../saved-card/SavedCard';
 import { Section, Container } from './styledSavedCardList';
 
 export default function SavedCardList({ savedArticlesSorted, getSavedArticles }) {
-  // React.useEffect(() => {
-  //   console.log('getting saved articles');
-  //   getSavedArticles();
-  // }, []);
   return (
     <Section>
       <Container>

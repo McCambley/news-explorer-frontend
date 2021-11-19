@@ -13,12 +13,10 @@ import {
 export default function SavedCardTop({ article, getSavedArticles }) {
   const [isShown, setIsShown] = useState(false);
 
-  // console.log(article);
   function handleDeleteClick() {
     mainApi
       .removeArticle(article._id)
       .then((response) => {
-        console.log(response);
         getSavedArticles();
       })
       .catch((error) => console.error(error));
