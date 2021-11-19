@@ -12,12 +12,12 @@ export default function NewsCardList({
   getSavedArticles,
 }) {
   const [isShown, setIsShown] = React.useState(true);
-  // initial display amount (6) will look good on a grid with 3, 2, or 1 columns
-  const [displayAmount, setDisplayAmount] = React.useState(6);
+  // initial display amount (6) will look good on a grid with 3, 2, or 1 columns. TODO change back after review
+  const [displayAmount, setDisplayAmount] = React.useState(3);
 
   // expand the display of articles shown
   function handleShowMore() {
-    setDisplayAmount(displayAmount + 6);
+    setDisplayAmount(displayAmount + 3);
   }
 
   // hide show more button if there are no more articles to display
