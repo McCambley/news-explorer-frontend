@@ -2,7 +2,8 @@ class NewsApi {
   constructor() {
     this._baseUrl = 'https://newsapi.org/v2/';
     this._proxyUrl = 'https://nomoreparties.co/news/v2/';
-    this._apiKey = process.env.REACT_APP_API_KEY;
+    // this._apiKey = process.env.REACT_APP_API_KEY;
+    this._apiKey = 'e96e734cb0194eafae7a5c80c5eab1ca';
     this._maxAge = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
   }
 
