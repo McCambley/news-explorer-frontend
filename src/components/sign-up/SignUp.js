@@ -20,7 +20,7 @@ export default function SignUp({
   userName,
   setUserName,
   handleSignUp,
-  emailTaken,
+  authErrorMessage,
   show,
 }) {
   const [formErrors, setFormErrors] = useState({ email: '', password: '', name: '' });
@@ -79,7 +79,6 @@ export default function SignUp({
         id="signupemail"
         required
         value={email}
-        // onChange={(e) => setEmail(e.target.value)}
         onChange={handleChange}
         onBlur={updateFormErrors}
       />
@@ -90,9 +89,9 @@ export default function SignUp({
         type="password"
         name="password"
         id="signuppassword"
+        minLength="8"
         required
         value={password}
-        // onChange={(e) => setPassword(e.target.value)}
         onChange={handleChange}
         onBlur={updateFormErrors}
       />
@@ -107,13 +106,12 @@ export default function SignUp({
         id="signupname"
         required
         value={userName}
-        // onChange={(e) => setUserName(e.target.value)}
         onChange={handleChange}
         onBlur={updateFormErrors}
       />
       <Error bottom="2px">{formErrors.name}</Error>
       <Error bottom="8px" align="center">
-        {emailTaken && 'This email is not available'}
+        {authErrorMessage}
       </Error>
       <Button disabled={!isValid} type="submit">
         Sign up

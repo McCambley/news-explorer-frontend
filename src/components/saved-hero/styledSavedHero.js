@@ -57,4 +57,5 @@ export const Keywords = styled.h3`
 `;
 export const List = styled.span`
   font-weight: 700;
+  /* text-transform: capitalize; */
 `;

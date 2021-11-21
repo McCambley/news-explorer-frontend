@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import trash from '../../images/trash.svg';
+import { mainApi } from '../../utils/MainApi';
 import {
   Container,
   Keyword,
@@ -9,15 +10,26 @@ import {
   DeleteIcon,
 } from './styledSavedCardTop';
 
-export default function SavedCardTop({ article }) {
+export default function SavedCardTop({ article, getSavedArticles }) {
   const [isShown, setIsShown] = useState(false);
+
+  function handleDeleteClick() {
+    mainApi
+      .removeArticle(article._id)
+      .then((response) => {
+        getSavedArticles();
+      })
+      .catch((error) => console.error(error));
+  }
 
   return (
     <Container>
       <Keyword shown={isShown} type="button">
-        {article.keyword}
+        {article.keyword.split(' ').length > 2
+          ? `${article.keyword.split(' ').slice(0, 2).join(' ')}...`
+          : `${article.keyword}`}
       </Keyword>
-      <DeleteContainer onMouseLeave={() => setIsShown(false)}>
+      <DeleteContainer onMouseLeave={() => setIsShown(false)} onClick={handleDeleteClick}>
         <DeleteTooltip shown={isShown} type="button">
           Remove from saved
         </DeleteTooltip>

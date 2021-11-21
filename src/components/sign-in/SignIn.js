@@ -19,10 +19,17 @@ export default function SignIn({
   switchModals,
   handleLogin,
   show,
+  authErrorMessage,
 }) {
   const [formErrors, setFormErrors] = useState({ email: '', password: '' });
   const [isValid, setIsValid] = useState(false);
   const formRef = useRef();
+
+  React.useEffect(() => {
+    // reset form errors after login
+    // TODO refactor this logic in hook
+    setFormErrors({ email: '', password: '' });
+  }, [handleLogin]);
 
   // update button state on any change
   function checkFormValidity(e) {
@@ -78,12 +85,16 @@ export default function SignIn({
         type="password"
         name="password"
         id="signinpassword"
+        minLength="8"
         required
         value={password}
         onChange={handleChange}
         onBlur={updateFormErrors}
       />
-      <Error bottom="12px">{formErrors.password}</Error>
+      <Error bottom="2px">{formErrors.password}</Error>
+      <Error bottom="8px" align="center">
+        {authErrorMessage}
+      </Error>
       <Button disabled={!isValid} type="submit">
         Sign in
       </Button>

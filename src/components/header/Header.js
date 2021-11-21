@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { homeTheme, savedArticleTheme } from '../style/ThemeStyles';
+import { UserContext } from '../../contexts/UserContext';
+
 import {
   Overlay,
   Section,
@@ -15,13 +17,10 @@ import {
   Logout,
 } from './styledHeader';
 
-export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
+export default function Header({ loggedIn, setLoggedIn, setShowSignIn, handleLogout }) {
   const location = useLocation().pathname.substring(1);
   const [isOpen, setIsOpen] = useState(false);
-
-  function handleLogout() {
-    setLoggedIn(false);
-  }
+  const currentUser = React.useContext(UserContext);
 
   function closeMenu() {
     setIsOpen(false);
@@ -53,7 +52,7 @@ export default function Header({ loggedIn, setLoggedIn, setShowSignIn }) {
             )}
             {loggedIn && (
               <Button onClick={handleLogout}>
-                Jake
+                {currentUser.name}
                 <Logout />
               </Button>
             )}

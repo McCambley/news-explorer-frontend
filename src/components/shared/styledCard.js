@@ -1,5 +1,10 @@
 import styled from 'styled-components/macro';
 
+export const CardLink = styled.a`
+  display: block;
+  text-decoration: none;
+`;
+
 export const Card = styled.article`
   background-color: #ffffff;
   transition: box-shadow 0.3s ease;
@@ -20,7 +25,7 @@ export const Card = styled.article`
 `;
 export const Image = styled.div`
   display: flex;
-  background-image: url(${(props) => props.image});
+  background-image: url('${(props) => props.image}');
   padding: 24px;
   background-position: center;
   background-size: cover;
@@ -38,7 +43,7 @@ export const TextInfo = styled.div`
     padding: 16px;
   }
 `;
-export const Date = styled.p`
+export const PublishDate = styled.p`
   margin-bottom: 12px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;

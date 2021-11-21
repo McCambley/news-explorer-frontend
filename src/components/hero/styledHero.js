@@ -90,6 +90,11 @@ export const Input = styled.input`
   font-size: 16px;
   line-height: 22px;
   border-radius: 100px;
+
+  // handle empty input with custom placeholder color
+  &::placeholder {
+    color: ${(props) => (props.$isValid ? 'auto' : '#FF0000')};
+  }
   @media (max-width: 1024px) {
     padding: 16px 24px;
   }

@@ -3,6 +3,9 @@ import { normalize } from 'styled-normalize';
 
 const GlobalStyles = styled.createGlobalStyle`
   ${normalize};
+  /* body {
+    min-width: 320px;
+  } */
 
   * {
     box-sizing: border-box;

@@ -1,23 +1,51 @@
 import React from 'react';
 import NewsCard from '../news-card/NewsCard';
-import MainCardTop from '../main-card-top/MainCardTop';
 import { CardList } from '../shared/styledCardList';
 import { Container, Heading, ShowMore } from './styledNewsCardList';
 
-export default function NewsCardList({ searchResults, loggedIn }) {
+export default function NewsCardList({
+  searchResults,
+  loggedIn,
+  keyword,
+  switchModals,
+  savedArticles,
+  getSavedArticles,
+}) {
+  const [isShown, setIsShown] = React.useState(true);
+  // initial display amount (6) will look good on a grid with 3, 2, or 1 columns. TODO change back after review
+  const [displayAmount, setDisplayAmount] = React.useState(3);
+
+  // expand the display of articles shown
+  function handleShowMore() {
+    setDisplayAmount(displayAmount + 3);
+  }
+
+  // hide show more button if there are no more articles to display
+  React.useEffect(() => {
+    if (displayAmount >= searchResults.length) {
+      setIsShown(false);
+    }
+  }, [displayAmount, searchResults]);
+
   return (
     <Container>
       <Heading>Search Results</Heading>
       <CardList>
-        {searchResults.map((article, index) => {
+        {searchResults.slice(0, displayAmount).map((article, index) => {
           return (
-            <NewsCard key={index} article={article}>
-              <MainCardTop loggedIn={loggedIn} article={article} />
-            </NewsCard>
+            <NewsCard
+              key={index}
+              article={article}
+              loggedIn={loggedIn}
+              keyword={keyword}
+              switchModals={switchModals}
+              savedArticles={savedArticles}
+              getSavedArticles={getSavedArticles}
+            />
           );
         })}
       </CardList>
-      <ShowMore>Show more</ShowMore>
+      {isShown && <ShowMore onClick={handleShowMore}>Show more</ShowMore>}
     </Container>
   );
 }
