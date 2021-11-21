@@ -25,9 +25,6 @@ export const Content = styled.div`
   width: 100%;
   max-width: 608px;
   margin: 0 auto;
-  overflow: hidden;
-  /* max-height: 0px;
-  opacity: 0; */
   @media (max-width: 1024px) {
     max-width: 452px;
   }
