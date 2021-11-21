@@ -12,7 +12,7 @@ import {
 } from '../shared/styledCard';
 import { convertDate } from '../../utils/functions';
 
-export default function SavedCard({ article, getSavedArticles }) {
+export default function SavedCard({ article, getSavedArticles, setSearchTerm, submitSearch }) {
   const { date, image, link, source, text, title } = article;
   const [publishDate, setPublishDate] = React.useState('');
   const [adjustedTitle, setAdjustedTitle] = React.useState('');
@@ -40,7 +40,12 @@ export default function SavedCard({ article, getSavedArticles }) {
   return (
     <Card>
       <Image image={image}>
-        <SavedCardTop article={article} getSavedArticles={getSavedArticles} />
+        <SavedCardTop
+          article={article}
+          getSavedArticles={getSavedArticles}
+          setSearchTerm={setSearchTerm}
+          submitSearch={submitSearch}
+        />
       </Image>
       <CardLink href={link} rel="noreferrer" target="_blank">
         <TextInfo>

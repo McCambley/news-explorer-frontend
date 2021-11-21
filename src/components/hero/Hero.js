@@ -26,7 +26,7 @@ export default function Hero({ submitSearch, searchTerm, setSearchTerm, searched
       setIsSearchValid(false);
       return;
     }
-    submitSearch();
+    submitSearch(searchTerm);
   }
 
   return (

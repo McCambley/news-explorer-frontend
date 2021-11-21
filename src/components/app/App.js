@@ -156,15 +156,15 @@ function App() {
     setCurrentUser({});
   }
 
-  function submitSearch() {
+  function submitSearch(string) {
     setSearchResults([]);
-    setKeyword(searchTerm);
+    setKeyword(string);
     // update loading ux
     setIsLoading(true);
     setIsNothing(false);
     // search for news
     newsApi
-      .getArticles(searchTerm)
+      .getArticles(string)
       .then((articles) => {
         setSearched(true);
         setSearchTerm('');
@@ -228,6 +228,8 @@ function App() {
             savedArticlesSorted={savedArticlesSorted}
             getSavedArticles={getSavedArticles}
             keywordCounter={keywordCounter}
+            setSearchTerm={setSearchTerm}
+            submitSearch={submitSearch}
           />
         </ProtectedRoute>
         <Route path="/">

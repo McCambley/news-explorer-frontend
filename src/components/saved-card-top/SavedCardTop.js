@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import trash from '../../images/trash.svg';
 import { mainApi } from '../../utils/MainApi';
 import {
@@ -10,8 +11,9 @@ import {
   DeleteIcon,
 } from './styledSavedCardTop';
 
-export default function SavedCardTop({ article, getSavedArticles }) {
+export default function SavedCardTop({ article, getSavedArticles, setSearchTerm, submitSearch }) {
   const [isShown, setIsShown] = useState(false);
+  const history = useHistory();
 
   function handleDeleteClick() {
     mainApi
@@ -22,9 +24,15 @@ export default function SavedCardTop({ article, getSavedArticles }) {
       .catch((error) => console.error(error));
   }
 
+  function handleKeywordClick() {
+    history.push('/');
+    setSearchTerm(article.keyword);
+    submitSearch(article.keyword);
+  }
+
   return (
     <Container>
-      <Keyword shown={isShown} type="button">
+      <Keyword shown={isShown} type="button" onClick={handleKeywordClick}>
         {article.keyword.split(' ').length > 2
           ? `${article.keyword.split(' ').slice(0, 2).join(' ')}...`
           : `${article.keyword}`}
