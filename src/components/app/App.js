@@ -23,6 +23,8 @@ function App() {
   // ux states
   const [isLoading, setIsLoading] = useState(false);
   const [isNothing, setIsNothing] = useState(false);
+  const [searched, setSearched] = useState(false);
+
   // articles states
   const [searchTerm, setSearchTerm] = useState('');
   const [keyword, setKeyword] = useState('');
@@ -164,6 +166,7 @@ function App() {
     newsApi
       .getArticles(searchTerm)
       .then((articles) => {
+        setSearched(true);
         setIsLoading(false);
         setSearchResults(articles.articles);
         if (articles.articles.length < 1) {
@@ -227,7 +230,12 @@ function App() {
           />
         </ProtectedRoute>
         <Route path="/">
-          <Hero submitSearch={submitSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <Hero
+            submitSearch={submitSearch}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            searched={searched}
+          />
           <SearchResult
             isLoading={isLoading}
             searchResults={searchResults}

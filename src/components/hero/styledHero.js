@@ -25,9 +25,19 @@ export const Content = styled.div`
   width: 100%;
   max-width: 608px;
   margin: 0 auto;
+  overflow: hidden;
+  /* max-height: 0px;
+  opacity: 0; */
   @media (max-width: 1024px) {
     max-width: 452px;
   }
+`;
+
+export const TextWrapper = styled.div`
+  // test
+  max-height: ${({ $focused }) => ($focused ? '0px' : '300px')};
+  opacity: ${({ $focused }) => ($focused ? '0' : '1')};
+  transition: max-height 0.7s ease, opacity 0.7s ease;
 `;
 
 export const Title = styled.h1`
@@ -39,6 +49,7 @@ export const Title = styled.h1`
   width: 100%;
   text-align: left;
   padding-bottom: 32px;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     line-height: 40px;
@@ -53,6 +64,7 @@ export const Subtitle = styled.h2`
   color: #fff;
   width: 100%;
   padding-bottom: 88px;
+
   @media (max-width: 1024px) {
     font-size: 18px;
     line-height: 24px;
