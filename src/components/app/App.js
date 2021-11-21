@@ -23,6 +23,8 @@ function App() {
   // ux states
   const [isLoading, setIsLoading] = useState(false);
   const [isNothing, setIsNothing] = useState(false);
+  const [searched, setSearched] = useState(false);
+
   // articles states
   const [searchTerm, setSearchTerm] = useState('');
   const [keyword, setKeyword] = useState('');
@@ -154,16 +156,18 @@ function App() {
     setCurrentUser({});
   }
 
-  function submitSearch() {
+  function submitSearch(string) {
     setSearchResults([]);
-    setKeyword(searchTerm);
+    setKeyword(string);
     // update loading ux
     setIsLoading(true);
     setIsNothing(false);
     // search for news
     newsApi
-      .getArticles(searchTerm)
+      .getArticles(string)
       .then((articles) => {
+        setSearched(true);
+        setSearchTerm('');
         setIsLoading(false);
         setSearchResults(articles.articles);
         if (articles.articles.length < 1) {
@@ -224,10 +228,17 @@ function App() {
             savedArticlesSorted={savedArticlesSorted}
             getSavedArticles={getSavedArticles}
             keywordCounter={keywordCounter}
+            setSearchTerm={setSearchTerm}
+            submitSearch={submitSearch}
           />
         </ProtectedRoute>
         <Route path="/">
-          <Hero submitSearch={submitSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <Hero
+            submitSearch={submitSearch}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            searched={searched}
+          />
           <SearchResult
             isLoading={isLoading}
             searchResults={searchResults}
@@ -237,6 +248,7 @@ function App() {
             switchModals={switchModals}
             savedArticles={savedArticlesSorted}
             getSavedArticles={getSavedArticles}
+            searched={searched}
           />
           <About />
         </Route>

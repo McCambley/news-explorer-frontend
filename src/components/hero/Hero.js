@@ -1,7 +1,7 @@
 import React from 'react';
-import { Section, Content, Title, Subtitle, Form, Input, Button } from './styledHero';
+import { Section, Content, TextWrapper, Title, Subtitle, Form, Input, Button } from './styledHero';
 
-export default function Hero({ submitSearch, searchTerm, setSearchTerm }) {
+export default function Hero({ submitSearch, searchTerm, setSearchTerm, searched }) {
   const [searchPlaceholder, setSearchPlaceholder] = React.useState('Enter topic');
   const [isSearchValid, setIsSearchValid] = React.useState(true);
 
@@ -26,16 +26,18 @@ export default function Hero({ submitSearch, searchTerm, setSearchTerm }) {
       setIsSearchValid(false);
       return;
     }
-    submitSearch();
+    submitSearch(searchTerm);
   }
 
   return (
     <Section>
       <Content>
-        <Title>What's going on in the world?</Title>
-        <Subtitle>
-          Find the latest news on any topic and save them in your personal account.
-        </Subtitle>
+        <TextWrapper $focused={searched}>
+          <Title>What's going on in the world?</Title>
+          <Subtitle>
+            Find the latest news on any topic and save them in your personal account.
+          </Subtitle>
+        </TextWrapper>
         <Form onSubmit={handleSubmit} onBlur={handleBlur} noValidate>
           <Input
             onChange={handleChange}

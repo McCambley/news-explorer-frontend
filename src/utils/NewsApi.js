@@ -5,17 +5,49 @@ class NewsApi {
     // this._apiKey = process.env.REACT_APP_API_KEY;
     this._apiKey = 'e96e734cb0194eafae7a5c80c5eab1ca';
     this._maxAge = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    this._blacklist = [
+      'sputniknews.com',
+      'theamericanconservative.com',
+      'freerepublic.com',
+      'breitbart.com',
+      'independent.co.uk',
+      'nationalreview.com',
+      'washingtontimes.com',
+      'rt.com',
+      'westernjournal.com',
+      'slashdot.org',
+      'thegatewaypundit.com',
+      'pjmedia.com',
+      'mirror.co.uk',
+    ];
   }
 
   getArticles(query) {
     return fetch(
-      `${this._proxyUrl}everything?q=${query}&sortBy=publishedAt&from=${this._maxAge}&language=en&pageSize=100&apiKey=${this._apiKey}`,
+      `${this._proxyUrl}everything?qInTitle=${query}&sortBy=publishedAt&from=${
+        this._maxAge
+      }&excludeDomains=${this._blacklist.join(',')}&language=en&pageSize=100&apiKey=${
+        this._apiKey
+      }`,
       {
         //   headers: {
         //     'X-Api-Key': this._apiKey,
         //   },
       }
     ).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Search failed! Status: ${response.status}`);
+      }
+      return response.json();
+    });
+  }
+
+  getSources() {
+    return fetch(`${this._proxyUrl}top-headlines/sources?language=en&apiKey=${this._apiKey}`, {
+      //   headers: {
+      //     'X-Api-Key': this._apiKey,
+      //   },
+    }).then((response) => {
       if (!response.ok) {
         throw new Error(`Search failed! Status: ${response.status}`);
       }
