@@ -2,11 +2,18 @@ import React from 'react';
 import linkedin from '../../images/linkedin.svg';
 import github from '../../images/github.svg';
 import { Section, Copyright, Nav, TextLink, IconLink } from './styledFooter';
+import { newsApi } from '../../utils/NewsApi';
 
 export default function Footer() {
+  function handleCopyClick() {
+    newsApi
+      .getSources()
+      .then((response) => console.info(response.sources))
+      .catch((error) => console.error(error));
+  }
   return (
     <Section>
-      <Copyright>&#169; 2021 McCambley // News API //</Copyright>
+      <Copyright onClick={handleCopyClick}>&#169; 2021 McCambley // News API //</Copyright>
       <Nav>
         <TextLink area="H" href="/news-explorer-frontend/">
           Home
