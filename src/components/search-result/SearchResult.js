@@ -20,6 +20,7 @@ export default function SearchResult({
   switchModals,
   savedArticles,
   getSavedArticles,
+  searched,
 }) {
   return (
     <Section>
@@ -40,6 +41,7 @@ export default function SearchResult({
             switchModals={switchModals}
             savedArticles={savedArticles}
             getSavedArticles={getSavedArticles}
+            searched={searched}
           />
         )}
         {/* nothing found */}

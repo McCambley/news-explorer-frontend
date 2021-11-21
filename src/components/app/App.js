@@ -167,6 +167,7 @@ function App() {
       .getArticles(searchTerm)
       .then((articles) => {
         setSearched(true);
+        setSearchTerm('');
         setIsLoading(false);
         setSearchResults(articles.articles);
         if (articles.articles.length < 1) {
@@ -245,6 +246,7 @@ function App() {
             switchModals={switchModals}
             savedArticles={savedArticlesSorted}
             getSavedArticles={getSavedArticles}
+            searched={searched}
           />
           <About />
         </Route>

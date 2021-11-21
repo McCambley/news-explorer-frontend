@@ -26,6 +26,11 @@ export const Heading = styled.h2`
     margin-bottom: 58px;
   }
 `;
+export const Term = styled.span`
+  font-weight: 900;
+  color: #b6bcbf;
+`;
+
 export const ShowMore = styled.button`
   cursor: pointer;
   display: block;
