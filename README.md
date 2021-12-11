@@ -6,7 +6,7 @@
 
 <h3 align="center">This project is built with MongoDB, Express.js, React, and Node.js. The frontend and backend are connected via a REST api with CRUD capabilities. Styled-components make the frontend look good. Mongoose manages the data. The backend is deplyed with Google Cloud.</h3>
 
-![Demonstration](./src/images/demo_gif.gif)
+![Demonstration](./src/images/demo.mov)
 
 <!-- ## Overview
 
