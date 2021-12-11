@@ -1,8 +1,12 @@
-<h1 style="text-align: center; font-size: 48px"><a href="https://mccambley.github.io/news-explorer-frontend/">View this project live!</a>🎉</h1>
+<h1 align="center" ><a href="https://mccambley.github.io/news-explorer-frontend/">View this project live!</a>🎉</h1>
 
-<h2 style="text-align: center; font-size: 24px; line-height: 32px; max-width: 60%; margin: 12px auto 0;">This repository contains the frontend code for <a href="https://mccambley.github.io/news-explorer-frontend/">NewsExplorer</a>, the final project in the Practicum by Yandex curriculum.</h2>
+<h2 align="center">This repository contains the frontend code for <a href="https://mccambley.github.io/news-explorer-frontend/">NewsExplorer</a>, the final project in the Practicum by Yandex curriculum.</h2>
 
-<h3 style="text-align: center; max-width: 70%; margin: 24px auto 0; font-size: 18px; line-height: 32px; opacity: .7;">This project is built with <span style="font-weight: bold;">MongoDB</span>, <span style="font-weight: bold;">Express.js</span>, <span style="font-weight: bold;">React</span>, and <span style="font-weight: bold;">Node.js</span>. The frontend and backend are connected via a <span style="font-weight: bold;">REST api</span> with <span style="font-weight: bold;">CRUD</span> capabilities. <span style="font-weight: bold;">Styled-components</span> make the frontend look good. <span style="font-weight: bold;">Mongoose</span> manages the data. The backend is deplyed with <span style="font-weight: bold;">Google Cloud</span>.</h3>
+---
+
+<h3 align="center">This project is built with MongoDB, Express.js, React, and Node.js. The frontend and backend are connected via a REST api with CRUD capabilities. Styled-components make the frontend look good. Mongoose manages the data. The backend is deplyed with Google Cloud.</h3>
+
+![Demonstration](./src/images/demo_gif.gif)
 
 <!-- ## Overview
 
