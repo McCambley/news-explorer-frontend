@@ -2,22 +2,39 @@
 
 <h2 align="center">This repository contains the frontend code for <a href="https://mccambley.github.io/news-explorer-frontend/">NewsExplorer</a>, the final project in the Practicum by Yandex curriculum.</h2>
 
+## 📣 Overview
+
+- Search news from all over the world pertaining to a specific topic
+- Login or Register to save articles to your reading list
+- Return to your reading list on your account from any device to view saved articles sorted by keyword popularity
+
+## 🛠 Technologies
+
+- **Stack**: MongoDB, Express.js, React, and Node.js
+- **Styled-components** make the frontend look good
+- **Mongoose** manages the data
+- **Google Cloud** hosts the backend
+- **News API** provides the news
+
+## ✨ Demo
+
 ---
 
-<h3 align="center">This project is built with MongoDB, Express.js, React, and Node.js. The frontend and backend are connected via a REST api with CRUD capabilities. Styled-components make the frontend look good. Mongoose manages the data. The backend is deplyed with Google Cloud.</h3>
+### Search
 
 ![Demonstration](./src/images/demo.gif)
 
-<!-- ## Overview
+### Register
 
-### Technologies
+![Demonstration](./src/images/demo-register.png)
 
-- MERN Stack
-- Node -->
+### Saved Articles
+
+![Demonstration](./src/images/demo-saved.png)
 
 ---
 
-## Get Started
+## 🧑‍💻 Get Started
 
 **Clone**
 
@@ -40,16 +57,13 @@ $ npm run start
 
 ---
 
-## Important Links
+## 🔗 Important Links
 
-- ### Production
+- ### [Frontend Deployment](https://mccambley.github.io/news-explorer-frontend/)
+- ### [Backend API](https://api.mccambley-news.students.nomoreparties.site/)
+- ### [Backend Repository](https://github.com/McCambley/news-explorer-api)
 
-  - ### [Frontend Deployment](https://mccambley.github.io/news-explorer-frontend/)
-  - ### [Backend API](https://api.mccambley-news.students.nomoreparties.site/)
-  - ### [Backend Repository](https://github.com/McCambley/news-explorer-api)
+## 🔜 Next Steps
 
-- ### Development
-  - ### [Project Page](https://practicum.yandex.com/learn/web/courses/01d7371d-0a84-4d7d-97a3-84c9a2601943/sprints/4271/topics/4324609a-2c59-4537-b130-6c3d0ccf68ff/lessons/94561dfe-d108-41ec-896a-b5124fb563d0/)
-  - ### [Checklist](https://code.s3.yandex.net/web-developer/static/web-diploma-criteria-en/index.html#)
-  - ### [Trello](https://trello.com/b/xUrDxii4/final-project)
-  - ### [Figma](https://www.figma.com/file/z1bxDn7eBEDlsDhnZ9dtin/Your-Final-Project?node-id=0%3A1)
+- Allow for custom sorting of saved articles
+- Implement custom filtration of specific news outlets as determined by the user
