@@ -60,7 +60,7 @@ $ npm run start
 ## 🔗 Important Links
 
 - ### [Frontend Deployment](https://mccambley.github.io/news-explorer-frontend/)
-- ### [Backend API](https://api.mccambley-news.students.nomoreparties.site/)
+- ### [Backend API](https://api.mccambley-news.students.nomoreparties.sbs/)
 - ### [Backend Repository](https://github.com/McCambley/news-explorer-api)
 
 ## 🔜 Next Steps
