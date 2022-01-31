@@ -1,6 +1,7 @@
 <h1 align="center" ><a href="https://mccambley.github.io/news-explorer-frontend/">View this project live!</a>🎉</h1>
 
-<h2 align="center">This repository contains the frontend code for <a href="https://mccambley.github.io/news-explorer-frontend/">NewsExplorer</a>, the final project in the Practicum by Yandex curriculum.</h2>
+<h2 align="center">This repository contains the frontend code for <a href="https://mccambley.github.io/news-explorer-frontend/">NewsExplorer</a>, the final project in the Practicum by Yandex curriculum. Check out a demonstration of this project <a target="_blank" href="https://youtu.be/q7IdngTegY8">here</a>.</h2>
+
 
 ## 📣 Overview
 
@@ -16,9 +17,7 @@
 - **Google Cloud** hosts the backend
 - **News API** provides the news
 
-## ✨ Demo
-
----
+## ✨ Screenshots - [Live Demo](https://youtu.be/q7IdngTegY8)
 
 ### Search
 
