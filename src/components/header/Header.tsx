@@ -17,7 +17,14 @@ import {
   Logout,
 } from './styledHeader';
 
-export default function Header({ loggedIn, setLoggedIn, setShowSignIn, handleLogout }) {
+type Props = {
+  loggedIn: boolean,
+  // setLoggedIn: (loggedIn: boolean) => void,
+  setShowSignIn: (showSignIn: boolean) => void,
+  handleLogout: () => void,
+}
+
+export default function Header({ loggedIn, setShowSignIn, handleLogout }: Props) {
   const location = useLocation().pathname.substring(1);
   const [isOpen, setIsOpen] = useState(false);
   const currentUser = React.useContext(UserContext);
@@ -46,12 +53,12 @@ export default function Header({ loggedIn, setLoggedIn, setShowSignIn, handleLog
               </NavLink>
             )}
             {!loggedIn && (
-              <Button type="button" wide onClick={() => setShowSignIn(true)}>
+              <Button type="button" wide={true} onClick={() => setShowSignIn(true)}>
                 Sign in
               </Button>
             )}
             {loggedIn && (
-              <Button onClick={handleLogout}>
+              <Button wide={false} onClick={handleLogout}>
                 {currentUser.name}
                 <Logout />
               </Button>

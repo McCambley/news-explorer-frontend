@@ -3,8 +3,18 @@ import { Link } from 'react-router-dom';
 import close from '../../images/close.svg';
 import logout from '../../images/logout-light.svg';
 
+interface OpenProp {
+  $isOpen: boolean;
+}
+interface ActiveProp {
+  $active: boolean;
+}
+interface WideProp {
+  wide: boolean;
+}
+
 // overlay only to appear on mobile screens
-export const Overlay = styled.div`
+export const Overlay = styled.div<OpenProp>`
   display: none;
   position: fixed;
   top: 0;
@@ -16,16 +26,16 @@ export const Overlay = styled.div`
   @media (max-width: 580px) {
     display: block;
     background-color: #000000;
-    visibility: ${(props) => (props.$isOpen ? 'visible' : 'hidden')};
-    opacity: ${(props) => (props.$isOpen ? '.5' : '0')};
+    visibility: ${(OpenProp) => (OpenProp.$isOpen ? 'visible' : 'hidden')};
+    opacity: ${(OpenProp) => (OpenProp.$isOpen ? '.5' : '0')};
     transition: visibility 0.3s ease, opacity 0.3s ease;
   }
 `;
 
-export const Section = styled.header`
-  position: ${(props) => props.theme.position};
-  background: ${(props) => props.theme.background};
-  box-shadow: ${(props) => props.theme.shadow};
+export const Section = styled.header<OpenProp>`
+  position: ${(OpenProp) => OpenProp.theme.position};
+  background: ${(OpenProp) => OpenProp.theme.background};
+  box-shadow: ${(OpenProp) => OpenProp.theme.shadow};
   width: 100%;
   z-index: 5;
 
@@ -35,7 +45,7 @@ export const Section = styled.header`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<OpenProp>`
   padding: 0 104px;
   margin: 0 auto;
   max-width: 1440px;
@@ -49,14 +59,14 @@ export const Container = styled.div`
   @media (max-width: 580px) {
     flex-direction: column;
     padding: 0;
-    background: ${(props) => (props.$isOpen ? '#1A1B22' : props.theme.background)};
+    background: ${(OpenProp) => (OpenProp.$isOpen ? '#1A1B22' : OpenProp.theme.background)};
     transition: background-color 0.3s ease, border-radius 0.3s ease;
-    border-bottom-left-radius: ${(props) => (props.$isOpen ? '38px' : '0')};
-    border-bottom-right-radius: ${(props) => (props.$isOpen ? '38px' : '0')};
+    border-bottom-left-radius: ${(OpenProp) => (OpenProp.$isOpen ? '38px' : '0')};
+    border-bottom-right-radius: ${(OpenProp) => (OpenProp.$isOpen ? '38px' : '0')};
   }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<OpenProp>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,32 +74,32 @@ export const Wrapper = styled.div`
     width: 100%;
     padding: 16px;
     transition: box-shadow 0.3s ease;
-    box-shadow: ${(props) =>
-      props.$isOpen ? 'inset 0px -1px 0px rgba(255, 255, 255, 0.2)' : 'inset 0px -1px 0px #D1D2D6'};
+    box-shadow: ${(OpenProp) =>
+      OpenProp.$isOpen ? 'inset 0px -1px 0px rgba(255, 255, 255, 0.2)' : 'inset 0px -1px 0px #D1D2D6'};
   }
 `;
 
-export const Logo = styled(Link)`
+export const Logo = styled(Link)<OpenProp>`
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   text-decoration: none;
-  color: ${(props) => props.theme.primary};
+  color: ${(OpenProp) => OpenProp.theme.primary};
   transition: color 0.15s ease;
 
   &:hover {
-    color: ${(props) => props.theme.secondary};
+    color: ${(OpenProp) => OpenProp.theme.secondary};
   }
 
   @media (max-width: 580px) {
     font-size: 16px;
     line-height: 24px;
-    color: ${(props) => (props.$isOpen ? '#fff' : 'props.theme.primary')};
+    color: ${(OpenProp) => (OpenProp.$isOpen ? '#fff' : 'OpenProp.theme.primary')};
   }
 `;
 
-export const MenuToggle = styled.button`
+export const MenuToggle = styled.button<OpenProp>`
   background-image: url(${({ theme, $isOpen }) => ($isOpen ? close : theme.hamburger)});
   background-size: contain;
   background-position: center;
@@ -106,30 +116,30 @@ export const MenuToggle = styled.button`
   }
 `;
 
-export const Nav = styled.nav`
+export const Nav = styled.nav<OpenProp>`
   display: flex;
   align-items: center;
 
   @media (max-width: 580px) {
-    max-height: ${(props) => (props.$isOpen ? '250px' : '0')};
-    opacity: ${(props) => (props.$isOpen ? '1' : '0')};
+    max-height: ${(OpenProp) => (OpenProp.$isOpen ? '250px' : '0')};
+    opacity: ${(OpenProp) => (OpenProp.$isOpen ? '1' : '0')};
     overflow: hidden;
     transition: max-height 0.3s ease, opacity 0.15s ease, padding 0.3s ease;
     width: 100%;
-    padding: ${(props) => (props.$isOpen ? '16px 16px 16px' : '0')};
+    padding: ${(OpenProp) => (OpenProp.$isOpen ? '16px 16px 16px' : '0')};
     display: grid;
     grid-template-columns: 1fr;
   }
 `;
 
-export const NavLink = styled(Link)`
-  border-bottom: ${(props) => (props.$active ? `3px solid ${props.theme.primary}` : 'none')};
+export const NavLink = styled(Link)<ActiveProp>`
+  border-bottom: ${(OpenProp) => (OpenProp.$active ? `3px solid ${OpenProp.theme.primary}` : 'none')};
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   text-decoration: none;
-  color: ${(props) => (props.$active ? props.theme.primary : props.theme.secondary)};
+  color: ${(OpenProp) => (OpenProp.$active ? OpenProp.theme.primary : OpenProp.theme.secondary)};
   padding: 0px 10px;
   height: 100%;
   display: flex;
@@ -141,7 +151,7 @@ export const NavLink = styled(Link)`
   transition: color 0.15s ease;
 
   &:hover {
-    color: ${(props) => props.theme.primary};
+    color: ${(OpenProp) => OpenProp.theme.primary};
   }
   @media (max-width: 1024px) {
     font-size: 16px;
@@ -163,14 +173,14 @@ export const NavLink = styled(Link)`
     }
   }
 `;
-export const Button = styled.button`
+export const Button = styled.button<WideProp>`
   background-color: transparent;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  border: 1px solid ${(props) => props.theme.tertiary};
-  color: ${(props) => props.theme.primary};
+  border: 1px solid ${(OpenProp) => OpenProp.theme.tertiary};
+  color: ${(OpenProp) => OpenProp.theme.primary};
   border-radius: 100px;
   padding: 12px 16px;
   display: flex;
@@ -178,15 +188,15 @@ export const Button = styled.button`
   justify-content: center;
   cursor: pointer;
   transition: border 0.15s ease;
-  min-width: ${(props) => (props.wide ? '176px' : '0')};
+  min-width: ${(OpenProp) => (OpenProp.wide ? '176px' : '0')};
 
   &:hover {
-    border: 1px solid ${(props) => props.theme.primary};
+    border: 1px solid ${(OpenProp) => OpenProp.theme.primary};
   }
   @media (max-width: 1024px) {
     font-size: 16px;
     padding: 8px 12px;
-    min-width: ${(props) => (props.wide ? '152px' : '0')};
+    min-width: ${(OpenProp) => (OpenProp.wide ? '152px' : '0')};
   }
 
   @media (max-width: 580px) {
@@ -200,7 +210,7 @@ export const Logout = styled.div`
   width: 24px;
   height: 24px;
   margin-left: 16px;
-  background-image: url(${(props) => props.theme.logout});
+  background-image: url(${(OpenProp) => OpenProp.theme.logout});
   background-size: cover;
   background-position: center;
 

@@ -19,7 +19,7 @@ import { UserContext } from '../../contexts/UserContext';
 function App() {
   // session states
   const [loggedIn, setLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState<{name: string | null}>({name: null});
   // ux states
   const [isLoading, setIsLoading] = useState(false);
   const [isNothing, setIsNothing] = useState(false);
@@ -52,7 +52,7 @@ function App() {
         getSavedArticles();
       })
       .catch((error) => {
-        setCurrentUser({});
+        setCurrentUser({name: null});
         setLoggedIn(false);
         setSavedArticles([]);
         setSearchResults([]);
@@ -217,7 +217,7 @@ function App() {
     <UserContext.Provider value={currentUser}>
       <Header
         loggedIn={loggedIn}
-        setLoggedIn={setLoggedIn}
+        // setLoggedIn={setLoggedIn}
         setShowSignIn={setShowSignIn}
         handleLogout={handleLogout}
       />
