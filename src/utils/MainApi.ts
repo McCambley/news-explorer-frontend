@@ -18,7 +18,7 @@ class MainApi {
 
   // ARTICLE METHODS
   // GET /articles getArticles
-  getArticles() {
+  getArticles(): Promise<Object> {
     return fetch(`${this._baseUrl}/articles`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -34,7 +34,7 @@ class MainApi {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ keyword, title, text, date, source, link, image }),
-    }).then((res) => this._checkResponse(res));
+    }).then((res: Response): Object => this._checkResponse(res));
   }
 
   // DELETE /articles/:articleId removeArticle
@@ -45,7 +45,7 @@ class MainApi {
         authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
       },
-    }).then((res) => this._checkResponse(res));
+    }).then((res: Response): Object => this._checkResponse(res));
   }
 
   // USER METHODS
@@ -55,7 +55,7 @@ class MainApi {
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
-    }).then((res) => this._checkResponse(res));
+    }).then((res: Response): Object => this._checkResponse(res));
   }
 
   // AUTHORIZATION METHODS
@@ -71,7 +71,7 @@ class MainApi {
         password,
         name,
       }),
-    }).then((response) => {
+    }).then((response: Response) => {
       if (response.status === 201) {
         return response.json();
       }
@@ -85,7 +85,7 @@ class MainApi {
   }
 
   // POST /signin login
-  login(email: string, password: string) {
+  login(email: string, password: string): Object {
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: {
@@ -96,7 +96,7 @@ class MainApi {
         password,
       }),
     })
-      .then((response) => {
+      .then((response: Response) => {
         if (response.status === 200) {
           return response.json();
         }
@@ -108,7 +108,7 @@ class MainApi {
           throw new Error('Incorrect email or password');
         }
       })
-      .then((res) => {
+      .then((res: {token: string}) => {
         localStorage.setItem('token', res.token);
         return res;
       });

@@ -1,4 +1,10 @@
 class NewsApi {
+  readonly _baseUrl: string;
+  readonly _proxyUrl: string;
+  readonly _apiKey: string;
+  readonly _maxAge: Date;
+  readonly _blacklist: string[]
+
   constructor() {
     this._baseUrl = 'https://newsapi.org/v2/';
     this._proxyUrl = 'https://nomoreparties.co/news/v2/';
@@ -22,7 +28,7 @@ class NewsApi {
     ];
   }
 
-  getArticles(query) {
+  getArticles(query: string): Promise<Object> {
     return fetch(
       `${this._proxyUrl}everything?qInTitle=${query}&sortBy=publishedAt&from=${
         this._maxAge
@@ -34,7 +40,7 @@ class NewsApi {
         //     'X-Api-Key': this._apiKey,
         //   },
       }
-    ).then((response) => {
+    ).then((response: Response): Object => {
       if (!response.ok) {
         throw new Error(`Search failed! Status: ${response.status}`);
       }
@@ -42,12 +48,12 @@ class NewsApi {
     });
   }
 
-  getSources() {
+  getSources(): Object {
     return fetch(`${this._proxyUrl}top-headlines/sources?language=en&apiKey=${this._apiKey}`, {
       //   headers: {
       //     'X-Api-Key': this._apiKey,
       //   },
-    }).then((response) => {
+    }).then((response: Response) => {
       if (!response.ok) {
         throw new Error(`Search failed! Status: ${response.status}`);
       }
@@ -56,4 +62,4 @@ class NewsApi {
   }
 }
 
-export const newsApi = new NewsApi();
+export const newsApi: Object = new NewsApi();
