@@ -1,9 +1,8 @@
 // This file will be used for shared functions that do not deal with state
 // Storing functions here is intended to reduce prop drilling and clutter
 
-type TODO = any;
 
-export function convertDate(oldDate: TODO) {
+export function convertDate(oldDate: string): string {
   const newDate = new Date(oldDate).toString().split(' ').slice(1, 4);
   switch (newDate.shift()) {
     case 'Jan':

@@ -4,7 +4,9 @@ import stars from '../images/art-stars.png';
 import water from '../images/art-water.png';
 import yellow from '../images/art-yellow.png';
 
-export const articles = [
+type Article = {keyword: string, title: string, text: string, shortText: string, date: string, source: string, link: string, image: string}[]
+
+export const articles: Article  = [
   {
     keyword: 'Nature',
     title: "Everyone Needs a Special 'Sit Spot' in Nature",

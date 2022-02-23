@@ -1,4 +1,6 @@
 class MainApi {
+  readonly _baseUrl: string;
+
   constructor() {
     // this._baseUrl =
     //   process.env.NODE_ENV === 'development'
@@ -7,7 +9,7 @@ class MainApi {
     this._baseUrl = 'https://api.mccambley-news.students.nomoreparties.sbs';
   }
 
-  _checkResponse(res) {
+  _checkResponse(res: Response): Object {
     if (!res.ok) {
       return Promise.reject(`${res.status} error!`);
     }
@@ -24,7 +26,7 @@ class MainApi {
     }).then((res) => this._checkResponse(res));
   }
   // POST /articles saveArticle
-  saveArticle(keyword, title, text, date, source, link, image) {
+  saveArticle(keyword: string, title: string, text: string, date: string, source: string, link: string, image: string) {
     return fetch(`${this._baseUrl}/articles`, {
       method: 'POST',
       headers: {
@@ -36,7 +38,7 @@ class MainApi {
   }
 
   // DELETE /articles/:articleId removeArticle
-  removeArticle(articleId) {
+  removeArticle(articleId: string) {
     return fetch(`${this._baseUrl}/articles/${articleId}`, {
       method: 'DELETE',
       headers: {
@@ -58,7 +60,7 @@ class MainApi {
 
   // AUTHORIZATION METHODS
   // POST /signup signup
-  register(email, password, name) {
+  register(email: string, password: string, name: string) {
     return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
       headers: {
@@ -83,7 +85,7 @@ class MainApi {
   }
 
   // POST /signin login
-  login(email, password) {
+  login(email: string, password: string) {
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: {
