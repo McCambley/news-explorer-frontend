@@ -1,7 +1,12 @@
 import React from 'react';
 import { Container, SuccessTitle, Option } from './styledSignedUp';
 
-export default function SignUp({ switchModals, show }) {
+type Props = {
+  switchModals: (text: string) => {},
+  show: boolean
+}
+
+export default function SignUp({ switchModals, show }: Props) {
   return (
     <Container $how={show}>
       <SuccessTitle>Registration successfully completed!</SuccessTitle>

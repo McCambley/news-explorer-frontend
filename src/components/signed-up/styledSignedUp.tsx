@@ -1,7 +1,11 @@
 import styled from 'styled-components/macro';
 import { Title, OptionButton } from '../shared/styledFormItems';
 
-export const Container = styled.div`
+type Props = {
+  $how: boolean
+}
+
+export const Container = styled.div<Props>`
   display: flex;
   flex-direction: column;
   overflow: hidden;
