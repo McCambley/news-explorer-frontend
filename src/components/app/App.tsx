@@ -19,7 +19,7 @@ import { UserContext } from '../../contexts/UserContext';
 function App(): React.ReactNode {
   // session states
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
-  const [currentUser, setCurrentUser] = useState<{} | null>({});
+  const [currentUser, setCurrentUser] = useState<{name: string, email: string} | null>(null);
   // ux states
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isNothing, setIsNothing] = useState<boolean>(false);
@@ -155,7 +155,7 @@ function App(): React.ReactNode {
   function handleLogout() {
     localStorage.removeItem('token');
     setLoggedIn(false);
-    setCurrentUser({});
+    setCurrentUser(null);
   }
 
   function submitSearch(string: string) {

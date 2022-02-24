@@ -27,7 +27,7 @@ type Props = {
 export default function Header({ loggedIn, setShowSignIn, handleLogout }: Props) {
   const location = useLocation().pathname.substring(1);
   const [isOpen, setIsOpen] = useState(false);
-  const currentUser = React.useContext(UserContext);
+  const currentUser: {name: string, email: string} | null = React.useContext(UserContext);
 
   function closeMenu() {
     setIsOpen(false);
@@ -59,7 +59,7 @@ export default function Header({ loggedIn, setShowSignIn, handleLogout }: Props)
             )}
             {loggedIn && (
               <Button wide={false} onClick={handleLogout}>
-                {currentUser.name}
+                {currentUser && currentUser.name}
                 <Logout />
               </Button>
             )}
