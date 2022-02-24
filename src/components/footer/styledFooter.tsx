@@ -1,5 +1,13 @@
 import styled from 'styled-components/macro';
 
+type Props = {
+  area: string
+}
+
+type IconProps = Props &  { 
+  icon: string
+}
+
 export const Section = styled.footer`
   margin: 0 auto;
   display: flex;
@@ -36,7 +44,7 @@ export const Nav = styled.nav`
   }
 `;
 
-export const TextLink = styled.a`
+export const TextLink = styled.a<Props>`
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -47,7 +55,7 @@ export const TextLink = styled.a`
     grid-area: ${(props) => props.area};
   }
 `;
-export const IconLink = styled.a`
+export const IconLink = styled.a<IconProps>`
   display: block;
   background-image: url(${(props) => props.icon});
   width: 24px;

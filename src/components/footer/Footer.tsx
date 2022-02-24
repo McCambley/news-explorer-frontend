@@ -8,8 +8,8 @@ export default function Footer() {
   function handleCopyClick() {
     newsApi
       .getSources()
-      .then((response) => console.info(response.sources))
-      .catch((error) => console.error(error));
+      .then((response: any) => console.info(response.sources))
+      .catch((error: Error) => console.error(error));
   }
   return (
     <Section>
