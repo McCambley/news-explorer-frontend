@@ -16,43 +16,45 @@ import { newsApi } from '../../utils/NewsApi';
 import { mainApi } from '../../utils/MainApi';
 import { UserContext } from '../../contexts/UserContext';
 
-function App() {
+function App(): React.ReactNode {
   // session states
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState<{name: string | null}>({name: null});
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [currentUser, setCurrentUser] = useState<{} | null>({});
   // ux states
-  const [isLoading, setIsLoading] = useState(false);
-  const [isNothing, setIsNothing] = useState(false);
-  const [searched, setSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isNothing, setIsNothing] = useState<boolean>(false);
+  const [searched, setSearched] = useState<boolean>(false);
 
   // articles states
-  const [searchTerm, setSearchTerm] = useState('');
-  const [keyword, setKeyword] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const [savedArticles, setSavedArticles] = useState([]);
-  const [savedArticlesSorted, setSavedArticlesSorted] = useState([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [keyword, setKeyword] = useState<string>('');
+  const [searchResults, setSearchResults] = useState<string[]>([]);
+  const [savedArticles, setSavedArticles] = useState<string[]>([]);
+  const [savedArticlesSorted, setSavedArticlesSorted] = useState<string[]>([]);
   const [keywordCounter, setKeywordCounter] = useState({});
   // modal states
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
-  const [showSignedUp, setShowSignedUp] = useState(false);
+  const [showSignIn, setShowSignIn] = useState<boolean>(false);
+  const [showSignUp, setShowSignUp] = useState<boolean>(false);
+  const [showSignedUp, setShowSignedUp] = useState<boolean>(false);
   // auth form states
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [userName, setUserName] = useState('');
-  const [authErrorMessage, setAuthErrorMessage] = useState(null);
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [userName, setUserName] = useState<string>('');
+  const [authErrorMessage, setAuthErrorMessage] = useState<string | null>(null);
+
+  console.log({currentUser})
 
   // get current user information
   useEffect(() => {
     mainApi
       .getUserInfo()
-      .then((response) => {
+      .then((response: any): void => {
         setCurrentUser(response.data);
         setLoggedIn(true);
         getSavedArticles();
       })
       .catch((error) => {
-        setCurrentUser({name: null});
+        setCurrentUser(null);
         setLoggedIn(false);
         setSavedArticles([]);
         setSearchResults([]);
@@ -76,7 +78,7 @@ function App() {
   }, [savedArticles]);
 
   // modal handlers
-  function switchModals(role) {
+  function switchModals(role: string) {
     if (role === 'signup') {
       // close and open signup
       setShowSignIn(false);
@@ -104,9 +106,9 @@ function App() {
     setShowSignedUp(false);
   }
 
-  function handleLogin(e) {
+  function handleLogin(e: Event) {
     e.preventDefault();
-    const form = e.target;
+    const form = e.target as HTMLFormElement;
     form.checkValidity() &&
       mainApi
         .login(email, password)
@@ -127,13 +129,13 @@ function App() {
         });
   }
 
-  function handleSignUp(e) {
+  function handleSignUp(e: Event) {
     e.preventDefault();
-    const form = e.target;
+    const form = e.target as HTMLFormElement;
     form.checkValidity() &&
       mainApi
         .register(email, password, userName)
-        .then((response) => {
+        .then(() => {
           switchModals('signedup');
           setEmail('');
           setUserName('');
@@ -156,7 +158,7 @@ function App() {
     setCurrentUser({});
   }
 
-  function submitSearch(string) {
+  function submitSearch(string: string) {
     setSearchResults([]);
     setKeyword(string);
     // update loading ux
@@ -165,7 +167,7 @@ function App() {
     // search for news
     newsApi
       .getArticles(string)
-      .then((articles) => {
+      .then((articles: any) => {
         setSearched(true);
         setSearchTerm('');
         setIsLoading(false);
@@ -184,15 +186,15 @@ function App() {
   function getSavedArticles() {
     mainApi
       .getArticles()
-      .then((response) => setSavedArticles(response.data))
+      .then((response: any) => setSavedArticles(response.data))
       .catch((error) => console.error(error));
   }
 
   // create an object to tally the number of
   // articles saved per keyword
   function tallySavedKeywords() {
-    let keywords = {};
-    savedArticles.forEach((item) => {
+    let keywords: any = {};
+    savedArticles.forEach((item: any) => {
       if (keywords[item.keyword]) {
         keywords[item.keyword]++;
       } else {
@@ -207,7 +209,7 @@ function App() {
     const keywordCounter = tallySavedKeywords();
     return savedArticles
       .slice()
-      .sort((a, b) => {
+      .sort((a: any, b: any) => {
         return keywordCounter[a.keyword] - keywordCounter[b.keyword];
       })
       .reverse();
@@ -227,7 +229,6 @@ function App() {
           <SavedCardList
             savedArticlesSorted={savedArticlesSorted}
             getSavedArticles={getSavedArticles}
-            keywordCounter={keywordCounter}
             setSearchTerm={setSearchTerm}
             submitSearch={submitSearch}
           />
@@ -255,7 +256,7 @@ function App() {
       </Switch>
       <Footer />
       <Modal show={showSignUp || showSignIn || showSignedUp} closeModals={closeModals}>
-        <SignedUp show={showSignedUp} setShowSignIn={setShowSignIn} switchModals={switchModals} />
+        <SignedUp show={showSignedUp} switchModals={switchModals} />
         <SignUp
           show={showSignUp}
           email={email}

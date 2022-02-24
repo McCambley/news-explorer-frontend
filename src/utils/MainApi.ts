@@ -38,7 +38,7 @@ class MainApi {
   }
 
   // DELETE /articles/:articleId removeArticle
-  removeArticle(articleId: string) {
+  removeArticle(articleId: string): Promise<Object> {
     return fetch(`${this._baseUrl}/articles/${articleId}`, {
       method: 'DELETE',
       headers: {
@@ -50,7 +50,7 @@ class MainApi {
 
   // USER METHODS
   // GET /users/me // getUserInfo
-  getUserInfo() {
+  getUserInfo(): Promise<Object> {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -60,7 +60,7 @@ class MainApi {
 
   // AUTHORIZATION METHODS
   // POST /signup signup
-  register(email: string, password: string, name: string) {
+  register(email: string, password: string, name: string): Promise<Object> {
     return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
       headers: {
@@ -85,7 +85,7 @@ class MainApi {
   }
 
   // POST /signin login
-  login(email: string, password: string): Object {
+  login(email: string, password: string): Promise<Object> {
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: {

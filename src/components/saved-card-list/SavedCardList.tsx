@@ -3,12 +3,19 @@ import { CardList } from '../shared/styledCardList';
 import SavedCard from '../saved-card/SavedCard';
 import { Section, Container } from './styledSavedCardList';
 
+type Props = {
+  savedArticlesSorted: string[],
+  getSavedArticles: Function,
+  setSearchTerm: Function,
+  submitSearch: Function
+}
+
 export default function SavedCardList({
   savedArticlesSorted,
   getSavedArticles,
   setSearchTerm,
   submitSearch,
-}) {
+}: Props) {
   return (
     <Section>
       <Container>

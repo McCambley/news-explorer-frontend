@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, SuccessTitle, Option } from './styledSignedUp';
 
 type Props = {
-  switchModals: (text: string) => {},
+  switchModals: (role: string) => void,
   show: boolean
 }
 

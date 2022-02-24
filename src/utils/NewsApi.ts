@@ -28,7 +28,7 @@ class NewsApi {
     ];
   }
 
-  getArticles(query: string): Promise<Object> {
+  getArticles(query: string): Promise<Object>  {
     return fetch(
       `${this._proxyUrl}everything?qInTitle=${query}&sortBy=publishedAt&from=${
         this._maxAge
@@ -62,4 +62,4 @@ class NewsApi {
   }
 }
 
-export const newsApi: Object = new NewsApi();
+export const newsApi = new NewsApi();
