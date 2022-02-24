@@ -48,7 +48,7 @@ class NewsApi {
     });
   }
 
-  getSources(): Object {
+  getSources(): Promise<Object>  {
     return fetch(`${this._proxyUrl}top-headlines/sources?language=en&apiKey=${this._apiKey}`, {
       //   headers: {
       //     'X-Api-Key': this._apiKey,
