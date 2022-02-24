@@ -1,6 +1,14 @@
 import styled from 'styled-components/macro';
 import hero from '../../images/hero.png';
 
+type FocusedProp = {
+  $focused: boolean
+}
+
+type ValidProp = {
+  $isValid: boolean
+}
+
 export const Section = styled.section`
   background-image: url(${hero});
   background-position: center;
@@ -30,7 +38,7 @@ export const Content = styled.div`
   }
 `;
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled.div<FocusedProp>`
   // test
   max-height: ${({ $focused }) => ($focused ? '0px' : '300px')};
   opacity: ${({ $focused }) => ($focused ? '0' : '1')};
@@ -90,7 +98,7 @@ export const Form = styled.form`
     backdrop-filter: none;
   }
 `;
-export const Input = styled.input`
+export const Input = styled.input<ValidProp>`
   width: 100%;
   padding: 21px 24px;
   outline: none;

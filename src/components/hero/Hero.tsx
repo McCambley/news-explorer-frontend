@@ -1,7 +1,14 @@
 import React from 'react';
 import { Section, Content, TextWrapper, Title, Subtitle, Form, Input, Button } from './styledHero';
 
-export default function Hero({ submitSearch, searchTerm, setSearchTerm, searched }) {
+type Props = {
+  submitSearch:Function,
+  searchTerm:string,
+  setSearchTerm:Function,
+  searched:boolean,
+}
+
+export default function Hero({ submitSearch, searchTerm, setSearchTerm, searched }: Props) {
   const [searchPlaceholder, setSearchPlaceholder] = React.useState('Enter topic');
   const [isSearchValid, setIsSearchValid] = React.useState(true);
 
@@ -11,12 +18,13 @@ export default function Hero({ submitSearch, searchTerm, setSearchTerm, searched
     setIsSearchValid(true);
   }
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    const { value } = e.target as HTMLInputElement;
     // capitalize the first letter of the search
-    setSearchTerm(`${e.target.value.charAt(0).toUpperCase()}${e.target.value.slice(1)}`);
+    setSearchTerm(`${value.charAt(0).toUpperCase()}${value.slice(1)}`);
   }
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.ChangeEvent<HTMLFormElement>): void {
     e.preventDefault();
     // validate input
     if (searchTerm === '') {
