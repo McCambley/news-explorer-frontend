@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import trash from '../../images/trash.svg';
+import { SavedArticle } from '../../types/types';
 import { mainApi } from '../../utils/MainApi';
 import {
   Container,
@@ -11,7 +12,19 @@ import {
   DeleteIcon,
 } from './styledSavedCardTop';
 
-export default function SavedCardTop({ article, getSavedArticles, setSearchTerm, submitSearch }) {
+type Props = {
+  article: SavedArticle;
+  getSavedArticles: () => void;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  submitSearch: (string: string) => void;
+};
+
+export default function SavedCardTop({
+  article,
+  getSavedArticles,
+  setSearchTerm,
+  submitSearch,
+}: Props) {
   const [isShown, setIsShown] = useState(false);
   const history = useHistory();
 

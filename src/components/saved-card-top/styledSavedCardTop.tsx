@@ -23,7 +23,7 @@ export const Button = styled.button`
   color: #000000;
 `;
 
-export const Keyword = styled(Button)`
+export const Keyword = styled(Button)<{ shown: boolean }>`
   text-transform: capitalize;
   margin: 0;
   padding: 8px 22px;
@@ -41,7 +41,7 @@ export const Keyword = styled(Button)`
   }
 `;
 
-export const DeleteTooltip = styled(Button)`
+export const DeleteTooltip = styled(Button)<{ shown: boolean }>`
   opacity: ${(props) => (props.shown ? '1' : '0')};
   padding: 12px 20px;
   font-family: 'Roboto', sans-serif;
