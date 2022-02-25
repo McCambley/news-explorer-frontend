@@ -11,6 +11,19 @@ import {
   OptionButton,
 } from '../shared/styledFormItems';
 
+type Props = {
+  email: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  switchModals: (role: string) => void;
+  userName: string;
+  setUserName: React.Dispatch<React.SetStateAction<string>>;
+  handleSignUp: (e: React.ChangeEvent<HTMLFormElement>) => void;
+  show: boolean;
+  authErrorMessage: string | null;
+};
+
 export default function SignUp({
   email,
   setEmail,
@@ -22,23 +35,28 @@ export default function SignUp({
   handleSignUp,
   authErrorMessage,
   show,
-}) {
-  const [formErrors, setFormErrors] = useState({ email: '', password: '', name: '' });
-  const [isValid, setIsValid] = useState(false);
-  const formRef = useRef();
+}: Props): JSX.Element {
+  const [formErrors, setFormErrors] = useState<{ [name: string]: string }>({
+    email: '',
+    password: '',
+  });
+  const [isValid, setIsValid] = useState<boolean>(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   useEffect(() => {
     setFormErrors({ email: '', password: '', name: '' });
   }, [show]);
 
   // update button state on any change
-  function checkFormValidity(e) {
+  function checkFormValidity(): void {
+    if (formRef.current === (null || undefined)) return;
+    if (formRef.current === null) return;
     setIsValid(formRef.current.checkValidity());
   }
 
   // to run for the first time when inputs are blurred
   // or when inputs change after errors have been shown
-  function updateFormErrors(e) {
+  function updateFormErrors(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, validationMessage } = e.target;
     // update the form errors object with the validationMessage of blurred input
     setFormErrors({
@@ -48,7 +66,7 @@ export default function SignUp({
   }
 
   // to run whenever inputs on the form change
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
     // adjust error message if one has already been shown
     formErrors[name] && updateFormErrors(e);
@@ -89,7 +107,7 @@ export default function SignUp({
         type="password"
         name="password"
         id="signuppassword"
-        minLength="8"
+        minLength={8}
         required
         value={password}
         onChange={handleChange}
@@ -101,8 +119,8 @@ export default function SignUp({
         placeholder="Enter your name"
         type="text"
         name="name"
-        minLength="2"
-        maxLength="30"
+        minLength={2}
+        maxLength={30}
         id="signupname"
         required
         value={userName}

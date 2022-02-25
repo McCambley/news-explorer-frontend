@@ -12,14 +12,14 @@ import {
 } from '../shared/styledFormItems';
 
 type Props = {
-  email: any;
-  setEmail: any;
-  password: any;
-  setPassword: any;
-  switchModals: any;
-  handleLogin: any;
-  show: any;
-  authErrorMessage: any;
+  email: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  switchModals: (role: string) => void;
+  handleLogin: (e: React.ChangeEvent<HTMLFormElement>) => void;
+  show: boolean;
+  authErrorMessage: string | null;
 };
 
 export default function SignIn({
@@ -46,7 +46,7 @@ export default function SignIn({
   }, [handleLogin]);
 
   // update button state on any change
-  function checkFormValidity() {
+  function checkFormValidity(): void {
     if (formRef.current === (null || undefined)) return;
     if (formRef.current === null) return;
     setIsValid(formRef.current.checkValidity());
