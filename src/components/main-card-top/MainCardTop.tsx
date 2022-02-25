@@ -25,7 +25,7 @@ export default function MainCardTop({
   switchModals,
   savedArticles,
   getSavedArticles,
-}: Props): React.ReactNode {
+}: Props): JSX.Element {
   const [isShown, setIsShown] = useState<boolean>(false);
   const [isSaved, setIsSaved] = useState<boolean>(false);
 

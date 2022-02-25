@@ -12,6 +12,16 @@ import {
 } from '../shared/styledCard';
 import notFound from '../../images/placeholder-logo.png';
 import { convertDate } from '../../utils/functions';
+import { Article, SavedArticle } from '../../types/types';
+
+type Props = {
+  article: Article;
+  loggedIn: boolean;
+  keyword: string;
+  switchModals: () => void;
+  savedArticles: SavedArticle[];
+  getSavedArticles: () => void;
+};
 
 export default function NewsCard({
   article,
@@ -20,11 +30,11 @@ export default function NewsCard({
   switchModals,
   savedArticles,
   getSavedArticles,
-}) {
-  const { title, description, publishedAt, source, url, urlToImage } = article;
-  const [date, setDate] = React.useState('');
-  const [adjustedTitle, setAdjustedTitle] = React.useState('');
-  const [adjustedDescription, setAdjustedDescription] = React.useState('');
+}: Props) {
+  const { title, description, publishedAt, source, url, urlToImage }: Article = article;
+  const [date, setDate] = React.useState<string>('');
+  const [adjustedTitle, setAdjustedTitle] = React.useState<string>('');
+  const [adjustedDescription, setAdjustedDescription] = React.useState<string>('');
 
   // reformat article data to fit within card component
   React.useEffect(() => {

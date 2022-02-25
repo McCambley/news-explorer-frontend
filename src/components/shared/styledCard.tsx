@@ -23,9 +23,9 @@ export const Card = styled.article`
     grid-auto-rows: 2fr 3fr;
   }
 `;
-export const Image = styled.div`
+export const Image = styled.div<{ image: string }>`
   display: flex;
-  background-image: url('${(props) => props.image}');
+  background-image: url(${(props) => props.image});
   padding: 24px;
   background-position: center;
   background-size: cover;
