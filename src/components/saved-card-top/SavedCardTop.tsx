@@ -24,11 +24,11 @@ export default function SavedCardTop({
   getSavedArticles,
   setSearchTerm,
   submitSearch,
-}: Props) {
-  const [isShown, setIsShown] = useState(false);
+}: Props): JSX.Element {
+  const [isShown, setIsShown] = useState<boolean>(false);
   const history = useHistory();
 
-  function handleDeleteClick() {
+  function handleDeleteClick(): void {
     mainApi
       .removeArticle(article._id)
       .then((response) => {
@@ -37,7 +37,7 @@ export default function SavedCardTop({
       .catch((error) => console.error(error));
   }
 
-  function handleKeywordClick() {
+  function handleKeywordClick(): void {
     history.push('/');
     setSearchTerm(article.keyword);
     submitSearch(article.keyword);
