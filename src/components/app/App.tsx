@@ -79,7 +79,7 @@ function App(): React.ReactNode {
   }, [savedArticles]);
 
   // modal handlers
-  function switchModals(role: string) {
+  function switchModals(role: string): void {
     if (role === 'signup') {
       // close and open signup
       setShowSignIn(false);
@@ -101,13 +101,13 @@ function App(): React.ReactNode {
     }
   }
 
-  function closeModals() {
+  function closeModals(): void {
     setShowSignIn(false);
     setShowSignUp(false);
     setShowSignedUp(false);
   }
 
-  function handleLogin(e: Event) {
+  function handleLogin(e: Event): void {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     form.checkValidity() &&
@@ -130,7 +130,7 @@ function App(): React.ReactNode {
         });
   }
 
-  function handleSignUp(e: Event) {
+  function handleSignUp(e: Event): void {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     form.checkValidity() &&
@@ -153,13 +153,13 @@ function App(): React.ReactNode {
         });
   }
 
-  function handleLogout() {
+  function handleLogout(): void {
     localStorage.removeItem('token');
     setLoggedIn(false);
     setCurrentUser(null);
   }
 
-  function submitSearch(string: string) {
+  function submitSearch(string: string): void {
     setSearchResults([]);
     setKeyword(string);
     // update loading ux
@@ -191,11 +191,15 @@ function App(): React.ReactNode {
       .catch((error) => console.error(error));
   }
 
+  type KeywordList = {
+    [keyword: string]: number;
+  };
+
   // create an object to tally the number of
   // articles saved per keyword
-  function tallySavedKeywords() {
-    let keywords: any = {};
-    savedArticles.forEach((item: any) => {
+  function tallySavedKeywords(): KeywordList {
+    let keywords: KeywordList = {};
+    savedArticles.forEach((item: SavedArticle): void => {
       if (keywords[item.keyword]) {
         keywords[item.keyword]++;
       } else {
@@ -206,7 +210,7 @@ function App(): React.ReactNode {
   }
 
   // sort saved articles by popularity of keyword
-  function sortSavedArticles() {
+  function sortSavedArticles(): SavedArticle[] {
     const keywordCounter = tallySavedKeywords();
     return savedArticles
       .slice()
