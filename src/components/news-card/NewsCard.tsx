@@ -18,7 +18,7 @@ type Props = {
   article: Article;
   loggedIn: boolean;
   keyword: string;
-  switchModals: () => void;
+  switchModals: (role: string) => void;
   savedArticles: SavedArticle[];
   getSavedArticles: () => void;
 };

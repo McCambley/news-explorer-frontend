@@ -1,5 +1,6 @@
 import React from 'react';
 import notFound from '../../images/not-found.svg';
+import { Article, SavedArticle } from '../../types/types';
 import NewsCardList from '../news-card-list/NewsCardList';
 import {
   Section,
@@ -11,6 +12,18 @@ import {
   StatusText,
 } from './styledSearchResult';
 
+type Props = {
+  isLoading: boolean;
+  searchResults: Article[];
+  isNothing: boolean;
+  loggedIn: boolean;
+  keyword: string;
+  switchModals: (role: string) => void;
+  savedArticles: SavedArticle[] | [];
+  getSavedArticles: () => void;
+  searched: boolean;
+};
+
 export default function SearchResult({
   isLoading,
   searchResults,
@@ -21,7 +34,7 @@ export default function SearchResult({
   savedArticles,
   getSavedArticles,
   searched,
-}) {
+}: Props): JSX.Element {
   return (
     <Section>
       <Content>

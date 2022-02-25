@@ -28,7 +28,6 @@ export const Content = styled.div`
 `;
 export const StatusContainer = styled.div`
   padding: 80px 0;
-  display: ${(props) => (props.$display ? 'flex' : 'none')};
   display: flex;
   flex-direction: column;
   justify-content: center;
