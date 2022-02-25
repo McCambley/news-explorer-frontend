@@ -6,9 +6,9 @@ import { SavedArticle } from '../../types/types';
 
 type Props = {
   savedArticlesSorted: SavedArticle[];
-  getSavedArticles: Function;
-  setSearchTerm: Function;
-  submitSearch: Function;
+  getSavedArticles: () => void;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  submitSearch: (string: string) => void;
 };
 
 export default function SavedCardList({
