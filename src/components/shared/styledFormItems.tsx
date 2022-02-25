@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const Form = styled.form`
+export const Form = styled.form<{ $how: boolean }>`
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -53,7 +53,7 @@ export const Label = styled.label`
   margin: 0;
   margin-bottom: 10px;
 `;
-export const Error = styled.span`
+export const Error = styled.span<{ align: string; bottom: string }>`
   font-family: 'Inter', sans-serif;
   min-height: 15px;
   font-weight: 400;
