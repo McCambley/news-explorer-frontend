@@ -44,7 +44,7 @@ function App(): JSX.Element {
   const [authErrorMessage, setAuthErrorMessage] = useState<string | null>(null);
 
   // TODO REMOVE ME... JUST TESTING TS DEPLOY HERE
-  console.log("If you see me, we're TypeScripting now, baby!");
+  // console.log("If you see me, we're TypeScripting now, baby!");
 
   // get current user information
   useEffect(() => {
