@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const Overlay = styled.section`
+export const Overlay = styled.section<{ $how: boolean }>`
   position: fixed;
   left: 0px;
   top: 0px;
@@ -20,7 +20,7 @@ export const Overlay = styled.section`
     align-items: flex-end;
   }
 `;
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.div<{ $how: boolean }>`
   width: 100%;
   max-width: 430px;
   background-color: #fff;
@@ -41,7 +41,7 @@ export const ContentContainer = styled.div`
   }
 `;
 
-export const Close = styled.button`
+export const Close = styled.button<{ source: string }>`
   padding: 0;
   width: 40px;
   height: 40px;

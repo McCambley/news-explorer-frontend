@@ -2,7 +2,13 @@ import React from 'react';
 import close from '../../images/close.svg';
 import { Overlay, ContentContainer, Close } from './styledModal';
 
-export default function Modal({ show, children, closeModals }) {
+type Props = {
+  show: boolean;
+  children: React.ReactNode;
+  closeModals: () => void;
+};
+
+export default function Modal({ show, children, closeModals }: Props) {
   return (
     <Overlay $how={show} onClick={closeModals}>
       <ContentContainer $how={show} onClick={(e) => e.stopPropagation()}>
