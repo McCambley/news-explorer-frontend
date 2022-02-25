@@ -2,6 +2,17 @@ import React from 'react';
 import NewsCard from '../news-card/NewsCard';
 import { CardList } from '../shared/styledCardList';
 import { Container, Heading, ShowMore, Term } from './styledNewsCardList';
+import { Article, SavedArticle } from '../../types/types';
+
+type Props = {
+  searchResults: Article[] | [];
+  loggedIn: boolean;
+  keyword: string;
+  switchModals: () => void;
+  savedArticles: SavedArticle[] | [];
+  getSavedArticles: () => void;
+  searched: boolean;
+};
 
 export default function NewsCardList({
   searchResults,
@@ -11,13 +22,13 @@ export default function NewsCardList({
   savedArticles,
   getSavedArticles,
   searched,
-}) {
-  const [isShown, setIsShown] = React.useState(true);
+}: Props): JSX.Element {
+  const [isShown, setIsShown] = React.useState<boolean>(true);
   // initial display amount (6) will look good on a grid with 3, 2, or 1 columns. TODO change back after review
-  const [displayAmount, setDisplayAmount] = React.useState(6);
+  const [displayAmount, setDisplayAmount] = React.useState<number>(6);
 
   // expand the display of articles shown
-  function handleShowMore() {
+  function handleShowMore(): void {
     setDisplayAmount(displayAmount + 6);
   }
 
