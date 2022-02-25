@@ -30,7 +30,7 @@ export default function NewsCard({
   switchModals,
   savedArticles,
   getSavedArticles,
-}: Props) {
+}: Props): JSX.Element {
   const { title, description, publishedAt, source, url, urlToImage }: Article = article;
   const [date, setDate] = React.useState<string>('');
   const [adjustedTitle, setAdjustedTitle] = React.useState<string>('');

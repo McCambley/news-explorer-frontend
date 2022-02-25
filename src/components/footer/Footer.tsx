@@ -4,7 +4,7 @@ import github from '../../images/github.svg';
 import { Section, Copyright, Nav, TextLink, IconLink } from './styledFooter';
 import { newsApi } from '../../utils/NewsApi';
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   function handleCopyClick() {
     newsApi
       .getSources()

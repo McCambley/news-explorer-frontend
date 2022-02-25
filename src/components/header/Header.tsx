@@ -18,16 +18,16 @@ import {
 } from './styledHeader';
 
 type Props = {
-  loggedIn: boolean,
+  loggedIn: boolean;
   // setLoggedIn: (loggedIn: boolean) => void,
-  setShowSignIn: (showSignIn: boolean) => void,
-  handleLogout: () => void,
-}
+  setShowSignIn: (showSignIn: boolean) => void;
+  handleLogout: () => void;
+};
 
-export default function Header({ loggedIn, setShowSignIn, handleLogout }: Props) {
+export default function Header({ loggedIn, setShowSignIn, handleLogout }: Props): JSX.Element {
   const location = useLocation().pathname.substring(1);
   const [isOpen, setIsOpen] = useState(false);
-  const currentUser: {name: string, email: string} | null = React.useContext(UserContext);
+  const currentUser: { name: string; email: string } | null = React.useContext(UserContext);
 
   function closeMenu() {
     setIsOpen(false);

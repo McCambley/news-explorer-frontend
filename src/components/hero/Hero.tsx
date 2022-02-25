@@ -2,13 +2,18 @@ import React from 'react';
 import { Section, Content, TextWrapper, Title, Subtitle, Form, Input, Button } from './styledHero';
 
 type Props = {
-  submitSearch:Function,
-  searchTerm:string,
-  setSearchTerm:Function,
-  searched:boolean,
-}
+  submitSearch: Function;
+  searchTerm: string;
+  setSearchTerm: Function;
+  searched: boolean;
+};
 
-export default function Hero({ submitSearch, searchTerm, setSearchTerm, searched }: Props) {
+export default function Hero({
+  submitSearch,
+  searchTerm,
+  setSearchTerm,
+  searched,
+}: Props): JSX.Element {
   const [searchPlaceholder, setSearchPlaceholder] = React.useState('Enter topic');
   const [isSearchValid, setIsSearchValid] = React.useState(true);
 
