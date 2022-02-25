@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.js": "/news-explorer-frontend/static/js/main.b5bd54ee.chunk.js",
-    "main.js.map": "/news-explorer-frontend/static/js/main.b5bd54ee.chunk.js.map",
-    "runtime-main.js": "/news-explorer-frontend/static/js/runtime-main.4579f6d9.js",
-    "runtime-main.js.map": "/news-explorer-frontend/static/js/runtime-main.4579f6d9.js.map",
-    "static/js/2.f0b30147.chunk.js": "/news-explorer-frontend/static/js/2.f0b30147.chunk.js",
-    "static/js/2.f0b30147.chunk.js.map": "/news-explorer-frontend/static/js/2.f0b30147.chunk.js.map",
-    "static/js/3.93927132.chunk.js": "/news-explorer-frontend/static/js/3.93927132.chunk.js",
-    "static/js/3.93927132.chunk.js.map": "/news-explorer-frontend/static/js/3.93927132.chunk.js.map",
+    "main.js": "/news-explorer-frontend/static/js/main.e6f14e83.chunk.js",
+    "main.js.map": "/news-explorer-frontend/static/js/main.e6f14e83.chunk.js.map",
+    "runtime-main.js": "/news-explorer-frontend/static/js/runtime-main.51e10f14.js",
+    "runtime-main.js.map": "/news-explorer-frontend/static/js/runtime-main.51e10f14.js.map",
+    "static/js/2.af520caa.chunk.js": "/news-explorer-frontend/static/js/2.af520caa.chunk.js",
+    "static/js/2.af520caa.chunk.js.map": "/news-explorer-frontend/static/js/2.af520caa.chunk.js.map",
     "index.html": "/news-explorer-frontend/index.html",
-    "static/js/2.f0b30147.chunk.js.LICENSE.txt": "/news-explorer-frontend/static/js/2.f0b30147.chunk.js.LICENSE.txt",
+    "static/js/2.af520caa.chunk.js.LICENSE.txt": "/news-explorer-frontend/static/js/2.af520caa.chunk.js.LICENSE.txt",
     "static/media/SourceSansPro-Regular.efa76f83.ttf": "/news-explorer-frontend/static/media/SourceSansPro-Regular.efa76f83.ttf",
     "static/media/author.a965039b.jpg": "/news-explorer-frontend/static/media/author.a965039b.jpg",
     "static/media/bookmark-blue.f9b4f1b4.svg": "/news-explorer-frontend/static/media/bookmark-blue.f9b4f1b4.svg",
@@ -41,8 +39,8 @@
     "static/media/trash.b9abe9fb.svg": "/news-explorer-frontend/static/media/trash.b9abe9fb.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4579f6d9.js",
-    "static/js/2.f0b30147.chunk.js",
-    "static/js/main.b5bd54ee.chunk.js"
+    "static/js/runtime-main.51e10f14.js",
+    "static/js/2.af520caa.chunk.js",
+    "static/js/main.e6f14e83.chunk.js"
   ]
 }
