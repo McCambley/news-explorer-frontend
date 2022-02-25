@@ -53,7 +53,7 @@ export const Label = styled.label`
   margin: 0;
   margin-bottom: 10px;
 `;
-export const Error = styled.span<{ align: string; bottom: string }>`
+export const Error = styled.span<{ align?: string; bottom?: string }>`
   font-family: 'Inter', sans-serif;
   min-height: 15px;
   font-weight: 400;

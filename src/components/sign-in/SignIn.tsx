@@ -11,6 +11,17 @@ import {
   OptionButton,
 } from '../shared/styledFormItems';
 
+type Props = {
+  email: any;
+  setEmail: any;
+  password: any;
+  setPassword: any;
+  switchModals: any;
+  handleLogin: any;
+  show: any;
+  authErrorMessage: any;
+};
+
 export default function SignIn({
   email,
   setEmail,
@@ -20,10 +31,13 @@ export default function SignIn({
   handleLogin,
   show,
   authErrorMessage,
-}) {
-  const [formErrors, setFormErrors] = useState({ email: '', password: '' });
-  const [isValid, setIsValid] = useState(false);
-  const formRef = useRef();
+}: Props): JSX.Element {
+  const [formErrors, setFormErrors] = useState<{ [name: string]: string }>({
+    email: '',
+    password: '',
+  });
+  const [isValid, setIsValid] = useState<boolean>(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   React.useEffect(() => {
     // reset form errors after login
@@ -32,13 +46,15 @@ export default function SignIn({
   }, [handleLogin]);
 
   // update button state on any change
-  function checkFormValidity(e) {
+  function checkFormValidity() {
+    if (formRef.current === (null || undefined)) return;
+    if (formRef.current === null) return;
     setIsValid(formRef.current.checkValidity());
   }
 
   // to run for the first time when inputs are blurred
   // or when inputs change after errors have been shown
-  function updateFormErrors(e) {
+  function updateFormErrors(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, validationMessage } = e.target;
     // update the form errors object with the validationMessage of blurred input
     setFormErrors({
@@ -48,7 +64,7 @@ export default function SignIn({
   }
 
   // to run whenever inputs on the form change
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
     // adjust error message if one has already been shown
     formErrors[name] && updateFormErrors(e);
@@ -85,7 +101,7 @@ export default function SignIn({
         type="password"
         name="password"
         id="signinpassword"
-        minLength="8"
+        minLength={8}
         required
         value={password}
         onChange={handleChange}

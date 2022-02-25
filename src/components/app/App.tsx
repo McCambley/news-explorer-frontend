@@ -7,7 +7,7 @@ import SavedCardList from '../saved-card-list/SavedCardList';
 import SearchResult from '../search-result/SearchResult';
 import SignIn from '../sign-in/SignIn';
 import SignUp from '../sign-up/SignUp';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import SavedHero from '../saved-hero/SavedHero';
 import Modal from '../modal/Modal';
 import SignedUp from '../signed-up/SignedUp';
@@ -105,7 +105,7 @@ function App(): React.ReactNode {
     setShowSignedUp(false);
   }
 
-  function handleLogin(e: Event): void {
+  function handleLogin(e: React.ChangeEvent<HTMLFormElement>): void {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     form.checkValidity() &&
@@ -128,7 +128,7 @@ function App(): React.ReactNode {
         });
   }
 
-  function handleSignUp(e: Event): void {
+  function handleSignUp(e: React.ChangeEvent<HTMLFormElement>): void {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     form.checkValidity() &&
