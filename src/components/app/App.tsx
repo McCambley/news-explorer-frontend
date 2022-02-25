@@ -15,11 +15,12 @@ import ProtectedRoute from '../protected-route/ProtectedRoute';
 import { newsApi } from '../../utils/NewsApi';
 import { mainApi } from '../../utils/MainApi';
 import { UserContext } from '../../contexts/UserContext';
+import { Article, SavedArticle } from '../../types/types';
 
 function App(): React.ReactNode {
   // session states
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
-  const [currentUser, setCurrentUser] = useState<{name: string, email: string} | null>(null);
+  const [currentUser, setCurrentUser] = useState<{ name: string; email: string } | null>(null);
   // ux states
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isNothing, setIsNothing] = useState<boolean>(false);
@@ -28,9 +29,9 @@ function App(): React.ReactNode {
   // articles states
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [keyword, setKeyword] = useState<string>('');
-  const [searchResults, setSearchResults] = useState<string[]>([]);
-  const [savedArticles, setSavedArticles] = useState<string[]>([]);
-  const [savedArticlesSorted, setSavedArticlesSorted] = useState<string[]>([]);
+  const [searchResults, setSearchResults] = useState<Article[] | []>([]);
+  const [savedArticles, setSavedArticles] = useState<SavedArticle[] | []>([]);
+  const [savedArticlesSorted, setSavedArticlesSorted] = useState<SavedArticle[] | []>([]);
   const [keywordCounter, setKeywordCounter] = useState({});
   // modal states
   const [showSignIn, setShowSignIn] = useState<boolean>(false);
@@ -42,7 +43,7 @@ function App(): React.ReactNode {
   const [userName, setUserName] = useState<string>('');
   const [authErrorMessage, setAuthErrorMessage] = useState<string | null>(null);
 
-  console.log({currentUser})
+  console.log({ currentUser });
 
   // get current user information
   useEffect(() => {
@@ -183,7 +184,7 @@ function App(): React.ReactNode {
       });
   }
 
-  function getSavedArticles() {
+  function getSavedArticles(): void {
     mainApi
       .getArticles()
       .then((response: any) => setSavedArticles(response.data))

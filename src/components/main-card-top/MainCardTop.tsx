@@ -7,6 +7,16 @@ import { mainApi } from '../../utils/MainApi';
 
 // import notFound from '../../images/not-found.jpeg';
 import notFound from '../../images/placeholder-logo.png';
+import { Article, SavedArticle } from '../../types/types';
+
+type Props = {
+  article: Article;
+  loggedIn: boolean;
+  keyword: string;
+  switchModals: (role: string) => void;
+  savedArticles: SavedArticle[];
+  getSavedArticles: () => void;
+};
 
 export default function MainCardTop({
   article,
@@ -15,22 +25,22 @@ export default function MainCardTop({
   switchModals,
   savedArticles,
   getSavedArticles,
-}) {
-  const [isShown, setIsShown] = useState(false);
-  const [isSaved, setIsSaved] = useState(false);
+}: Props): React.ReactNode {
+  const [isShown, setIsShown] = useState<boolean>(false);
+  const [isSaved, setIsSaved] = useState<boolean>(false);
 
   // check if the article has already been saved
   React.useEffect(() => {
-    setIsSaved(savedArticles.some((item) => item.link === article.url));
+    setIsSaved(savedArticles.some((item: SavedArticle) => item.link === article.url));
   }, [article.url, savedArticles]);
 
-  function handleSaveClick() {
+  function handleSaveClick(): void {
     // cancel save is user is not logged in
     if (!loggedIn) {
       return;
     }
     // save if user is logged in
-    const { title, description, publishedAt, source, url, urlToImage } = article;
+    const { title, description, publishedAt, source, url, urlToImage }: Article = article;
     if (!isSaved) {
       mainApi
         .saveArticle(
@@ -48,7 +58,8 @@ export default function MainCardTop({
         })
         .catch((error) => console.error(error));
     } else if (isSaved) {
-      const articleInSavedArray = savedArticles.find((item) => item.link == article.url);
+      const articleInSavedArray = savedArticles.find((item: SavedArticle) => item.link === url);
+      if (!articleInSavedArray) return;
       mainApi
         .removeArticle(articleInSavedArray._id)
         .then((response) => {
@@ -73,11 +84,7 @@ export default function MainCardTop({
           Sign in to save articles
         </SignIn>
       )}
-      <SaveButton
-        $loggedIn={loggedIn}
-        onClick={handleSaveClick}
-        onMouseEnter={() => setIsShown(true)}
-      >
+      <SaveButton onClick={handleSaveClick} onMouseEnter={() => setIsShown(true)}>
         <SaveIcon $isSaved={isSaved} src={isSaved ? bookmarkBlue : bookmark} alt="bookmark" />
       </SaveButton>
     </Container>

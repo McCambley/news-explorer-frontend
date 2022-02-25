@@ -2,13 +2,14 @@ import React from 'react';
 import { CardList } from '../shared/styledCardList';
 import SavedCard from '../saved-card/SavedCard';
 import { Section, Container } from './styledSavedCardList';
+import { SavedArticle } from '../../types/types';
 
 type Props = {
-  savedArticlesSorted: string[],
-  getSavedArticles: Function,
-  setSearchTerm: Function,
-  submitSearch: Function
-}
+  savedArticlesSorted: SavedArticle[];
+  getSavedArticles: Function;
+  setSearchTerm: Function;
+  submitSearch: Function;
+};
 
 export default function SavedCardList({
   savedArticlesSorted,

@@ -15,7 +15,7 @@ export const Button = styled.button`
   border-radius: 10px;
   margin-left: 6px;
 `;
-export const SignIn = styled(Button)`
+export const SignIn = styled(Button)<{ shown: boolean }>`
   opacity: ${(props) => (props.shown ? '1' : '0')};
   visibility: ${(props) => (props.shown ? 'visible' : 'hidden')};
   padding: 12px 20px;
@@ -29,7 +29,7 @@ export const SignIn = styled(Button)`
   line-height: 14px;
   transition: opacity 0.3s ease, visibility 0.3s ease; ;
 `;
-export const SaveIcon = styled.img`
+export const SaveIcon = styled.img<{ $isSaved: boolean }>`
   width: 24px;
   opacity: ${(props) => (props.$isSaved ? '1' : '0.7')};
   transition: opacity 0.3s ease;
