@@ -11,12 +11,25 @@ import {
   Source,
 } from '../shared/styledCard';
 import { convertDate } from '../../utils/functions';
+import { SavedArticle } from '../../types/types';
 
-export default function SavedCard({ article, getSavedArticles, setSearchTerm, submitSearch }) {
-  const { date, image, link, source, text, title } = article;
-  const [publishDate, setPublishDate] = React.useState('');
-  const [adjustedTitle, setAdjustedTitle] = React.useState('');
-  const [adjustedDescription, setAdjustedDescription] = React.useState('');
+type Props = {
+  article: SavedArticle;
+  getSavedArticles: () => void;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  submitSearch: (string: string) => void;
+};
+
+export default function SavedCard({
+  article,
+  getSavedArticles,
+  setSearchTerm,
+  submitSearch,
+}: Props) {
+  const { date, image, link, source, text, title }: SavedArticle = article;
+  const [publishDate, setPublishDate] = React.useState<string>('');
+  const [adjustedTitle, setAdjustedTitle] = React.useState<string>('');
+  const [adjustedDescription, setAdjustedDescription] = React.useState<string>('');
 
   // reformat article data to fit card component
   React.useEffect(() => {
