@@ -43,8 +43,6 @@ function App(): React.ReactNode {
   const [userName, setUserName] = useState<string>('');
   const [authErrorMessage, setAuthErrorMessage] = useState<string | null>(null);
 
-  console.log({ currentUser });
-
   // get current user information
   useEffect(() => {
     mainApi
