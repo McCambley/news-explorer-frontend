@@ -1,10 +1,19 @@
-import { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Section, Title, Greeting, Keywords, List } from './styledSavedHero';
 import { UserContext } from '../../contexts/UserContext';
+import { SavedArticle } from '../../types/types';
 
-export default function SavedHero({ savedArticles, keywordCounter }) {
-  const [subtitle, setSubtitle] = useState('');
-  const currentUser = useContext(UserContext);
+type Props = {
+  savedArticles: SavedArticle[];
+  keywordCounter: { [keyword: string]: number };
+};
+
+export default function SavedHero({ savedArticles, keywordCounter }: Props): JSX.Element {
+  const [subtitle, setSubtitle] = useState<string>('');
+  const currentUser = useContext<{
+    name: string;
+    email: string;
+  } | null>(UserContext);
 
   // reset the subtitle display
   useEffect(() => {
@@ -12,7 +21,7 @@ export default function SavedHero({ savedArticles, keywordCounter }) {
   }, [keywordCounter, savedArticles]);
 
   // Update subtitle depending on the amount keywords saved
-  function updateSubtitle() {
+  function updateSubtitle(): void {
     let message = '';
     let keywords = Object.keys(keywordCounter);
     if (keywords.length > 3) {
@@ -33,7 +42,7 @@ export default function SavedHero({ savedArticles, keywordCounter }) {
     <Section>
       <Title>Saved Articles</Title>
       <Greeting>
-        {currentUser.name}, you have {savedArticles.length} saved articles
+        {currentUser && currentUser.name}, you have {savedArticles.length} saved articles
       </Greeting>
       <Keywords>
         By keywords: <List>{subtitle}</List>

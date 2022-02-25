@@ -32,7 +32,7 @@ function App(): React.ReactNode {
   const [searchResults, setSearchResults] = useState<Article[] | []>([]);
   const [savedArticles, setSavedArticles] = useState<SavedArticle[] | []>([]);
   const [savedArticlesSorted, setSavedArticlesSorted] = useState<SavedArticle[] | []>([]);
-  const [keywordCounter, setKeywordCounter] = useState({});
+  const [keywordCounter, setKeywordCounter] = useState<{ [keyword: string]: number }>({});
   // modal states
   const [showSignIn, setShowSignIn] = useState<boolean>(false);
   const [showSignUp, setShowSignUp] = useState<boolean>(false);
