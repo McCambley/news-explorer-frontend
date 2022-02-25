@@ -17,7 +17,7 @@ import { mainApi } from '../../utils/MainApi';
 import { UserContext } from '../../contexts/UserContext';
 import { Article, SavedArticle } from '../../types/types';
 
-function App(): React.ReactNode {
+function App(): JSX.Element {
   // session states
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [currentUser, setCurrentUser] = useState<{ name: string; email: string } | null>(null);
