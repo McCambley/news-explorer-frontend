@@ -2,9 +2,6 @@
 
 <h2 align="center">This repository contains the frontend code for <a href="https://mccambley.github.io/news-explorer-frontend/">NewsExplorer</a>, the final project in the Practicum by Yandex curriculum.<br>Check out a demonstration of this project <a target="_blank" href="https://youtu.be/q7IdngTegY8">here</a>.</h2>
 
-
-## 🚧 [Currently Undergoing TypeScript Transformation](https://www.sitepoint.com/how-to-migrate-a-react-app-to-typescript/) 🚧
-
 ## 📣 Overview
 
 - Search news from all over the world pertaining to a specific topic
@@ -13,7 +10,7 @@
 
 ## 🛠 Technologies
 
-- **Stack**: MongoDB, Express.js, React, and Node.js
+- **Stack**: React, TypeScript, Node.js, Express.js, and MongoDB
 - **Styled-components** make the frontend look good
 - **Mongoose** manages the data
 - **Google Cloud** hosts the backend
