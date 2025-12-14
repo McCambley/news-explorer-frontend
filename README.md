@@ -1,6 +1,7 @@
-<h1 align="center" ><a href="https://mccambley.github.io/news-explorer-frontend/">View this project live!</a>🎉</h1>
+<!-- <h1 align="center" ><a href="https://mccambley.github.io/news-explorer-frontend/">View this project live!</a>🎉</h1> -->
+<h1 align="center" >News Explorer</h1>
 
-<h2 align="center">This repository contains the frontend code for <a href="https://mccambley.github.io/news-explorer-frontend/">NewsExplorer</a>, the final project in the Practicum by Yandex curriculum.<br>Check out a demonstration of this project <a target="_blank" href="https://youtu.be/q7IdngTegY8">here</a>.</h2>
+<h2 align="center">This repository contains the frontend code for <a href="https://mccambley.github.io/news-explorer-frontend/">NewsExplorer</a>, the final project in the TripleTen curriculum.<br>Check out a demonstration of this project <a target="_blank" href="https://youtu.be/q7IdngTegY8">here</a>.</h2>
 
 ## 📣 Overview
 
